@@ -1,6 +1,6 @@
-package com.aueb.models;
+package com.aueb.model;
 
-public class Products {
+public class Product {
 
     String modelName;
     int modelYear;

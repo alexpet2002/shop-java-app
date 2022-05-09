@@ -1,4 +1,4 @@
-package com.aueb.models;
+package com.aueb.model;
 
 public class Shop {
 
