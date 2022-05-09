@@ -51,6 +51,6 @@ public class Products {
     double finalPrice() {
         return modelPrice - ( modelPrice * discount);
 
-    }
+    }//Product
 
 }
