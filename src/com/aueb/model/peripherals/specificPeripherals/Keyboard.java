@@ -1,6 +1,9 @@
 package com.aueb.model.peripherals.specificPeripherals;
 
-public class Keyboard {
+
+import com.aueb.model.peripherals.ComputerPeripheral;
+
+public class Keyboard extends ComputerPeripheral {
     enum Connection {
         WIRELESS, WIRED;
 
