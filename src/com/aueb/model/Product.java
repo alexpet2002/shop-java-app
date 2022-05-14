@@ -49,7 +49,7 @@ public class Product {
     }
 
     double finalPrice() {
-        return modelPrice - ( modelPrice * discount);
+        return modelPrice - (modelPrice * discount);
 
     }//Product
 
