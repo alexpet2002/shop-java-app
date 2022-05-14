@@ -1,4 +1,8 @@
 package com.aueb.model.components.specificComponents;
 
-public class GraphicsCard {
-}
+import com.aueb.model.components.ComputerComponent;
+
+class GraphicsCard extends ComputerComponent {
+    String chipset;
+    int cardMemory;
+}//GraphicsCard
