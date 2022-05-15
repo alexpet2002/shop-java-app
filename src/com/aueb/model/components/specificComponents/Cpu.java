@@ -84,7 +84,7 @@ public class Cpu extends ComputerComponent {
             System.out.println("cpu's speed:");
             System.out.println("1. for 2.8 GHz");
             System.out.println("2. for 3.3 GHz");
-            System.out.println("2. for 4.1 GHz");
+            System.out.println("3. for 4.1 GHz");
             System.out.print("Choice? ");
             select = in.nextLine();
             if (select.equals("1"))
