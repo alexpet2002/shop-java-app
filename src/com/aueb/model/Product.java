@@ -2,42 +2,53 @@ package com.aueb.model;
 
 public class Product {
 
-    String modelName;
-    int modelYear;
-    String modelManufacturer;
-    double modelPrice;
+    private String modelName = "";
+    private int modelYear = 0;
+    private String modelManufacturer = "";
+    private double modelPrice = 0.0;
     public double discount;
 
-    public String getModelName() {
-        return modelName;
+    protected Product() {
+
+    }
+
+    protected Product(String modelName, int modelYear, String modelManufacturer, double modelPrice) {
+        this.modelName = modelName;
+        this.modelYear = modelYear;
+        this.modelManufacturer = modelManufacturer;
+        this.modelPrice = modelPrice;
     }
 
     public void setModelName(String modelName) {
         this.modelName = modelName;
     }
 
-    public int getModelYear() {
-        return modelYear;
+    public String getModelName() {
+        return this.modelName;
     }
 
     public void setModelYear(int modelYear) {
         this.modelYear = modelYear;
     }
 
-    public String getModelManufacturer() {
-        return modelManufacturer;
+    public int getModelYear() {
+        return this.modelYear;
     }
 
     public void setModelManufacturer(String modelManufacturer) {
         this.modelManufacturer = modelManufacturer;
     }
 
-    public double getModelPrice() {
-        return modelPrice;
+    public String getModelManufacturer() {
+        return this.modelManufacturer;
     }
 
     public void setModelPrice(double modelPrice) {
         this.modelPrice = modelPrice;
+    }
+
+    public double getModelPrice() {
+        return this.modelPrice;
     }
 
     public double getDiscount() {
@@ -48,9 +59,15 @@ public class Product {
         this.discount = discount;
     }
 
-    double finalPrice() {
+    public double finalPrice() {
         return modelPrice - (modelPrice * discount);
 
-    }//Product
+    }
 
-}
+    public String toString() {
+        return "\nModel Name: " + getModelName()
+                + "Model Year: " + getModelYear()
+                + "Model Manufacturer: " + getModelManufacturer()
+                + "Model Price: " + getModelPrice() + "\n";
+    }
+}// class Product
