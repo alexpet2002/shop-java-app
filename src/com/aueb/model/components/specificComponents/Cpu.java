@@ -5,7 +5,7 @@ import com.aueb.model.components.ComputerComponent;
 
 import java.util.Scanner;
 
-class Cpu extends ComputerComponent {
+public class Cpu extends ComputerComponent {
     private static String cpuSpeed;
     static final String SPEED28 = "2.8";
     static final String SPEED33 = "3.3";
@@ -17,7 +17,7 @@ class Cpu extends ComputerComponent {
     private boolean cpuGraphics;
     static int numOfCpus = 0;
 
-    Cpu() {
+    public Cpu() {
         setCpuSpeed("");
         setNumOfCores("");
         setCpuGraphics(false);
@@ -62,19 +62,18 @@ class Cpu extends ComputerComponent {
     }
 
     public String toString() {
-        return "Cpu's features:\n"
+        return "\nCpu's features:\n"
                 + "Cpu's speed: " + getCpuSpeed() + "\n"
                 + "Number of cores: " + getNumOfCores() + "\n"
-                + "Graphics: " + getCpuGraphics();
+                + "Graphics: " + getCpuGraphics() + "\n";
     }
 
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
 
-        System.out.println("1. Select Motherboard: ");
+
         System.out.println("2. Select Cpu: ");
-        System.out.println("3. Exit");
         System.out.print("Choice? ");
 
         String select = in.nextLine();
@@ -122,4 +121,4 @@ class Cpu extends ComputerComponent {
         }
 
     }
-}//Cpu
+}// class Cpu

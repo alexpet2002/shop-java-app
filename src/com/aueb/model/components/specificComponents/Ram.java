@@ -4,7 +4,7 @@ import com.aueb.model.components.ComputerComponent;
 
 import java.util.Scanner;
 
-class Ram extends ComputerComponent {
+public class Ram extends ComputerComponent {
     private static String ramType;
     static final String DDR3 = "DDR3";
     static final String DDR4 = "DDR4";
@@ -19,8 +19,11 @@ class Ram extends ComputerComponent {
     static final String FREQUENCY3200 = "3200";
     static int numOfRams = 0;
 
-    Ram() {
-
+    public Ram() {
+        setRamType("");
+        setRamSize("");
+        setRamFrequency("");
+        numOfRams++;
     }
 
     static void setRamType(String Type) {
@@ -63,10 +66,10 @@ class Ram extends ComputerComponent {
     }
 
     public String toString() {
-        return "Rum features:\n"
+        return "\nRum features:\n"
                 + "Rum Type: " + getRamType() + "\n"
                 + "Rum size: " + getRamSize() + " GB\n"
-                + "Ram frequency: " + getRamFrequency() + " GHz";
+                + "Ram frequency: " + getRamFrequency() + " GHz\n";
     }
 
 
@@ -74,10 +77,7 @@ class Ram extends ComputerComponent {
 
         Scanner in = new Scanner(System.in);
 
-        System.out.println("1. Select Motherboard: ");
-        System.out.println("2. Select Cpu: ");
         System.out.println("3. Select RAM");
-        System.out.println("3. Exit");
         System.out.print("Choice? ");
 
         String select = in.nextLine();
@@ -118,7 +118,7 @@ class Ram extends ComputerComponent {
             System.out.print("Choice? ");
             select = in.nextLine();
             if (select.equals("1"))
-                setRamFrequency("1600");
+                ram.setRamFrequency("1600");
             else if (select.equals("2"))
                 setRamFrequency("2666");
             else
@@ -128,5 +128,5 @@ class Ram extends ComputerComponent {
         }
     }
 
-}//Ram
+}// class Ram
 

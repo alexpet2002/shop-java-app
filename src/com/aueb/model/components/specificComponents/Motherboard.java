@@ -4,7 +4,7 @@ import com.aueb.model.components.ComputerComponent;
 
 import java.util.Scanner;
 
-class Motherboard extends ComputerComponent {
+public class Motherboard extends ComputerComponent {
 
     private static String processorType;
     static final String TYPE_INTEL = "TYPE_INTEL";
@@ -22,7 +22,7 @@ class Motherboard extends ComputerComponent {
 
     static int numOfMotherboards = 0;
 
-    Motherboard() {
+    public Motherboard() {
         setProcessorType("");
         setMemoryType("");
         setNumOfPortsSataType("");
@@ -30,9 +30,9 @@ class Motherboard extends ComputerComponent {
     }
 
     static void setProcessorType(String Type) {
-        if (Type.equals("1"))
+        if (Type.equals("1")) {
             processorType = TYPE_INTEL;
-        else
+        } else
             processorType = TYPE_AMD;
     }
 
@@ -67,10 +67,10 @@ class Motherboard extends ComputerComponent {
     }
 
     public String toString() {
-        return "Motherboard features:\n"
+        return "\nMotherboard features:\n"
                 + "Processor Type: " + getProcessorType() + "\n"
                 + "Memory size: " + getMemoryType() + " GB\n"
-                + "Number of sata ports: " + getNumOfPortsSataType();
+                + "Number of sata ports: " + getNumOfPortsSataType() + "\n";
     }
 
     public static void main(String args[]) {
@@ -78,8 +78,6 @@ class Motherboard extends ComputerComponent {
         Scanner in = new Scanner(System.in);
 
         System.out.println("1. Select Motherboard: ");
-        System.out.println("2. Select Cpu: ");
-        System.out.println("3. Exit");
         System.out.print("Choice? ");
 
         String select = in.nextLine();
@@ -121,11 +119,10 @@ class Motherboard extends ComputerComponent {
             else if (select.equals("2"))
                 setNumOfPortsSataType("6");
             else
-                setNumOfPortsSataType("8");
+                motherboard.setNumOfPortsSataType("8");
 
             System.out.println(motherboard);
         }
     }
+}// class Motherboard
 
-
-}//Motherboard
