@@ -7,12 +7,12 @@ public class ComputerPeripheral extends Product {
         super("", 0, "", 0.0);
     }
 
-    ComputerPeripheral(String modelName, int modelYear, String modelManufacturer, double modelPrice) {
+    protected ComputerPeripheral(String modelName, int modelYear, String modelManufacturer, double modelPrice) {
         super(modelName, modelYear, modelManufacturer, modelPrice);
     }
 
     public String toString() {
         return super.toString();
     }
-}
+} // class ComputerPeripheral
 

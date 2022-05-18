@@ -5,40 +5,57 @@ import com.aueb.model.components.ComputerComponent;
 import java.util.Scanner;
 
 public class GraphicsCard extends ComputerComponent {
-
     private static String chipset;
     static final String NVIDIA = "nVIDIA";
     static final String AMD = "AMD";
+
     private static String cardMemory;
     static final String MEM6 = "6";
     static final String MEM8 = "8";
     static final String MEM12 = "12";
+
     private int numOfGraphicsCard = 0;
 
     public GraphicsCard() {
+        super();
         setChipset("");
         setCardMemory("");
         numOfGraphicsCard++;
     }
 
+    public GraphicsCard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String chipset, String cardMemory) {
+        super(modelName, modelYear, modelManufacturer, modelPrice);
+        if (chipset.equals("nVIDIA"))
+            setChipset(NVIDIA);
+        else
+            setChipset(AMD);
+        if (cardMemory.equals("6"))
+            setCardMemory(MEM6);
+        else if (cardMemory.equals("8"))
+            setCardMemory(MEM8);
+        else
+            setCardMemory(MEM12);
+        numOfGraphicsCard++;
+    }
+
     static void setChipset(String Type) {
-        if (Type.equals("1"))
+        if (Type.equals(NVIDIA))
             chipset = NVIDIA;
         else
             chipset = AMD;
     }
 
-    String getChipset() {
-        return chipset;
-    }
-
     static void setCardMemory(String Type) {
-        if (Type.equals("6"))
+        if (Type.equals(MEM6))
             cardMemory = MEM6;
-        else if (Type.equals("8"))
+        else if (Type.equals(MEM8))
             cardMemory = MEM8;
         else
             cardMemory = MEM12;
+    }
+
+    String getChipset() {
+        return chipset;
     }
 
     String getCardMemory() {
@@ -46,9 +63,12 @@ public class GraphicsCard extends ComputerComponent {
     }
 
     public String toString() {
-        return "\nGraphics card features:\n"
-                + "Chipset Type: " + getChipset() + "\n"
-                + "Graphics card memory size: " + getCardMemory() + " GB\n";
+        return "\n----------------------------------------------------------------\n"
+                + super.toString()
+                + "\nGraphics card features:\n"
+                + "Chipset Type:\t\t\t" + getChipset() + "\n"
+                + "Graphics card memory size:\t" + getCardMemory() + " GB"
+                + "\n----------------------------------------------------------------\n";
 
     }
 
@@ -70,9 +90,9 @@ public class GraphicsCard extends ComputerComponent {
             System.out.print("Choice? ");
             select = in.nextLine();
             if (select.equals("1"))
-                setChipset("1");
+                setChipset(NVIDIA);
             else
-                setChipset("2");
+                setChipset(AMD);
 
             System.out.println("Card Memory:");
             System.out.println("1. 6 GB");
@@ -81,11 +101,11 @@ public class GraphicsCard extends ComputerComponent {
             System.out.print("Choice? ");
             select = in.nextLine();
             if (select.equals("1"))
-                setCardMemory("6");
+                setCardMemory(MEM6);
             else if (select.equals("2"))
-                setCardMemory("8");
+                setCardMemory(MEM8);
             else
-                setCardMemory("12");
+                setCardMemory(MEM12);
 
             System.out.println(card);
         }

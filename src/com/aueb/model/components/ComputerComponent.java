@@ -7,7 +7,7 @@ public class ComputerComponent extends Product {
         super("", 0, "", 0.0);
     }
 
-    ComputerComponent(String modelName, int modelYear, String modelManufacturer, double modelPrice) {
+    protected ComputerComponent(String modelName, int modelYear, String modelManufacturer, double modelPrice) {
         super(modelName, modelYear, modelManufacturer, modelPrice);
     }
 
