@@ -10,48 +10,73 @@ public class Cpu extends ComputerComponent {
     static final String SPEED28 = "2.8";
     static final String SPEED33 = "3.3";
     static final String SPEED41 = "4.1";
+
     private static String numOfCores;
     static final String CORES6 = "6";
     static final String CORES8 = "8";
     static final String CORES16 = "16";
+
     private boolean cpuGraphics;
+
     static int numOfCpus = 0;
 
     public Cpu() {
+        super();
         setCpuSpeed("");
         setNumOfCores("");
         setCpuGraphics(false);
         numOfCpus++;
     }
 
+    public Cpu(String modelName, int modelYear, String modelManufacturer, double modelPrice, String cpuSpeed, String numOfCores, boolean cpuGraphics) {
+        super(modelName, modelYear, modelManufacturer, modelPrice);
+        if (cpuSpeed.equals("2.8"))
+            setCpuSpeed(SPEED28);
+        else if (cpuSpeed.equals("3.3"))
+            setCpuSpeed(SPEED33);
+        else
+            setCpuSpeed(SPEED41);
+        if (numOfCores.equals("6"))
+            setNumOfCores(CORES6);
+        else if (numOfCores.equals("8"))
+            setNumOfCores(CORES8);
+        else
+            setNumOfCores(CORES16);
+        if (cpuGraphics)
+            setCpuGraphics(true);
+        else
+            setCpuGraphics(false);
+        numOfCpus++;
+    }
+
     static void setCpuSpeed(String Type) {
-        if (Type.equals("2.8"))
+        if (Type.equals(SPEED28))
             cpuSpeed = SPEED28;
-        else if (Type.equals("3.3"))
+        else if (Type.equals(SPEED33))
             cpuSpeed = SPEED33;
         else
             cpuSpeed = SPEED41;
+    }
+
+    static void setNumOfCores(String Type) {
+        if (Type.equals(CORES6))
+            numOfCores = CORES6;
+        else if (Type.equals(CORES8))
+            numOfCores = CORES8;
+        else
+            numOfCores = CORES16;
+    }
+
+    void setCpuGraphics(boolean yes) {
+        this.cpuGraphics = yes;
     }
 
     String getCpuSpeed() {
         return cpuSpeed;
     }
 
-    static void setNumOfCores(String Type) {
-        if (Type.equals("6"))
-            numOfCores = CORES6;
-        else if (Type.equals("8"))
-            numOfCores = CORES8;
-        else
-            numOfCores = CORES16;
-    }
-
     String getNumOfCores() {
         return numOfCores;
-    }
-
-    void setCpuGraphics(boolean yes) {
-        this.cpuGraphics = yes;
     }
 
     String getCpuGraphics() {
@@ -62,10 +87,13 @@ public class Cpu extends ComputerComponent {
     }
 
     public String toString() {
-        return "\nCpu's features:\n"
-                + "Cpu's speed: " + getCpuSpeed() + "\n"
-                + "Number of cores: " + getNumOfCores() + "\n"
-                + "Graphics: " + getCpuGraphics() + "\n";
+        return "\n----------------------------------------------------------------\n"
+                + super.toString()
+                + "\nCpu's features:"
+                + "\nCpu's speed:\t\t\t" + getCpuSpeed()
+                + "\nNumber of cores:\t\t" + getNumOfCores()
+                + "\nGraphics:\t\t\t" + getCpuGraphics()
+                + "\n----------------------------------------------------------------\n";
     }
 
     public static void main(String[] args) {
@@ -88,11 +116,11 @@ public class Cpu extends ComputerComponent {
             System.out.print("Choice? ");
             select = in.nextLine();
             if (select.equals("1"))
-                setCpuSpeed("2.8");
+                setCpuSpeed(SPEED28);
             else if (select.equals("2"))
-                setCpuSpeed("3.3");
+                setCpuSpeed(SPEED33);
             else
-                setCpuSpeed("4.1");
+                setCpuSpeed(SPEED41);
 
             System.out.println("Number of Cores:");
             System.out.println("1. Cores 6");
@@ -101,11 +129,11 @@ public class Cpu extends ComputerComponent {
             System.out.print("Choice? ");
             select = in.nextLine();
             if (select.equals("1"))
-                setNumOfCores("6");
+                setNumOfCores(CORES6);
             else if (select.equals("2"))
-                setNumOfCores("8");
+                setNumOfCores(CORES8);
             else
-                setNumOfCores("16");
+                setNumOfCores(CORES16);
 
             System.out.println("With built-in graphics or not?");
             System.out.println("1. With built-in graphics");

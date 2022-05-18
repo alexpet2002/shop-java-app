@@ -9,15 +9,26 @@ public class Keyboard extends ComputerPeripheral {
     private static String keyboardConnect;
     static final String WIRED = "Wired";
     static final String WIRELESS = "Wireless";
+
     private static int numOfKeyboards = 0;
 
     public Keyboard() {
+        super();
         keyboardConnect = "";
         numOfKeyboards++;
     }
 
+    public Keyboard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String keyboardConnect) {
+        super(modelName, modelYear, modelManufacturer, modelPrice);
+        if (keyboardConnect.equals("Wired"))
+            setKeyboardConnect(WIRED);
+        else
+            setKeyboardConnect(WIRELESS);
+        numOfKeyboards++;
+    }
+
     static void setKeyboardConnect(String Type) {
-        if (Type.equals("1"))
+        if (Type.equals(WIRED))
             keyboardConnect = WIRED;
         else
             keyboardConnect = WIRELESS;
@@ -28,7 +39,11 @@ public class Keyboard extends ComputerPeripheral {
     }
 
     public String toString() {
-        return "\nKeyboard connection: " + getKeyboardConnect() + "\n";
+        return "\n----------------------------------------------------------------\n"
+                + super.toString()
+                + "\nKeyboard features:"
+                + "\nKeyboard connection:\t\t" + getKeyboardConnect()
+                + "\n----------------------------------------------------------------\n";
     }
 
     public static void main(String[] args) {
@@ -47,13 +62,11 @@ public class Keyboard extends ComputerPeripheral {
             System.out.println("2. Wireless");
             select = in.nextLine();
             if (select.equals("1"))
-                setKeyboardConnect("1");
+                setKeyboardConnect(WIRED);
             else
-                setKeyboardConnect("2");
+                setKeyboardConnect(WIRELESS);
 
             System.out.println(keyboard);
         }
-
     }
-
 }// class Keyboard

@@ -1,7 +1,6 @@
 package com.aueb.model;
 
 public class Product {
-
     private String modelName = "";
     private int modelYear = 0;
     private String modelManufacturer = "";
@@ -65,9 +64,9 @@ public class Product {
     }
 
     public String toString() {
-        return "\nModel Name: " + getModelName()
-                + "Model Year: " + getModelYear()
-                + "Model Manufacturer: " + getModelManufacturer()
-                + "Model Price: " + getModelPrice() + "\n";
+        return "\nModel Name:\t\t\t" + getModelName()
+                + "\nModel Year:\t\t\t" + getModelYear()
+                + "\nModel Manufacturer:\t\t" + getModelManufacturer()
+                + "\nModel Price:\t\t\t" + getModelPrice() + "\n";
     }
 }// class Product

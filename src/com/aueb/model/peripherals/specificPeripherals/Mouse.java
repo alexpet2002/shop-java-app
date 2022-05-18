@@ -8,26 +8,42 @@ public class Mouse extends ComputerPeripheral {
     private static String mouseTech;
     static final String LASER = "Laser";
     static final String OPTICAL = "Optical";
+
     private static String mouseConnect;
     static final String WIRED = "Wired";
     static final String WIRELESS = "Wireless";
+
     private static int numOfMice = 0;
 
     public Mouse() {
+        super();
         mouseTech = "";
         mouseConnect = "";
         numOfMice++;
     }
 
+    public Mouse(String modelName, int modelYear, String modelManufacturer, double modelPrice, String mouseTech, String mouseConnect) {
+        super(modelName, modelYear, modelManufacturer, modelPrice);
+        if (mouseTech.equals("Laser"))
+            setMouseTech(LASER);
+        else
+            setMouseTech(OPTICAL);
+        if (mouseConnect.equals("Wired"))
+            setMouseConnect(WIRED);
+        else
+            setMouseTech(WIRELESS);
+        numOfMice++;
+    }
+
     static void setMouseTech(String Type) {
-        if (Type.equals("1"))
+        if (Type.equals(LASER))
             mouseTech = LASER;
         else
             mouseTech = OPTICAL;
     }
 
     static void setMouseConnect(String Type) {
-        if (Type.equals("1"))
+        if (Type.equals(WIRED))
             mouseConnect = WIRED;
         else
             mouseConnect = WIRELESS;
@@ -42,8 +58,12 @@ public class Mouse extends ComputerPeripheral {
     }
 
     public String toString() {
-        return "\nMouse Technology: " + getMouseTech() + "\n"
-                + "Mouse connection: " + getMouseConnect() + "\n";
+        return "\n----------------------------------------------------------------\n"
+                + super.toString()
+                + "\nMouse features:"
+                + "\nMouse Technology:\t\t" + getMouseTech()
+                + "\nMouse Connection:\t\t" + getMouseConnect()
+                + "\n----------------------------------------------------------------\n";
     }
 
     public static void main(String[] args) {
@@ -64,9 +84,9 @@ public class Mouse extends ComputerPeripheral {
             System.out.print("Choice? ");
             select = in.nextLine();
             if (select.equals("1"))
-                setMouseTech("1");
+                setMouseTech(LASER);
             else
-                setMouseTech("2");
+                setMouseTech(OPTICAL);
 
             System.out.println("Mouse connection:");
             System.out.println("1. Wired");
@@ -74,11 +94,11 @@ public class Mouse extends ComputerPeripheral {
             System.out.print("Choice? ");
             select = in.nextLine();
             if (select.equals("1"))
-                setMouseConnect("1");
+                setMouseConnect(WIRED);
             else
-                setMouseConnect("2");
+                setMouseConnect(WIRELESS);
 
             System.out.println(mouse);
         }
     }
-}
+} // class Mouse
