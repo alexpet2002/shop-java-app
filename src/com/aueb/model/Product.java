@@ -65,9 +65,9 @@ public abstract class Product implements Model {
     }
 
     public String toString() {
-        return "\nModel Name:\t\t\t" + getModelName()
-                + "\nModel Year:\t\t\t" + getModelYear()
-                + "\nModel Manufacturer:\t\t" + getModelManufacturer()
-                + "\nModel Price:\t\t\t" + getModelPrice() + "\n";
+        return "Model Name:\t\t\t" + getModelName() + " "
+                + "\nModel Year:\t\t\t" + getModelYear() + " "
+                + "\nModel Manufacturer:\t\t" + getModelManufacturer() + " "
+                + "\nModel Price:\t\t\t" + getModelPrice();
     }
 }// class Product
