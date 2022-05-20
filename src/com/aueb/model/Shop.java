@@ -7,6 +7,7 @@ import com.aueb.model.peripherals.specificPeripherals.Mouse;
 import com.aueb.model.peripherals.specificPeripherals.Printer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Shop {
     static int numOfAvailableProducts = 0;
@@ -27,8 +28,29 @@ public class Shop {
     The first position stores the position where the product is in the list
     of products and the second position stores the stock of the specific product.
     */
-    private ArrayList<int[]> stock = new ArrayList<int[]>(); // new
+    private ArrayList<int[]> stock = new ArrayList<int[]>(); // new // possible replace this with corresponding HashMap productStock
 
+    /* The productNames HashMap contains increment integers as keys and modelNames as values */
+    private HashMap<Integer, String> productNames = new HashMap<Integer, String>();    // new
+
+    /* The productStock HashMap contains modelNames as keys and stock of specific model as values */
+    private HashMap<String, Integer> productStock = new HashMap<String, Integer>(); // new
+
+    ////////////////////// Methods for HashMap productNames ///////////////////////
+
+    // initialize HashMap ProductNames and put keys(increment number) and values(modelNames) witch exists in products list
+    void setProductNames(ArrayList<Product> products) {
+        int i = 0;
+        for (Product product : products) {
+            productNames.put(i, product.getModelName());
+            i++;
+        }
+    }
+
+    // remove from HashMap ProductNames
+    void removeProductName(Integer number) {
+        productNames.remove(number);
+    }
     ///////////////////// Methods for ArrayList products///////////////////////////
 
     // stores the product to list products
@@ -59,7 +81,7 @@ public class Shop {
     void removeProduct(int productNumber) {
         if (productNumber >= 0 && productNumber < numberOfProducts()) {
             products.remove(productNumber);
-            stock.remove(productNumber);
+            //stock.remove(productNumber);
             System.out.println("Product deleted!");
         } else System.out.println("Product not found!");
     }
@@ -81,7 +103,7 @@ public class Shop {
 
     /////////// Methods for ArrayList stock////////////
 
-    // updates the array for one product
+    // updates the single array contained in the stock list for one product
     int[] updateStockOfProduct(Product product, int numOfProductStock) {
         int[] stockOfProduct = new int[2];
         if (products.contains(product)) {
@@ -92,16 +114,23 @@ public class Shop {
         return null;
     }
 
-    // updates the list stock
-    void updateStock(int[] stockOfProduct) {
+    // add the array witch is the reterned value of updateStockOfProduct at the end of ArrayList stock
+    void addStockOfProductInTheEndOfStock(int[] stockOfProduct) {
         stock.add(stockOfProduct);
+    }
+
+    void updateStock() {
+        int i = 0;
+        for (Product product : products) {
+
+        }
     }
 
     // prints the ArrayList<int[]> stock of the store's products
     void showStock() {
         int i = 0;
         for (int[] item : stock) {
-            System.out.println("\nlist stock at position[" + i++ + "]" + products.get(item[0]) + "Stock: " + item[1] + "\n----------------------------------------------------------------");
+            System.out.println("\nlist stock at position[" + i++ + "] " /*+ products.get(item[0])*/ + "Stock: " + item[1] + "\n----------------------------------------------------------------");
         }
     }
 
@@ -110,10 +139,11 @@ public class Shop {
 
 		/*Values for all kind of Product
 		//these 4 arguments before the others//
-		modelName: String anyName
-		modelYear: int anyYear
-		modelManufacturer: String anyManufacurer
-		double modelPrice: double anyPrice
+		//whith this order//
+		modelName: ""
+		modelYear: 0
+		modelManufacturer: ""
+		double modelPrice: 0.0
 		*/
 
 		/*Values for Motherboard:
@@ -122,7 +152,7 @@ public class Shop {
 		memoryType: "32", "64", "128"
 		numOfPortsSataType: "4", "6", "8"
 		*/
-        Motherboard motherboard = new Motherboard("name_of_Motherboard", 0, "manufacturer", 0.0, "TYPE_INTEL", "32", "6");
+        Motherboard motherboard = new Motherboard("", 0, "", 0.0, "TYPE_INTEL", "32", "6");
         //System.out.println(motherboard);
 		/*Values for Cpu:
 		//with this order//
@@ -130,7 +160,7 @@ public class Shop {
 		numOfCores: "6", "8", "16"
 		cpuGraphics: true, false
 		*/
-        Cpu cpu = new Cpu("name_of_Cpu", 0, "manufacturer", 0.0, "2.8", "8", true);
+        Cpu cpu = new Cpu("", 0, "", 0.0, "2.8", "8", true);
         //System.out.println(cpu);
 
 		/*Values of Ram:
@@ -139,7 +169,7 @@ public class Shop {
 		ramSize: "4", "8", "16"
 		ramFrequency: "1600", "2666", "3200"
 		*/
-        Ram ram = new Ram("name_of_Ram", 0, "manufacturer", 0.0, "DDR3", "8", "2666");
+        Ram ram = new Ram("", 0, "", 0.0, "DDR3", "8", "2666");
         //System.out.println(ram);
 
 		/*Values of Printer
@@ -147,7 +177,7 @@ public class Shop {
 		printerTech: "Laser", "Inkjet"
 		printType: "Colored", "Black and White"
 		*/
-        Printer printer = new Printer("name_of_Printer", 0, "manufacturer", 0.0, "Laser", "Colored");
+        Printer printer = new Printer("", 0, "", 0.0, "Laser", "Colored");
         //System.out.println(printer);
 
 		/*Values of Mouse
@@ -155,7 +185,7 @@ public class Shop {
 		mouseTech: "Laser", "Optical"
 		mouseConnect: "Wired", "Wireless"
 		*/
-        Mouse mouse = new Mouse("name_of_Mouse", 0, "manufacturer", 0.0, "Laser", "Wired");
+        Mouse mouse = new Mouse("", 0, "", 0.0, "Laser", "Wired");
         //System.out.println(mouse);
 
 		/*Values of Monitor
@@ -165,13 +195,13 @@ public class Shop {
 		monitorResolution: "1920 x 1080", "2048 x 1152"
 		monitorPort: "Display Port", "HDMI", "USB-C"
 		*/
-        Monitor monitor = new Monitor("name_of_Monitor", 0, "manufacturer", 0.0, "Portable Monitor", "17", "1920 x 1080", "Display Port");
+        Monitor monitor = new Monitor("", 0, "", 0.0, "Portable Monitor", "17", "1920 x 1080", "Display Port");
         //System.out.println(monitor);
 
 		/*Values of Keyboard
 		keyboardConnect: "Wired","Wireless"
 		*/
-        Keyboard keyboard = new Keyboard("name_of_Keyboard", 0, "manufacturer", 0.0, "Wired");
+        Keyboard keyboard = new Keyboard("", 0, "", 0.0, "Wired");
         //System.out.println(keyboard);
 
 		/*Values of HardDrive
@@ -180,7 +210,7 @@ public class Shop {
 		driveSize: "1.8", "2.5", "3.5"
 		driveCapacity: "256 GB", "512 GB", "1 TB", "2 TB"
 		*/
-        HardDrive drive = new HardDrive("name_of_HardDrive", 0, "manufacturer", 0.0, "HDD", "1.8", "256 GB");
+        HardDrive drive = new HardDrive("", 0, "", 0.0, "HDD", "1.8", "256 GB");
         //System.out.println(drive);
 
 		/*Values of GraphicsCard
@@ -188,7 +218,7 @@ public class Shop {
 		chipset: "nVIDIA", "AMD"
 		cardMemory: "6", "8", "12"
 		*/
-        GraphicsCard card = new GraphicsCard("name_of_GraphicsCard", 0, "manufacturer", 0.0, "nVIDIA", "AMD");
+        GraphicsCard card = new GraphicsCard("", 0, "", 0.0, "nVIDIA", "AMD");
         //System.out.println(card);
 
 		/* next code puts the products into ArrayList<Product> products
@@ -196,41 +226,58 @@ public class Shop {
 		*/
         shop.storeProduct(motherboard);
         int[] stock = shop.updateStockOfProduct(motherboard, 2);
-        shop.updateStock(stock);
+        shop.addStockOfProductInTheEndOfStock(stock);
 
         shop.storeProduct(cpu);
         stock = shop.updateStockOfProduct(cpu, 3);
-        shop.updateStock(stock);
+        shop.addStockOfProductInTheEndOfStock(stock);
 
         shop.storeProduct(ram);
         stock = shop.updateStockOfProduct(ram, 2);
-        shop.updateStock(stock);
+        shop.addStockOfProductInTheEndOfStock(stock);
 
         shop.storeProduct(card);
         stock = shop.updateStockOfProduct(card, 0);
-        shop.updateStock(stock);
+        shop.addStockOfProductInTheEndOfStock(stock);
 
         shop.storeProduct(drive);
         stock = shop.updateStockOfProduct(drive, 5);
-        shop.updateStock(stock);
+        shop.addStockOfProductInTheEndOfStock(stock);
 
         shop.storeProduct(monitor);
         stock = shop.updateStockOfProduct(monitor, 7);
-        shop.updateStock(stock);
+        shop.addStockOfProductInTheEndOfStock(stock);
 
         shop.storeProduct(keyboard);
         stock = shop.updateStockOfProduct(keyboard, 0);
-        shop.updateStock(stock);
+        shop.addStockOfProductInTheEndOfStock(stock);
 
         shop.storeProduct(mouse);
         stock = shop.updateStockOfProduct(mouse, 10);
-        shop.updateStock(stock);
+        shop.addStockOfProductInTheEndOfStock(stock);
 
         shop.storeProduct(printer);
         stock = shop.updateStockOfProduct(printer, 4);
-        shop.updateStock(stock);
+        shop.addStockOfProductInTheEndOfStock(stock);
 
         //shop.showProducts();
-        shop.showStock();
+        //shop.showStock();
+        //shop.removeProduct(2);
+        //shop.updateStock(stock);
+
+        //shop.showStock();
+        //shop.showProducts();
+
+        shop.setProductNames(shop.products);
+        System.out.println(shop.productNames);
+        System.out.println(shop.productNames.size());
+
+        shop.removeProduct(2);
+
+        shop.removeProductName(2);
+        System.out.println(shop.productNames);
+        System.out.println(shop.productNames.size());
+
+
     }
 }// class Shop

@@ -19,7 +19,6 @@ public class HardDrive extends ComputerComponent {
     static final String CAPACITY512 = "512 GB";
     static final String CAPACITY_1TB = "1 TB";
     static final String CAPACITY_2TB = "2 TB";
-
     private int numOfHardDrives = 0;
 
     public HardDrive() {
@@ -90,6 +89,42 @@ public class HardDrive extends ComputerComponent {
 
     String getDriveCapacity() {
         return driveCapacity;
+    }
+
+    public String getModelName() {
+        return getDriveType() + "_" + getDriveSize() + "_" + getDriveCapacity();
+    }
+
+    public int getModelYear() {
+        String str1 = getModelName();
+
+        char[] c = str1.toCharArray();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++) {
+            if (Character.isDigit(c[i])) {
+                int a = Integer.parseInt(String.valueOf(c[i]));
+                sum = sum + a;
+            }
+        }
+        return sum + 2000;
+    }
+
+    public String getModelManufacturer() {
+        return getModelName().substring(0, 3) + "DRIVE_COMPUTERS";
+    }
+
+    public double getModelPrice() {
+        String str1 = getModelName();
+
+        char[] c = str1.toCharArray();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++) {
+            if (Character.isDigit(c[i])) {
+                int a = Integer.parseInt(String.valueOf(c[i]));
+                sum = sum + a;
+            }
+        }
+        return sum + 250.0;
     }
 
     public String toString() {

@@ -81,9 +81,45 @@ public class Cpu extends ComputerComponent {
 
     String getCpuGraphics() {
         if (cpuGraphics)
-            return "With built-in graphics";
+            return "With_built-in_graphics";
         else
-            return "Without built-in graphics";
+            return "Without_built-in_graphics";
+    }
+
+    public String getModelName() {
+        return "Cpu_" + getCpuSpeed() + "_" + getNumOfCores() + "_" + getCpuGraphics();
+    }
+
+    public int getModelYear() {
+        String str1 = getModelName();
+
+        char[] c = str1.toCharArray();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++) {
+            if (Character.isDigit(c[i])) {
+                int a = Integer.parseInt(String.valueOf(c[i]));
+                sum = sum + a;
+            }
+        }
+        return sum + 2000;
+    }
+
+    public String getModelManufacturer() {
+        return getModelName().substring(0, 3) + "_COMPUTERS";
+    }
+
+    public double getModelPrice() {
+        String str1 = getModelName();
+
+        char[] c = str1.toCharArray();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++) {
+            if (Character.isDigit(c[i])) {
+                int a = Integer.parseInt(String.valueOf(c[i]));
+                sum = sum + a;
+            }
+        }
+        return sum + 200.0;
     }
 
     public String toString() {

@@ -107,6 +107,42 @@ public class Monitor extends ComputerPeripheral {
         return monitorPort;
     }
 
+    public String getModelName() {
+        return getMonitorType() + "_" + getMonitorDimensions() + "_" + getMonitorResolution() + "_" + getMonitorPort();
+    }
+
+    public int getModelYear() {
+        String str1 = getModelName();
+
+        char[] c = str1.toCharArray();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++) {
+            if (Character.isDigit(c[i])) {
+                int a = Integer.parseInt(String.valueOf(c[i]));
+                sum = sum + a;
+            }
+        }
+        return sum + 2000;
+    }
+
+    public String getModelManufacturer() {
+        return "MONITOR_COMPUTERS";
+    }
+
+    public double getModelPrice() {
+        String str1 = getModelName();
+
+        char[] c = str1.toCharArray();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++) {
+            if (Character.isDigit(c[i])) {
+                int a = Integer.parseInt(String.valueOf(c[i]));
+                sum = sum + a;
+            }
+        }
+        return sum + 460.0;
+    }
+
     public String toString() {
         return "\n----------------------------------------------------------------\n"
                 + super.toString()

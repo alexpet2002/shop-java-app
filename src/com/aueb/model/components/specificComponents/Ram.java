@@ -92,6 +92,42 @@ public class Ram extends ComputerComponent {
         return ramFrequency;
     }
 
+    public String getModelName() {
+        return getRamType() + "_" + getRamSize() + "_" + getRamFrequency();
+    }
+
+    public int getModelYear() {
+        String str1 = getModelName();
+
+        char[] c = str1.toCharArray();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++) {
+            if (Character.isDigit(c[i])) {
+                int a = Integer.parseInt(String.valueOf(c[i]));
+                sum = sum + a;
+            }
+        }
+        return sum + 2000;
+    }
+
+    public String getModelManufacturer() {
+        return getModelName().substring(0, 4) + "RAM_COMPUTERS";
+    }
+
+    public double getModelPrice() {
+        String str1 = getModelName();
+
+        char[] c = str1.toCharArray();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++) {
+            if (Character.isDigit(c[i])) {
+                int a = Integer.parseInt(String.valueOf(c[i]));
+                sum = sum + a;
+            }
+        }
+        return sum + 150.0;
+    }
+
     public String toString() {
         return "\n----------------------------------------------------------------\n"
                 + super.toString()
