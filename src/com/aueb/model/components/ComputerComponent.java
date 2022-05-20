@@ -2,7 +2,7 @@ package com.aueb.model.components;
 
 import com.aueb.model.Product;
 
-public class ComputerComponent extends Product {
+public abstract class ComputerComponent extends Product {
     protected ComputerComponent() {
         super("", 0, "", 0.0);
     }

@@ -2,7 +2,7 @@ package com.aueb.model.peripherals;
 
 import com.aueb.model.Product;
 
-public class ComputerPeripheral extends Product {
+public abstract class ComputerPeripheral extends Product {
     protected ComputerPeripheral() {
         super("", 0, "", 0.0);
     }

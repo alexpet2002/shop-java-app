@@ -38,6 +38,23 @@ public class Keyboard extends ComputerPeripheral {
         return keyboardConnect;
     }
 
+    public String getModelName() {
+        return "Keyboard_" + getKeyboardConnect();
+    }
+
+    public int getModelYear() {
+
+        return 2022;
+    }
+
+    public String getModelManufacturer() {
+        return "KEYBOARD_COMPUTERS";
+    }
+
+    public double getModelPrice() {
+        return 20 + getModelName().length();
+    }
+
     public String toString() {
         return "\n----------------------------------------------------------------\n"
                 + super.toString()

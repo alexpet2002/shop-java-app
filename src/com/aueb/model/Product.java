@@ -1,6 +1,7 @@
 package com.aueb.model;
 
-public class Product {
+public abstract class Product implements Model {
+
     private String modelName = "";
     private int modelYear = 0;
     private String modelManufacturer = "";

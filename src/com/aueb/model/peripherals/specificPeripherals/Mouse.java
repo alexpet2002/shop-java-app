@@ -57,6 +57,29 @@ public class Mouse extends ComputerPeripheral {
         return mouseConnect;
     }
 
+    public String getModelName() {
+        return getMouseTech() + "_" + getMouseConnect();
+    }
+
+    public int getModelYear() {
+        return 2022;
+    }
+
+    public String getModelManufacturer() {
+        return "MOUSE_COMPUTERS";
+    }
+
+    public double getModelPrice() {
+        String str1 = getModelName();
+
+        char[] c = str1.toCharArray();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++) {
+            sum += Integer.valueOf(c[i]);
+        }
+        return 20.0 + sum % 100;
+    }
+
     public String toString() {
         return "\n----------------------------------------------------------------\n"
                 + super.toString()
@@ -101,4 +124,4 @@ public class Mouse extends ComputerPeripheral {
             System.out.println(mouse);
         }
     }
-} // class Mouse
+} //class Mouse

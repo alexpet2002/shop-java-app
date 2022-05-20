@@ -12,7 +12,6 @@ public class Printer extends ComputerPeripheral {
     private static String printType;
     static final String COLORED = "Colored";
     static final String BLACK_WHITE = "Black and White";
-
     private static int numOfPrinters = 0;
 
     public Printer() {
@@ -55,6 +54,29 @@ public class Printer extends ComputerPeripheral {
 
     String getPrintType() {
         return printType;
+    }
+
+    public String getModelName() {
+        return getPrinterTech() + "_" + getPrintType();
+    }
+
+    public int getModelYear() {
+        return 2022;
+    }
+
+    public String getModelManufacturer() {
+        return "PRINTER_COMPUTERS";
+    }
+
+    public double getModelPrice() {
+        String str1 = getModelName();
+
+        char[] c = str1.toCharArray();
+        int sum = 0;
+        for (int i = 0; i < c.length; i++) {
+            sum += Integer.valueOf(c[i]);
+        }
+        return 200.0 + sum % 100;
     }
 
     public String toString() {
