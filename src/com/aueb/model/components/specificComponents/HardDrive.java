@@ -2,8 +2,6 @@ package com.aueb.model.components.specificComponents;
 
 import com.aueb.model.components.ComputerComponent;
 
-import java.util.Scanner;
-
 public class HardDrive extends ComputerComponent {
     private static String driveType;
     static final String HDD = "HDD";
@@ -19,6 +17,7 @@ public class HardDrive extends ComputerComponent {
     static final String CAPACITY512 = "512 GB";
     static final String CAPACITY_1TB = "1 TB";
     static final String CAPACITY_2TB = "2 TB";
+
     private int numOfHardDrives = 0;
 
     public HardDrive() {
@@ -52,14 +51,14 @@ public class HardDrive extends ComputerComponent {
         numOfHardDrives++;
     }
 
-    static void setDriveType(String Type) {
+    public static void setDriveType(String Type) {
         if (Type.equals(HDD))
             driveType = HDD;
         else
             driveType = SSD;
     }
 
-    static void setDriveSize(String Type) {
+    public static void setDriveSize(String Type) {
         if (Type.equals(DRIVE_SIZE18))
             driveSize = DRIVE_SIZE18;
         else if (Type.equals(DRIVE_SIZE25))
@@ -68,7 +67,7 @@ public class HardDrive extends ComputerComponent {
             driveSize = DRIVE_SIZE35;
     }
 
-    static void setDriveCapacity(String Type) {
+    public static void setDriveCapacity(String Type) {
         if (Type.equals(CAPACITY256))
             driveCapacity = CAPACITY256;
         else if (Type.equals(CAPACITY512))
@@ -79,15 +78,15 @@ public class HardDrive extends ComputerComponent {
             driveCapacity = CAPACITY_2TB;
     }
 
-    String getDriveType() {
+    public String getDriveType() {
         return driveType;
     }
 
-    String getDriveSize() {
+    public String getDriveSize() {
         return driveSize;
     }
 
-    String getDriveCapacity() {
+    public String getDriveCapacity() {
         return driveCapacity;
     }
 
@@ -135,60 +134,5 @@ public class HardDrive extends ComputerComponent {
                 + "Hard drive size:\t\t" + getDriveSize() + " inches\n"
                 + "Hard drive capacity:\t\t" + getDriveCapacity()
                 + "\n----------------------------------------------------------------\n";
-    }
-
-    public static void main(String args[]) {
-
-        Scanner in = new Scanner(System.in);
-
-        System.out.println("5. Select Hard Drive");
-        System.out.print("Choice? ");
-
-        String select = in.nextLine();
-        if (select.equals("5")) {
-            HardDrive drive = new HardDrive();
-            System.out.println("Set the features of the hard drive");
-
-            System.out.println("Hard Drive Type:");
-            System.out.println("1. HDD");
-            System.out.println("2. SSD");
-            System.out.print("Choice? ");
-            select = in.nextLine();
-            if (select.equals("1"))
-                setDriveType(HDD);
-            else
-                setDriveType(SSD);
-
-            System.out.println("Hard Drive size:");
-            System.out.println("1. 1.8 inches");
-            System.out.println("2. 2.5 inches");
-            System.out.println("3. 3.5 inches");
-            System.out.print("Choice? ");
-            select = in.nextLine();
-            if (select.equals("1"))
-                setDriveSize(DRIVE_SIZE18);
-            else if (select.equals("2"))
-                setDriveSize(DRIVE_SIZE25);
-            else
-                setDriveSize(DRIVE_SIZE35);
-
-            System.out.println("Hard drive's capacity");
-            System.out.println("1. 256 GB");
-            System.out.println("2. 512 GB");
-            System.out.println("3. 1 TB");
-            System.out.println("4. 2 TB");
-            System.out.print("Choice? ");
-            select = in.nextLine();
-            if (select.equals("1"))
-                setDriveCapacity(CAPACITY256);
-            else if (select.equals("2"))
-                setDriveCapacity(CAPACITY512);
-            else if (select.equals("3"))
-                setDriveCapacity(CAPACITY_1TB);
-            else
-                setDriveCapacity(CAPACITY_2TB);
-
-            System.out.println(drive);
-        }
     }
 }// class HardDrive

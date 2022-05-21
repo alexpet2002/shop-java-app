@@ -2,8 +2,6 @@ package com.aueb.model.components.specificComponents;
 
 import com.aueb.model.components.ComputerComponent;
 
-import java.util.Scanner;
-
 public class Ram extends ComputerComponent {
     private static String ramType;
     static final String DDR3 = "DDR3";
@@ -53,7 +51,7 @@ public class Ram extends ComputerComponent {
         numOfRams++;
     }
 
-    static void setRamType(String Type) {
+    public static void setRamType(String Type) {
         if (Type.equals(DDR3))
             ramType = DDR3;
         else if (Type.equals(DDR4))
@@ -62,7 +60,7 @@ public class Ram extends ComputerComponent {
             ramType = DDR5;
     }
 
-    static void setRamSize(String Type) {
+    public static void setRamSize(String Type) {
         if (Type.equals(SIZE4))
             ramSize = SIZE4;
         else if (Type.equals(SIZE8))
@@ -71,7 +69,7 @@ public class Ram extends ComputerComponent {
             ramSize = SIZE16;
     }
 
-    static void setRamFrequency(String Type) {
+    public static void setRamFrequency(String Type) {
         if (Type.equals(FREQUENCY1600))
             ramFrequency = FREQUENCY1600;
         else if (Type.equals(FREQUENCY2666))
@@ -80,15 +78,15 @@ public class Ram extends ComputerComponent {
             ramFrequency = FREQUENCY3200;
     }
 
-    String getRamType() {
+    public String getRamType() {
         return ramType;
     }
 
-    String getRamSize() {
+    public String getRamSize() {
         return ramSize;
     }
 
-    String getRamFrequency() {
+    public String getRamFrequency() {
         return ramFrequency;
     }
 
@@ -136,62 +134,6 @@ public class Ram extends ComputerComponent {
                 + "\nRum size:\t\t\t" + getRamSize() + " GB"
                 + "\nRam frequency:\t\t\t" + getRamFrequency() + " GHz\n"
                 + "\n----------------------------------------------------------------\n";
-    }
-
-
-    public static void main(String args[]) {
-
-        Scanner in = new Scanner(System.in);
-
-        System.out.println("3. Select RAM");
-        System.out.print("Choice? ");
-
-        String select = in.nextLine();
-        if (select.equals("3")) {
-            Ram ram = new Ram();
-            System.out.println("Set the features of the RAM");
-
-            System.out.println("Ram Type:");
-            System.out.println("1. DDR3");
-            System.out.println("2. DDR4");
-            System.out.println("3. DDR5");
-            System.out.print("Choice? ");
-            select = in.nextLine();
-            if (select.equals("1"))
-                setRamType(DDR3);
-            else if (select.equals("2"))
-                setRamType(DDR4);
-            else
-                setRamType(DDR5);
-
-            System.out.println("RAM size:");
-            System.out.println("1. 4 GB");
-            System.out.println("2. 8 GB");
-            System.out.println("3. 16 GB");
-            System.out.print("Choice? ");
-            select = in.nextLine();
-            if (select.equals("1"))
-                setRamSize(SIZE4);
-            else if (select.equals("2"))
-                setRamSize(SIZE8);
-            else
-                setRamSize(SIZE16);
-
-            System.out.println("Frequency of RAM");
-            System.out.println("1. 1600 MHz");
-            System.out.println("2. 2666 MHz");
-            System.out.println("3. 3200 MHz");
-            System.out.print("Choice? ");
-            select = in.nextLine();
-            if (select.equals("1"))
-                ram.setRamFrequency(FREQUENCY1600);
-            else if (select.equals("2"))
-                setRamFrequency(FREQUENCY2666);
-            else
-                setRamFrequency(FREQUENCY3200);
-
-            System.out.println(ram);
-        }
     }
 }// class Ram
 
