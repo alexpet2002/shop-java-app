@@ -3,8 +3,6 @@ package com.aueb.model.components.specificComponents;
 
 import com.aueb.model.components.ComputerComponent;
 
-import java.util.Scanner;
-
 public class Cpu extends ComputerComponent {
     private static String cpuSpeed;
     static final String SPEED28 = "2.8";
@@ -49,7 +47,7 @@ public class Cpu extends ComputerComponent {
         numOfCpus++;
     }
 
-    static void setCpuSpeed(String Type) {
+    public static void setCpuSpeed(String Type) {
         if (Type.equals(SPEED28))
             cpuSpeed = SPEED28;
         else if (Type.equals(SPEED33))
@@ -58,7 +56,7 @@ public class Cpu extends ComputerComponent {
             cpuSpeed = SPEED41;
     }
 
-    static void setNumOfCores(String Type) {
+    public static void setNumOfCores(String Type) {
         if (Type.equals(CORES6))
             numOfCores = CORES6;
         else if (Type.equals(CORES8))
@@ -67,19 +65,19 @@ public class Cpu extends ComputerComponent {
             numOfCores = CORES16;
     }
 
-    void setCpuGraphics(boolean yes) {
+    public void setCpuGraphics(boolean yes) {
         this.cpuGraphics = yes;
     }
 
-    String getCpuSpeed() {
+    public String getCpuSpeed() {
         return cpuSpeed;
     }
 
-    String getNumOfCores() {
+    public String getNumOfCores() {
         return numOfCores;
     }
 
-    String getCpuGraphics() {
+    public String getCpuGraphics() {
         if (cpuGraphics)
             return "With_built-in_graphics";
         else
@@ -130,59 +128,5 @@ public class Cpu extends ComputerComponent {
                 + "\nNumber of cores:\t\t" + getNumOfCores()
                 + "\nGraphics:\t\t\t" + getCpuGraphics()
                 + "\n----------------------------------------------------------------\n";
-    }
-
-    public static void main(String[] args) {
-
-        Scanner in = new Scanner(System.in);
-
-
-        System.out.println("2. Select Cpu: ");
-        System.out.print("Choice? ");
-
-        String select = in.nextLine();
-        if (select.equals("2")) {
-            Cpu cpu = new Cpu();
-            System.out.println("Set the features of the cpu");
-
-            System.out.println("cpu's speed:");
-            System.out.println("1. for 2.8 GHz");
-            System.out.println("2. for 3.3 GHz");
-            System.out.println("3. for 4.1 GHz");
-            System.out.print("Choice? ");
-            select = in.nextLine();
-            if (select.equals("1"))
-                setCpuSpeed(SPEED28);
-            else if (select.equals("2"))
-                setCpuSpeed(SPEED33);
-            else
-                setCpuSpeed(SPEED41);
-
-            System.out.println("Number of Cores:");
-            System.out.println("1. Cores 6");
-            System.out.println("2. Cores 8");
-            System.out.println("3. Cores 16");
-            System.out.print("Choice? ");
-            select = in.nextLine();
-            if (select.equals("1"))
-                setNumOfCores(CORES6);
-            else if (select.equals("2"))
-                setNumOfCores(CORES8);
-            else
-                setNumOfCores(CORES16);
-
-            System.out.println("With built-in graphics or not?");
-            System.out.println("1. With built-in graphics");
-            System.out.println("2. Without built-in graphics");
-            System.out.print("Choice? ");
-            select = in.nextLine();
-            if (select.equals("1"))
-                cpu.setCpuGraphics(true);
-            else
-                cpu.setCpuGraphics(false);
-
-            System.out.println(cpu);
-        }
-
     }
 }// class Cpu

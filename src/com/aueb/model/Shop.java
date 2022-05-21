@@ -11,24 +11,8 @@ import java.util.HashMap;
 
 public class Shop {
     static int numOfAvailableProducts = 0;
-    //    double discount;
-    //    Product[] availableItems; // don't need it, because we created ArrayList instead
-    //    int numOfAvailableProducts;
-    //    Sale[] soldItems; // must create with ArrayList too
-    //    Order[] orderedItems; // must create with ArrayList too
-    //    int numOfItems;
-    //    Order order;
-    //    Sale sale;
-
-    // Product product = new Product(); // possible initialize arrayList of products with code in test main
 
     private ArrayList<Product> products = new ArrayList<Product>();
-
-    /* The stock list contains in each position an array of 2 positions.
-    The first position stores the position where the product is in the list
-    of products and the second position stores the stock of the specific product.
-    */
-    private ArrayList<int[]> stock = new ArrayList<int[]>(); // new // possible replace this with corresponding HashMap productStock
 
     /* The productNames HashMap contains increment integers as keys and modelNames as values */
     private HashMap<Integer, String> productNames = new HashMap<Integer, String>();    // new
@@ -50,6 +34,23 @@ public class Shop {
     // remove from HashMap ProductNames
     void removeProductName(Integer number) {
         productNames.remove(number);
+    }
+
+    ///////////////////// Methods for HashMap productStock /////////////////////////
+
+    // might not be needed
+    void setProductStock(Product product) {
+        if (productStock.containsKey(product.getModelName())) {
+            int value = productStock.get(product.getModelName()) + 1;
+            productStock.replace(product.getModelName(), value);
+        } else
+            productStock.put(product.getModelName(), 1);
+    }
+
+    // decrease value of stock
+    void updateStock(String key, HashMap<String, Integer> stockMap) {
+        int value = stockMap.get(key) - 1;
+        stockMap.replace(key, value);
     }
     ///////////////////// Methods for ArrayList products///////////////////////////
 
@@ -99,39 +100,6 @@ public class Shop {
         if (index >= 0 && index < products.size())
             return products.get(index);
         return null;
-    }
-
-    /////////// Methods for ArrayList stock////////////
-
-    // updates the single array contained in the stock list for one product
-    int[] updateStockOfProduct(Product product, int numOfProductStock) {
-        int[] stockOfProduct = new int[2];
-        if (products.contains(product)) {
-            stockOfProduct[0] = products.indexOf(product);
-            stockOfProduct[1] = numOfProductStock;
-            return stockOfProduct;
-        }
-        return null;
-    }
-
-    // add the array witch is the reterned value of updateStockOfProduct at the end of ArrayList stock
-    void addStockOfProductInTheEndOfStock(int[] stockOfProduct) {
-        stock.add(stockOfProduct);
-    }
-
-    void updateStock() {
-        int i = 0;
-        for (Product product : products) {
-
-        }
-    }
-
-    // prints the ArrayList<int[]> stock of the store's products
-    void showStock() {
-        int i = 0;
-        for (int[] item : stock) {
-            System.out.println("\nlist stock at position[" + i++ + "] " /*+ products.get(item[0])*/ + "Stock: " + item[1] + "\n----------------------------------------------------------------");
-        }
     }
 
     public static void main(String[] args) {
@@ -225,59 +193,49 @@ public class Shop {
 		and updates the ArrayList<int[]> stock with products's stock in the Shop
 		*/
         shop.storeProduct(motherboard);
-        int[] stock = shop.updateStockOfProduct(motherboard, 2);
-        shop.addStockOfProductInTheEndOfStock(stock);
+        shop.storeProduct(motherboard);
+        shop.setProductStock(motherboard);
+        shop.setProductStock(motherboard);
+        shop.updateStock(motherboard.getModelName(), shop.productStock);
+        shop.updateStock(motherboard.getModelName(), shop.productStock);
 
-        shop.storeProduct(cpu);
-        stock = shop.updateStockOfProduct(cpu, 3);
-        shop.addStockOfProductInTheEndOfStock(stock);
+		/*shop.storeProduct(cpu);
+		shop.setProductStock(cpu);
 
-        shop.storeProduct(ram);
-        stock = shop.updateStockOfProduct(ram, 2);
-        shop.addStockOfProductInTheEndOfStock(stock);
+
+		shop.storeProduct(ram);
+		shop.setProductStock(ram);
+
 
         shop.storeProduct(card);
-        stock = shop.updateStockOfProduct(card, 0);
-        shop.addStockOfProductInTheEndOfStock(stock);
+		shop.setProductStock(card);
 
-        shop.storeProduct(drive);
-        stock = shop.updateStockOfProduct(drive, 5);
-        shop.addStockOfProductInTheEndOfStock(stock);
 
-        shop.storeProduct(monitor);
-        stock = shop.updateStockOfProduct(monitor, 7);
-        shop.addStockOfProductInTheEndOfStock(stock);
+		shop.storeProduct(drive);
+		shop.setProductStock(drive);
+
+
+		shop.storeProduct(monitor);
+		shop.setProductStock(monitor);
+
 
         shop.storeProduct(keyboard);
-        stock = shop.updateStockOfProduct(keyboard, 0);
-        shop.addStockOfProductInTheEndOfStock(stock);
+		shop.setProductStock(keyboard);
+
 
         shop.storeProduct(mouse);
-        stock = shop.updateStockOfProduct(mouse, 10);
-        shop.addStockOfProductInTheEndOfStock(stock);
+		shop.setProductStock(mouse);
+
 
         shop.storeProduct(printer);
-        stock = shop.updateStockOfProduct(printer, 4);
-        shop.addStockOfProductInTheEndOfStock(stock);
-
-        //shop.showProducts();
-        //shop.showStock();
-        //shop.removeProduct(2);
-        //shop.updateStock(stock);
-
-        //shop.showStock();
-        //shop.showProducts();
-
-        shop.setProductNames(shop.products);
-        System.out.println(shop.productNames);
-        System.out.println(shop.productNames.size());
-
-        shop.removeProduct(2);
-
-        shop.removeProductName(2);
-        System.out.println(shop.productNames);
-        System.out.println(shop.productNames.size());
+		shop.setProductStock(printer);
 
 
+		//shop.setProductNames(shop.products);
+
+		shop.showProducts();*/
+        shop.showProducts();
+
+        System.out.println(shop.productStock);
     }
 }// class Shop
