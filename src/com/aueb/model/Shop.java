@@ -1,29 +1,73 @@
 package com.aueb.model;
 
-import com.aueb.model.components.specificComponents.*;
-import com.aueb.model.peripherals.specificPeripherals.Keyboard;
-import com.aueb.model.peripherals.specificPeripherals.Monitor;
-import com.aueb.model.peripherals.specificPeripherals.Mouse;
-import com.aueb.model.peripherals.specificPeripherals.Printer;
-
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Shop {
     static int numOfAvailableProducts = 0;
 
-    private ArrayList<Product> products = new ArrayList<Product>();
+    private final ArrayList<Product> availableProducts = new ArrayList<Product>();
+    private final ArrayList<Order> orders = new ArrayList<Order>();
+    private final ArrayList<Sale> sales = new ArrayList<Sale>();
 
     /* The productNames HashMap contains increment integers as keys and modelNames as values */
-    private HashMap<Integer, String> productNames = new HashMap<Integer, String>();    // new
+    private final HashMap<Integer, String> productNames = new HashMap<Integer, String>();    // new
 
     /* The productStock HashMap contains modelNames as keys and stock of specific model as values */
-    private HashMap<String, Integer> productStock = new HashMap<String, Integer>(); // new
+    private final HashMap<String, Integer> productStock = new HashMap<String, Integer>(); // new
 
     ////////////////////// Methods for HashMap productNames ///////////////////////
 
     // initialize HashMap ProductNames and put keys(increment number) and values(modelNames) witch exists in products list
-    void setProductNames(ArrayList<Product> products) {
+
+    public String displayOrders() {
+        return orders.toString();
+    }
+
+    public int totalAmountOfOrders() {
+        return Order.nextOrderNum;
+    }
+
+    public String displaySales() {
+        return sales.toString();
+    }
+
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+
+    public String displayTotalStock() {
+        return availableProducts.toString();
+    }
+
+    public void displayUniqueStock() {
+        ArrayList<Product> arrayList = (ArrayList<Product>) availableProducts.clone();
+        HashMap<Product, Integer> hashMap = new HashMap<Product, Integer>();
+
+
+        for (Product p : availableProducts) {
+            int count = (int) arrayList.stream().filter(product -> p.sameProductAs(product)).count();
+            hashMap.put(p, count);
+        }
+
+        for (Map.Entry<Product, Integer> entry : hashMap.entrySet()) {
+            Product key = entry.getKey();
+            Integer value = entry.getValue();
+
+            System.out.println(key);
+            System.out.println("The amount of this product in stock is: " + value);
+
+        }
+
+
+    }
+
+    public void addSale(Sale sale) {
+        sales.add(sale);
+    }
+
+    public void setProductNames(ArrayList<Product> products) {
         int i = 0;
         for (Product product : products) {
             productNames.put(i, product.getModelName());
@@ -32,14 +76,14 @@ public class Shop {
     }
 
     // remove from HashMap ProductNames
-    void removeProductName(Integer number) {
+    public void removeProductName(Integer number) {
         productNames.remove(number);
     }
 
     ///////////////////// Methods for HashMap productStock /////////////////////////
 
     // might not be needed
-    void setProductStock(Product product) {
+    public void setProductStock(Product product) {
         if (productStock.containsKey(product.getModelName())) {
             int value = productStock.get(product.getModelName()) + 1;
             productStock.replace(product.getModelName(), value);
@@ -48,194 +92,74 @@ public class Shop {
     }
 
     // decrease value of stock
-    void updateStock(String key, HashMap<String, Integer> stockMap) {
+    public void updateStock(String key, HashMap<String, Integer> stockMap) {
         int value = stockMap.get(key) - 1;
         stockMap.replace(key, value);
     }
     ///////////////////// Methods for ArrayList products///////////////////////////
 
     // stores the product to list products
-    void storeProduct(Product product) {
-        products.add(product);
-    }
-
-    // returns size of list products
-    int numberOfProducts() {
-        return products.size();
+    public void storeProduct(Product product) {
+        availableProducts.add(product);
     }
 
     // prints the list of ArrayList<product> products
-    void showProducts() {
+    public void showProducts() {
         int i = 0;
-        for (Product product : products)
+        for (Product product : availableProducts)
             System.out.println("list products at position[" + i++ + "] " + product);
     }
 
     // search a product in list products
-    void showProduct(int productNumber) {
-        if (productNumber >= 0 && productNumber < numberOfProducts())
-            System.out.println("[" + productNumber + "] " + products.get(productNumber));
+    public void showProduct(int productNumber) {
+        if (productNumber >= 0 && productNumber < totalAmountOfProductsInStock())
+            System.out.println("[" + productNumber + "] " + availableProducts.get(productNumber));
         else System.out.println("Product not found");
     }
 
     // deletes a product from the list product and from the list stock
-    void removeProduct(int productNumber) {
-        if (productNumber >= 0 && productNumber < numberOfProducts()) {
-            products.remove(productNumber);
+    public void removeProduct(int productNumber) {
+        if (productNumber >= 0 && productNumber < totalAmountOfProductsInStock()) {
+            availableProducts.remove(productNumber);
             //stock.remove(productNumber);
             System.out.println("Product deleted!");
         } else System.out.println("Product not found!");
     }
 
     // returns the position of a product in list products
-    int getIndexOfProduct(Product product) {
-        if (products.contains(product)) {
-            return products.indexOf(product);
+    public int getIndexOfProduct(Product product) {
+        if (availableProducts.contains(product)) {
+            return availableProducts.indexOf(product);
         }
         return -1;
     }
 
     // returns the product
-    Product getProduct(int index) {
-        if (index >= 0 && index < products.size())
-            return products.get(index);
+    public Product getProduct(int index) {
+        if (index >= 0 && index < availableProducts.size())
+            return availableProducts.get(index);
         return null;
     }
 
-    public static void main(String[] args) {
-        Shop shop = new Shop();
+    public Product findMatchingAvailableProduct(Product product) {
+        for (Product p : availableProducts) {
+            if (p.sameProductAs(product)) {
+                return p;
+            }
+        }
+        System.out.println("Couldn't find a match");
+        return null;
+    }
 
-		/*Values for all kind of Product
-		//these 4 arguments before the others//
-		//whith this order//
-		modelName: ""
-		modelYear: 0
-		modelManufacturer: ""
-		double modelPrice: 0.0
-		*/
+    public void removeTheProductFromStock(Product product) {
+        availableProducts.remove(product);
+    }
 
-		/*Values for Motherboard:
-		//with this order//
-		processorType: "TYPE_INTEL", "TYPE_AMD"
-		memoryType: "32", "64", "128"
-		numOfPortsSataType: "4", "6", "8"
-		*/
-        Motherboard motherboard = new Motherboard("", 0, "", 0.0, "TYPE_INTEL", "32", "6");
-        //System.out.println(motherboard);
-		/*Values for Cpu:
-		//with this order//
-		cpuSpeed: "2.8", "3.3", "4.1"
-		numOfCores: "6", "8", "16"
-		cpuGraphics: true, false
-		*/
-        Cpu cpu = new Cpu("", 0, "", 0.0, "2.8", "8", true);
-        //System.out.println(cpu);
+    public int totalAmountOfSales() {
+        return Sale.nextSalesNum;
+    }
 
-		/*Values of Ram:
-		//with this order//
-		ramType: "DDR3", "DDR4", "DDR5"
-		ramSize: "4", "8", "16"
-		ramFrequency: "1600", "2666", "3200"
-		*/
-        Ram ram = new Ram("", 0, "", 0.0, "DDR3", "8", "2666");
-        //System.out.println(ram);
-
-		/*Values of Printer
-		//with this order//
-		printerTech: "Laser", "Inkjet"
-		printType: "Colored", "Black and White"
-		*/
-        Printer printer = new Printer("", 0, "", 0.0, "Laser", "Colored");
-        //System.out.println(printer);
-
-		/*Values of Mouse
-		//with this order
-		mouseTech: "Laser", "Optical"
-		mouseConnect: "Wired", "Wireless"
-		*/
-        Mouse mouse = new Mouse("", 0, "", 0.0, "Laser", "Wired");
-        //System.out.println(mouse);
-
-		/*Values of Monitor
-		//with this order//
-		monitorType: "Monitor", "Portable Monitor", "TV Monitor"
-		monitorDimensions: "17", "24"
-		monitorResolution: "1920 x 1080", "2048 x 1152"
-		monitorPort: "Display Port", "HDMI", "USB-C"
-		*/
-        Monitor monitor = new Monitor("", 0, "", 0.0, "Portable Monitor", "17", "1920 x 1080", "Display Port");
-        //System.out.println(monitor);
-
-		/*Values of Keyboard
-		keyboardConnect: "Wired","Wireless"
-		*/
-        Keyboard keyboard = new Keyboard("", 0, "", 0.0, "Wired");
-        //System.out.println(keyboard);
-
-		/*Values of HardDrive
-		//with this order//
-		driveType: "HDD", "SSD"
-		driveSize: "1.8", "2.5", "3.5"
-		driveCapacity: "256 GB", "512 GB", "1 TB", "2 TB"
-		*/
-        HardDrive drive = new HardDrive("", 0, "", 0.0, "HDD", "1.8", "256 GB");
-        //System.out.println(drive);
-
-		/*Values of GraphicsCard
-		//with this order//
-		chipset: "nVIDIA", "AMD"
-		cardMemory: "6", "8", "12"
-		*/
-        GraphicsCard card = new GraphicsCard("", 0, "", 0.0, "nVIDIA", "AMD");
-        //System.out.println(card);
-
-		/* next code puts the products into ArrayList<Product> products
-		and updates the ArrayList<int[]> stock with products's stock in the Shop
-		*/
-        shop.storeProduct(motherboard);
-        shop.storeProduct(motherboard);
-        shop.setProductStock(motherboard);
-        shop.setProductStock(motherboard);
-        shop.updateStock(motherboard.getModelName(), shop.productStock);
-        shop.updateStock(motherboard.getModelName(), shop.productStock);
-
-		/*shop.storeProduct(cpu);
-		shop.setProductStock(cpu);
-
-
-		shop.storeProduct(ram);
-		shop.setProductStock(ram);
-
-
-        shop.storeProduct(card);
-		shop.setProductStock(card);
-
-
-		shop.storeProduct(drive);
-		shop.setProductStock(drive);
-
-
-		shop.storeProduct(monitor);
-		shop.setProductStock(monitor);
-
-
-        shop.storeProduct(keyboard);
-		shop.setProductStock(keyboard);
-
-
-        shop.storeProduct(mouse);
-		shop.setProductStock(mouse);
-
-
-        shop.storeProduct(printer);
-		shop.setProductStock(printer);
-
-
-		//shop.setProductNames(shop.products);
-
-		shop.showProducts();*/
-        shop.showProducts();
-
-        System.out.println(shop.productStock);
+    public int totalAmountOfProductsInStock() {
+        return availableProducts.size();
     }
 }// class Shop

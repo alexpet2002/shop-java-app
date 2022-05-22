@@ -1,20 +1,20 @@
 package com.aueb.model.peripherals.specificPeripherals;
 
+import com.aueb.model.Product;
 import com.aueb.model.peripherals.ComputerPeripheral;
 
 public class Printer extends ComputerPeripheral {
+    public static final String NAME = "Printer";
+    public static final String LASER = "Laser";
+    public static final String INKJET = "Inkjet";
+    public static final String COLORED = "Colored";
+    public static final String BLACK_WHITE = "Black_and_White";
     private static String printerTech;
-    static final String LASER = "Laser";
-    static final String INKJET = "Inkjet";
-
     private static String printType;
-    static final String COLORED = "Colored";
-    static final String BLACK_WHITE = "Black_and_White";
-
     private static int numOfPrinters = 0;
 
     public Printer() {
-        super();
+        super(NAME);
         printerTech = "";
         printType = "";
         numOfPrinters++;
@@ -33,11 +33,37 @@ public class Printer extends ComputerPeripheral {
         numOfPrinters++;
     }
 
+    public Printer(int modelYear, String modelManufacturer, double modelPrice, String printerTech, String printType) {
+        super(NAME, modelYear, modelManufacturer, modelPrice);
+        if (printerTech.equals("Laser"))
+            setPrinterTech(LASER);
+        else
+            setPrinterTech(INKJET);
+        if (printType.equals("Colored"))
+            setPrintType(COLORED);
+        else
+            setPrintType(BLACK_WHITE);
+        numOfPrinters++;
+    }
+
+    @Override
+    public String returnStringOfAllProperties() {
+        return super.returnStringOfAllProperties() + getPrintType() + getPrinterTech();
+    }
+
+    public String getPrinterTech() {
+        return printerTech;
+    }
+
     public static void setPrinterTech(String Type) {
         if (Type.equals(LASER))
             printerTech = LASER;
         else
             printerTech = INKJET;
+    }
+
+    public String getPrintType() {
+        return printType;
     }
 
     public static void setPrintType(String Type) {
@@ -47,43 +73,25 @@ public class Printer extends ComputerPeripheral {
             printType = BLACK_WHITE;
     }
 
-    public String getPrinterTech() {
-        return printerTech;
-    }
-
-    public String getPrintType() {
-        return printType;
-    }
-
-    public String getModelName() {
-        return getPrinterTech() + "_" + getPrintType();
-    }
-
-    public int getModelYear() {
-        return 2022;
-    }
-
-    public String getModelManufacturer() {
-        return "PRINTER_COMPUTERS";
-    }
-
-    public double getModelPrice() {
-        String str1 = getModelName();
-
-        char[] c = str1.toCharArray();
-        int sum = 0;
-        for (int i = 0; i < c.length; i++) {
-            sum += Integer.valueOf(c[i]);
+    @Override
+    public boolean sameProductAs(Product obj) {
+        try {
+            Printer newObj = (Printer) obj;
+            return (newObj.getPrinterTech().equals(this.getPrinterTech()))
+                    && (newObj.getPrintType().equals(this.getPrintType()))
+                    && (newObj.getModelName().equals(this.getModelName()))
+                    && (newObj.getModelYear() == this.getModelYear())
+                    && (newObj.getModelManufacturer().equals(this.getModelManufacturer()));
+        } catch (Exception exception) {
+            return false;
         }
-        return 200.0 + sum % 100;
     }
 
     public String toString() {
         return "\n----------------------------------------------------------------\n"
                 + super.toString()
-                + "\nPrinter's features"
                 + "\nPrinter Technology:\t\t" + getPrinterTech()
                 + "\nPrinting Type:\t\t\t" + getPrintType()
-                + "\n----------------------------------------------------------------\n";
+                + "\n----------------------------------------------------------------";
     }
 }// class Printer
