@@ -1,17 +1,18 @@
 package com.aueb.model.peripherals.specificPeripherals;
 
 
+import com.aueb.model.Product;
 import com.aueb.model.peripherals.ComputerPeripheral;
 
 public class Keyboard extends ComputerPeripheral {
-    private static String keyboardConnect;
+    public static final String NAME = "Keyboard";
     static final String WIRED = "Wired";
     static final String WIRELESS = "Wireless";
-
+    private static String keyboardConnect;
     private static int numOfKeyboards = 0;
 
     public Keyboard() {
-        super();
+        super(NAME);
         keyboardConnect = "";
         numOfKeyboards++;
     }
@@ -25,6 +26,19 @@ public class Keyboard extends ComputerPeripheral {
         numOfKeyboards++;
     }
 
+    public Keyboard(int modelYear, String modelManufacturer, double modelPrice, String keyboardConnect) {
+        super(NAME, modelYear, modelManufacturer, modelPrice);
+        if (keyboardConnect.equals("Wired"))
+            setKeyboardConnect(WIRED);
+        else
+            setKeyboardConnect(WIRELESS);
+        numOfKeyboards++;
+    }
+
+    public String getKeyboardConnect() {
+        return keyboardConnect;
+    }
+
     public static void setKeyboardConnect(String Type) {
         if (Type.equals(WIRED))
             keyboardConnect = WIRED;
@@ -32,32 +46,28 @@ public class Keyboard extends ComputerPeripheral {
             keyboardConnect = WIRELESS;
     }
 
-    public String getKeyboardConnect() {
-        return keyboardConnect;
+    @Override
+    public String returnStringOfAllProperties() {
+        return super.returnStringOfAllProperties() + getKeyboardConnect();
     }
 
-    public String getModelName() {
-        return "Keyboard_" + getKeyboardConnect();
-    }
-
-    public int getModelYear() {
-
-        return 2022;
-    }
-
-    public String getModelManufacturer() {
-        return "KEYBOARD_COMPUTERS";
-    }
-
-    public double getModelPrice() {
-        return 20 + getModelName().length();
+    @Override
+    public boolean sameProductAs(Product obj) {
+        try {
+            Keyboard newObj = (Keyboard) obj;
+            return (newObj.getKeyboardConnect().equals(this.getKeyboardConnect()))
+                    && (newObj.getModelName().equals(this.getModelName()))
+                    && (newObj.getModelYear() == this.getModelYear())
+                    && (newObj.getModelManufacturer().equals(this.getModelManufacturer()));
+        } catch (Exception exception) {
+            return false;
+        }
     }
 
     public String toString() {
         return "\n----------------------------------------------------------------\n"
                 + super.toString()
-                + "\nKeyboard features:"
                 + "\nKeyboard connection:\t\t" + getKeyboardConnect()
-                + "\n----------------------------------------------------------------\n";
+                + "\n----------------------------------------------------------------";
     }
 }// class Keyboard

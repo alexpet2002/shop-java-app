@@ -1,25 +1,17 @@
 package com.aueb.model;
 
 public class Customer {
-    String name;
-    int phonenumber;
+    String name = "Name";
+    String phonenumber = "983928932";
 //    Order[] orders;
 
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Customer(String name, String phonenumber) {
         this.name = name;
-    }
-
-    public int getPhonenumber() {
-        return phonenumber;
-    }
-
-    public void setPhonenumber(int phonenumber) {
         this.phonenumber = phonenumber;
+    }
+
+    public Customer() {
     }
 
     @Override

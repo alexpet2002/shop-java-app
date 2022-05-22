@@ -3,12 +3,18 @@ package com.aueb.model.peripherals;
 import com.aueb.model.Product;
 
 public abstract class ComputerPeripheral extends Product {
+
+    public static final double PERIPHERAL_DISCOUNT = 0.1;
+
+    public ComputerPeripheral(String modelName) {
+        super(modelName);
+    }
+
     protected ComputerPeripheral() {
-        super("", 0, "", 0.0);
     }
 
     protected ComputerPeripheral(String modelName, int modelYear, String modelManufacturer, double modelPrice) {
-        super(modelName, modelYear, modelManufacturer, modelPrice);
+        super(modelName, modelYear, modelManufacturer, modelPrice, PERIPHERAL_DISCOUNT);
     }
 
     public String toString() {
