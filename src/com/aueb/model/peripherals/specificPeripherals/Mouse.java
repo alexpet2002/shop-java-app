@@ -1,20 +1,20 @@
 package com.aueb.model.peripherals.specificPeripherals;
 
+import com.aueb.model.Product;
 import com.aueb.model.peripherals.ComputerPeripheral;
 
 public class Mouse extends ComputerPeripheral {
-    private static String mouseTech;
+    public static final String NAME = "Mouse";
+    public static final String OPTICAL = "Optical";
+    public static final String WIRED = "Wired";
+    public static final String WIRELESS = "Wireless";
     static final String LASER = "Laser";
-    static final String OPTICAL = "Optical";
-
+    private static String mouseTech;
     private static String mouseConnect;
-    static final String WIRED = "Wired";
-    static final String WIRELESS = "Wireless";
-
     private static int numOfMice = 0;
 
     public Mouse() {
-        super();
+        super(NAME);
         mouseTech = "";
         mouseConnect = "";
         numOfMice++;
@@ -33,11 +33,32 @@ public class Mouse extends ComputerPeripheral {
         numOfMice++;
     }
 
+    public Mouse(int modelYear, String modelManufacturer, double modelPrice, String mouseTech, String mouseConnect) {
+        super(NAME, modelYear, modelManufacturer, modelPrice);
+        if (mouseTech.equals("Laser"))
+            setMouseTech(LASER);
+        else
+            setMouseTech(OPTICAL);
+        if (mouseConnect.equals("Wired"))
+            setMouseConnect(WIRED);
+        else
+            setMouseTech(WIRELESS);
+        numOfMice++;
+    }
+
+    public String getMouseTech() {
+        return mouseTech;
+    }
+
     public static void setMouseTech(String Type) {
         if (Type.equals(LASER))
             mouseTech = LASER;
         else
             mouseTech = OPTICAL;
+    }
+
+    public String getMouseConnect() {
+        return mouseConnect;
     }
 
     public static void setMouseConnect(String Type) {
@@ -47,43 +68,30 @@ public class Mouse extends ComputerPeripheral {
             mouseConnect = WIRELESS;
     }
 
-    public String getMouseTech() {
-        return mouseTech;
+    @Override
+    public String returnStringOfAllProperties() {
+        return super.returnStringOfAllProperties() + getMouseTech() + getMouseConnect();
     }
 
-    public String getMouseConnect() {
-        return mouseConnect;
-    }
-
-    public String getModelName() {
-        return getMouseTech() + "_" + getMouseConnect();
-    }
-
-    public int getModelYear() {
-        return 2022;
-    }
-
-    public String getModelManufacturer() {
-        return "MOUSE_COMPUTERS";
-    }
-
-    public double getModelPrice() {
-        String str1 = getModelName();
-
-        char[] c = str1.toCharArray();
-        int sum = 0;
-        for (int i = 0; i < c.length; i++) {
-            sum += Integer.valueOf(c[i]);
+    @Override
+    public boolean sameProductAs(Product obj) {
+        try {
+            Mouse newObj = (Mouse) obj;
+            return (newObj.getMouseTech().equals(this.getMouseTech()))
+                    && (newObj.getMouseConnect().equals(this.getMouseConnect()))
+                    && (newObj.getModelName().equals(this.getModelName()))
+                    && (newObj.getModelYear() == this.getModelYear())
+                    && (newObj.getModelManufacturer().equals(this.getModelManufacturer()));
+        } catch (Exception exception) {
+            return false;
         }
-        return 20.0 + sum % 100;
     }
 
     public String toString() {
         return "\n----------------------------------------------------------------\n"
                 + super.toString()
-                + "\nMouse features:"
                 + "\nMouse Technology:\t\t" + getMouseTech()
                 + "\nMouse Connection:\t\t" + getMouseConnect()
-                + "\n----------------------------------------------------------------\n";
+                + "\n----------------------------------------------------------------";
     }
 } //class Mouse
