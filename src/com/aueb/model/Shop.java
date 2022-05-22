@@ -52,7 +52,7 @@ public class Shop {
         int value = stockMap.get(key) - 1;
         stockMap.replace(key, value);
     }
-    ///////////////////// Methods for ArrayList products///////////////////////////
+    ///////////////////// Methods for ArrayList products////////////////////////////
 
     // stores the product to list products
     void storeProduct(Product product) {
