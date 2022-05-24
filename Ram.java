@@ -1,7 +1,4 @@
-package com.aueb.model.components.specificComponents;
 
-import com.aueb.model.Product;
-import com.aueb.model.components.ComputerComponent;
 
 public class Ram extends ComputerComponent {
     public static final String NAME = "Ram";

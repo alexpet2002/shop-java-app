@@ -1,4 +1,3 @@
-package com.aueb.model;
 
 public class Customer {
     String name = "Name";

@@ -1,4 +1,3 @@
-package com.aueb.model;
 
 public abstract class Product implements Model {
 

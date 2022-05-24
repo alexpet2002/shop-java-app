@@ -1,7 +1,4 @@
-package com.aueb.model.peripherals.specificPeripherals;
 
-import com.aueb.model.Product;
-import com.aueb.model.peripherals.ComputerPeripheral;
 
 public class Monitor extends ComputerPeripheral {
     public static final String NAME = "Monitor";

@@ -1,6 +1,3 @@
-package com.aueb.model.peripherals;
-
-import com.aueb.model.Product;
 
 public abstract class ComputerPeripheral extends Product {
 

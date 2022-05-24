@@ -1,7 +1,3 @@
-package com.aueb.model;
-
-import com.aueb.model.components.specificComponents.Cpu;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 

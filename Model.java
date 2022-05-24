@@ -1,4 +1,3 @@
-package com.aueb.model;
 
 public interface Model {
     public String getModelName();

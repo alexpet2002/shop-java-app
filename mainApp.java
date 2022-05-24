@@ -1,41 +1,7 @@
-package com.aueb;
-
-import com.aueb.model.*;
-import com.aueb.model.components.specificComponents.*;
-import com.aueb.model.peripherals.specificPeripherals.Keyboard;
-import com.aueb.model.peripherals.specificPeripherals.Monitor;
-import com.aueb.model.peripherals.specificPeripherals.Mouse;
-import com.aueb.model.peripherals.specificPeripherals.Printer;
-
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import static com.aueb.model.Order.DEFAULT_DATE_OF_ORDER;
-import static com.aueb.model.components.specificComponents.Cpu.AMD;
-import static com.aueb.model.components.specificComponents.Cpu.CRUCIAL;
-import static com.aueb.model.components.specificComponents.Cpu.HP;
-import static com.aueb.model.components.specificComponents.Cpu.INTEL;
-import static com.aueb.model.components.specificComponents.Cpu.LG;
-import static com.aueb.model.components.specificComponents.Cpu.LOGITECH;
-import static com.aueb.model.components.specificComponents.Cpu.RAZER;
-import static com.aueb.model.components.specificComponents.Cpu.SAMSUNG;
-import static com.aueb.model.components.specificComponents.Cpu.SEAGATE;
-import static com.aueb.model.components.specificComponents.Cpu.VENGEANCE;
-import static com.aueb.model.components.specificComponents.Cpu.YEAR_2018;
-import static com.aueb.model.components.specificComponents.Cpu.YEAR_2019;
-import static com.aueb.model.components.specificComponents.Cpu.YEAR_2020;
-import static com.aueb.model.components.specificComponents.Cpu.YEAR_2021;
-import static com.aueb.model.components.specificComponents.Cpu.YEAR_2022;
-import static com.aueb.model.components.specificComponents.Cpu.*;
-import static com.aueb.model.components.specificComponents.GraphicsCard.*;
-import static com.aueb.model.components.specificComponents.HardDrive.*;
-import static com.aueb.model.components.specificComponents.Motherboard.*;
-import static com.aueb.model.components.specificComponents.Ram.*;
-import static com.aueb.model.peripherals.specificPeripherals.Monitor.*;
-import static com.aueb.model.peripherals.specificPeripherals.Mouse.*;
-import static com.aueb.model.peripherals.specificPeripherals.Printer.*;
-
-public class Main {
+public class mainApp {
 
     // Beginning of the application
     public static final Shop shop = new Shop();
@@ -43,11 +9,11 @@ public class Main {
     public static void main(String[] args) {
 
         // initializing product catalog
-        GraphicsCard graphicsCard01 = new GraphicsCard(2019, AMD, 270.0, GraphicsCard.AMD, MEM8);
-        Motherboard motherboard01 = new Motherboard(2018, SAMSUNG, 270.0, TYPE_INTEL, MEM32, SATA4);
-        Ram ram01 = new Ram(2021, VENGEANCE, 269.0, DDR3, SIZE4, FREQUENCY1600);
-        HardDrive hardDrive01 = new HardDrive(2022, SAMSUNG, 278.0, HDD, DRIVE_SIZE18, CAPACITY256);
-        Cpu cpu01 = new Cpu(Cpu.NAME, YEAR_2018, INTEL, 600, SPEED28, CORES6, true);
+        GraphicsCard graphicsCard01 = new GraphicsCard(2019, Product.AMD, 270.0, GraphicsCard.AMD, GraphicsCard.MEM8);
+        Motherboard motherboard01 = new Motherboard(2018, Product.SAMSUNG, 270.0, Motherboard.TYPE_INTEL, Motherboard.MEM32, Motherboard.SATA4);
+        Ram ram01 = new Ram(2021, Product.VENGEANCE, 269.0, Ram.DDR3, Ram.SIZE4, Ram.FREQUENCY1600);
+        HardDrive hardDrive01 = new HardDrive(2022, Product.SAMSUNG, 278.0, HardDrive.HDD, HardDrive.DRIVE_SIZE18, HardDrive.CAPACITY256);
+        Cpu cpu01 = new Cpu(Cpu.NAME, Product.YEAR_2018, Product.INTEL, 600, Cpu.SPEED28, Cpu.CORES6, true);
 
         shop.storeProduct(motherboard01);
         shop.storeProduct(cpu01);
@@ -211,15 +177,15 @@ public class Main {
     private static String ramManufacturerChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the ram Manufacturer:");
-            System.out.println("0. " + VENGEANCE);
-            System.out.println("1. " + CRUCIAL);
+            System.out.println("0. " + Product.VENGEANCE);
+            System.out.println("1. " + Product.CRUCIAL);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return VENGEANCE;
+                    return Product.VENGEANCE;
                 case "1":
-                    return CRUCIAL;
+                    return Product.CRUCIAL;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -230,18 +196,18 @@ public class Main {
     private static String ramFrequencyChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the ram Frequency:");
-            System.out.println("0. " + FREQUENCY1600);
-            System.out.println("1. " + FREQUENCY2666);
-            System.out.println("1. " + FREQUENCY3200);
+            System.out.println("0. " + Ram.FREQUENCY1600);
+            System.out.println("1. " + Ram.FREQUENCY2666);
+            System.out.println("1. " + Ram.FREQUENCY3200);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return FREQUENCY1600;
+                    return Ram.FREQUENCY1600;
                 case "1":
-                    return FREQUENCY2666;
+                    return Ram.FREQUENCY2666;
                 case "2":
-                    return FREQUENCY3200;
+                    return Ram.FREQUENCY3200;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -252,18 +218,18 @@ public class Main {
     private static String ramSizeChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the ram size:");
-            System.out.println("0. " + SIZE4);
-            System.out.println("1. " + SIZE8);
-            System.out.println("1. " + SIZE16);
+            System.out.println("0. " + Ram.SIZE4);
+            System.out.println("1. " + Ram.SIZE8);
+            System.out.println("1. " + Ram.SIZE16);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return SIZE4;
+                    return Ram.SIZE4;
                 case "1":
-                    return SIZE8;
+                    return Ram.SIZE8;
                 case "2":
-                    return SIZE16;
+                    return Ram.SIZE16;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -274,18 +240,18 @@ public class Main {
     private static String ramTypeChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the ram Type:");
-            System.out.println("0. " + DDR3);
-            System.out.println("1. " + DDR4);
-            System.out.println("1. " + DDR5);
+            System.out.println("0. " + Ram.DDR3);
+            System.out.println("1. " + Ram.DDR4);
+            System.out.println("1. " + Ram.DDR5);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return DDR3;
+                    return Ram.DDR3;
                 case "1":
-                    return DDR4;
+                    return Ram.DDR4;
                 case "2":
-                    return DDR5;
+                    return Ram.DDR5;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -311,18 +277,18 @@ public class Main {
     private static String numOfPortsSataTypeChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the num Of Ports Sata Type:");
-            System.out.println("0. " + SATA4);
-            System.out.println("1. " + SATA6);
-            System.out.println("1. " + SATA8);
+            System.out.println("0. " + Motherboard.SATA4);
+            System.out.println("1. " + Motherboard.SATA6);
+            System.out.println("1. " + Motherboard.SATA8);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return SATA4;
+                    return Motherboard.SATA4;
                 case "1":
-                    return SATA6;
+                    return Motherboard.SATA6;
                 case "2":
-                    return SATA8;
+                    return Motherboard.SATA8;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -333,18 +299,18 @@ public class Main {
     private static String memoryTypeChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the memory Type:");
-            System.out.println("0. " + MEM32);
-            System.out.println("1. " + MEM64);
-            System.out.println("1. " + MEM128);
+            System.out.println("0. " + Motherboard.MEM32);
+            System.out.println("1. " + Motherboard.MEM64);
+            System.out.println("1. " + Motherboard.MEM128);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return MEM32;
+                    return Motherboard.MEM32;
                 case "1":
-                    return MEM64;
+                    return Motherboard.MEM64;
                 case "2":
-                    return MEM128;
+                    return Motherboard.MEM128;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -355,15 +321,15 @@ public class Main {
     private static String processorTypeChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the processor Type:");
-            System.out.println("0. " + TYPE_INTEL);
-            System.out.println("1. " + TYPE_AMD);
+            System.out.println("0. " + Motherboard.TYPE_INTEL);
+            System.out.println("1. " + Motherboard.TYPE_AMD);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return TYPE_INTEL;
+                    return Motherboard.TYPE_INTEL;
                 case "1":
-                    return TYPE_AMD;
+                    return Motherboard.TYPE_AMD;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -390,15 +356,15 @@ public class Main {
     private static String hardDriveManufacturerChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the hardDrive Manufacturer:");
-            System.out.println("0. " + SAMSUNG);
-            System.out.println("1. " + SEAGATE);
+            System.out.println("0. " + Product.SAMSUNG);
+            System.out.println("1. " + Product.SEAGATE);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return SAMSUNG;
+                    return Product.SAMSUNG;
                 case "1":
-                    return SEAGATE;
+                    return Product.SEAGATE;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -409,21 +375,21 @@ public class Main {
     private static String driveCapacityChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the drive Capacity:");
-            System.out.println("0. " + CAPACITY256);
-            System.out.println("1. " + CAPACITY512);
-            System.out.println("2. " + CAPACITY_1TB);
-            System.out.println("3. " + CAPACITY_2TB);
+            System.out.println("0. " + HardDrive.CAPACITY256);
+            System.out.println("1. " + HardDrive.CAPACITY512);
+            System.out.println("2. " + HardDrive.CAPACITY_1TB);
+            System.out.println("3. " + HardDrive.CAPACITY_2TB);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return CAPACITY256;
+                    return HardDrive.CAPACITY256;
                 case "1":
-                    return CAPACITY512;
+                    return HardDrive.CAPACITY512;
                 case "2":
-                    return CAPACITY_1TB;
+                    return HardDrive.CAPACITY_1TB;
                 case "3":
-                    return CAPACITY_2TB;
+                    return HardDrive.CAPACITY_2TB;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -434,18 +400,18 @@ public class Main {
     private static String driveSizeChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the drive Size:");
-            System.out.println("0. " + DRIVE_SIZE18);
-            System.out.println("1. " + DRIVE_SIZE25);
-            System.out.println("2. " + DRIVE_SIZE35);
+            System.out.println("0. " + HardDrive.DRIVE_SIZE18);
+            System.out.println("1. " + HardDrive.DRIVE_SIZE25);
+            System.out.println("2. " + HardDrive.DRIVE_SIZE35);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return DRIVE_SIZE18;
+                    return HardDrive.DRIVE_SIZE18;
                 case "1":
-                    return DRIVE_SIZE25;
+                    return HardDrive.DRIVE_SIZE25;
                 case "2":
-                    return DRIVE_SIZE35;
+                    return HardDrive.DRIVE_SIZE35;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -456,15 +422,15 @@ public class Main {
     private static String driveTypeChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the drive Type:");
-            System.out.println("0. " + HDD);
-            System.out.println("1. " + SSD);
+            System.out.println("0. " + HardDrive.HDD);
+            System.out.println("1. " + HardDrive.SSD);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return HDD;
+                    return HardDrive.HDD;
                 case "1":
-                    return SSD;
+                    return HardDrive.SSD;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -508,18 +474,18 @@ public class Main {
     private static String cardMemoryChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the Memory:");
-            System.out.println("0. " + MEM6);
-            System.out.println("1. " + MEM8);
-            System.out.println("2. " + MEM12);
+            System.out.println("0. " + GraphicsCard.MEM6);
+            System.out.println("1. " + GraphicsCard.MEM8);
+            System.out.println("2. " + GraphicsCard.MEM12);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return MEM6;
+                    return GraphicsCard.MEM6;
                 case "1":
-                    return MEM8;
+                    return GraphicsCard.MEM8;
                 case "2":
-                    return MEM12;
+                    return GraphicsCard.MEM12;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -530,15 +496,15 @@ public class Main {
     private static String chipsetChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the chipset:");
-            System.out.println("0. " + NVIDIA);
-            System.out.println("1. " + AMD);
+            System.out.println("0. " + GraphicsCard.NVIDIA);
+            System.out.println("1. " + GraphicsCard.AMD);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return NVIDIA;
+                    return GraphicsCard.NVIDIA;
                 case "1":
-                    return AMD;
+                    return GraphicsCard.AMD;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -600,13 +566,13 @@ public class Main {
             System.out.println("Day:");
             int day = Integer.parseInt(in.nextLine());
 
-            LocalDate selectedDate = DEFAULT_DATE_OF_ORDER;
+            LocalDate selectedDate = Order.DEFAULT_DATE_OF_ORDER;
             try {
                 selectedDate = LocalDate.of(year, month, day);
             } catch (Exception e) {
             }
 
-            if (selectedDate.isAfter(DEFAULT_DATE_OF_ORDER)) {
+            if (selectedDate.isAfter(Order.DEFAULT_DATE_OF_ORDER)) {
                 return selectedDate;
             } else {
                 System.out.println("Invalid date. Must be after 11-05-2022. Please select another day!");
@@ -668,15 +634,15 @@ public class Main {
     private static String cpuManufacturerChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the manufacturer:");
-            System.out.println("0. " + INTEL);
-            System.out.println("1. " + AMD);
+            System.out.println("0. " + Product.INTEL);
+            System.out.println("1. " + Product.AMD);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return INTEL;
+                    return Product.INTEL;
                 case "1":
-                    return AMD;
+                    return Product.AMD;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -697,15 +663,15 @@ public class Main {
             String selectedChoiceOfYear = in.nextLine();
             switch (selectedChoiceOfYear) {
                 case "0":
-                    return YEAR_2018;
+                    return Product.YEAR_2018;
                 case "1":
-                    return YEAR_2019;
+                    return Product.YEAR_2019;
                 case "2":
-                    return YEAR_2020;
+                    return Product.YEAR_2020;
                 case "3":
-                    return YEAR_2021;
+                    return Product.YEAR_2021;
                 case "4":
-                    return YEAR_2022;
+                    return Product.YEAR_2022;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1 2 3 4");
             }
@@ -735,20 +701,20 @@ public class Main {
     private static String cpuNumberOfCoresChoice(Scanner in) {
         while (true) {
             System.out.println("Please select CPU number of cores:");
-            System.out.println("0. " + CORES6);
-            System.out.println("1. " + CORES8);
-            System.out.println("2. " + CORES16);
+            System.out.println("0. " + Cpu.CORES6);
+            System.out.println("1. " + Cpu.CORES8);
+            System.out.println("2. " + Cpu.CORES16);
             String selectedChoiceOfNbOfCores = in.nextLine();
             switch (selectedChoiceOfNbOfCores) {
                 case "0":
-                    System.out.println("You've selected " + CORES6);
-                    return CORES6;
+                    System.out.println("You've selected " + Cpu.CORES6);
+                    return Cpu.CORES6;
                 case "1":
-                    System.out.println("You've selected " + CORES8);
-                    return CORES8;
+                    System.out.println("You've selected " + Cpu.CORES8);
+                    return Cpu.CORES8;
                 case "2":
-                    System.out.println("You've selected " + CORES16);
-                    return CORES16;
+                    System.out.println("You've selected " + Cpu.CORES16);
+                    return Cpu.CORES16;
                 default:
                     System.out.println("Your input is invalid. Please select either 0, 1, 2");
             }
@@ -760,22 +726,22 @@ public class Main {
 
             System.out.println("Selected Cpu");
             System.out.println("Please select CPU speed:");
-            System.out.println("0. " + SPEED28);
-            System.out.println("1. " + SPEED33);
-            System.out.println("2. " + SPEED41);
+            System.out.println("0. " + Cpu.SPEED28);
+            System.out.println("1. " + Cpu.SPEED33);
+            System.out.println("2. " + Cpu.SPEED41);
 
 
             String selectedChoiceOfCpuSpeed = in.nextLine();
             switch (selectedChoiceOfCpuSpeed) {
                 case "0":
-                    System.out.println("You've selected " + SPEED28);
-                    return SPEED28;
+                    System.out.println("You've selected " + Cpu.SPEED28);
+                    return Cpu.SPEED28;
                 case "1":
-                    System.out.println("You've selected " + SPEED33);
-                    return SPEED33;
+                    System.out.println("You've selected " + Cpu.SPEED33);
+                    return Cpu.SPEED33;
                 case "2":
-                    System.out.println("You've selected " + SPEED41);
-                    return SPEED41;
+                    System.out.println("You've selected " + Cpu.SPEED41);
+                    return Cpu.SPEED41;
                 default:
                     System.out.println("Your input is invalid. Please select either 0, 1, 2");
 
@@ -837,15 +803,15 @@ public class Main {
     private static String printTypeChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the printer type:");
-            System.out.println("0. " + COLORED);
-            System.out.println("1. " + BLACK_WHITE);
+            System.out.println("0. " + Printer.COLORED);
+            System.out.println("1. " + Printer.BLACK_WHITE);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return COLORED;
+                    return Printer.COLORED;
                 case "1":
-                    return BLACK_WHITE;
+                    return Printer.BLACK_WHITE;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -856,15 +822,15 @@ public class Main {
     private static String printerTechChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the printer Tech:");
-            System.out.println("0. " + LASER);
-            System.out.println("1. " + INKJET);
+            System.out.println("0. " + Printer.LASER);
+            System.out.println("1. " + Printer.INKJET);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return LASER;
+                    return Printer.LASER;
                 case "1":
-                    return INKJET;
+                    return Printer.INKJET;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -875,15 +841,15 @@ public class Main {
     private static String printerManufacturerChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the printer Manufacturer:");
-            System.out.println("0. " + HP);
-            System.out.println("1. " + SAMSUNG);
+            System.out.println("0. " + Printer.HP);
+            System.out.println("1. " + Printer.SAMSUNG);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return HP;
+                    return Printer.HP;
                 case "1":
-                    return SAMSUNG;
+                    return Printer.SAMSUNG;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -909,15 +875,15 @@ public class Main {
     private static String mouseConnectChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the mouse Connection:");
-            System.out.println("0. " + WIRED);
-            System.out.println("1. " + WIRELESS);
+            System.out.println("0. " + Mouse.WIRED);
+            System.out.println("1. " + Mouse.WIRELESS);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return WIRED;
+                    return Mouse.WIRED;
                 case "1":
-                    return WIRELESS;
+                    return Mouse.WIRELESS;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -928,15 +894,15 @@ public class Main {
     private static String mouseTechChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the mouse Tech:");
-            System.out.println("0. " + LASER);
-            System.out.println("1. " + OPTICAL);
+            System.out.println("0. " + Mouse.LASER);
+            System.out.println("1. " + Mouse.OPTICAL);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return LASER;
+                    return Mouse.LASER;
                 case "1":
-                    return OPTICAL;
+                    return Mouse.OPTICAL;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -947,15 +913,15 @@ public class Main {
     private static String mouseManufacturerChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the mouse Manufacturer:");
-            System.out.println("0. " + LOGITECH);
-            System.out.println("1. " + SAMSUNG);
+            System.out.println("0. " + Product.LOGITECH);
+            System.out.println("1. " + Product.SAMSUNG);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return LOGITECH;
+                    return Product.LOGITECH;
                 case "1":
-                    return SAMSUNG;
+                    return Product.SAMSUNG;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -983,20 +949,20 @@ public class Main {
     private static String monitorPortChoice(Scanner in) {
         while (true) {
             System.out.println("Please select monitor Port:");
-            System.out.println("0. " + PORT1);
-            System.out.println("1. " + PORT2);
-            System.out.println("2. " + PORT3);
+            System.out.println("0. " + Monitor.PORT1);
+            System.out.println("1. " + Monitor.PORT2);
+            System.out.println("2. " + Monitor.PORT3);
             String selectedChoiceOfNbOfCores = in.nextLine();
             switch (selectedChoiceOfNbOfCores) {
                 case "0":
-                    System.out.println("You've selected " + PORT1);
-                    return PORT1;
+                    System.out.println("You've selected " + Monitor.PORT1);
+                    return Monitor.PORT1;
                 case "1":
-                    System.out.println("You've selected " + PORT2);
-                    return PORT2;
+                    System.out.println("You've selected " + Monitor.PORT2);
+                    return Monitor.PORT2;
                 case "2":
-                    System.out.println("You've selected " + PORT3);
-                    return PORT3;
+                    System.out.println("You've selected " + Monitor.PORT3);
+                    return Monitor.PORT3;
                 default:
                     System.out.println("Your input is invalid. Please select either 0, 1, 2");
             }
@@ -1006,15 +972,15 @@ public class Main {
     private static String monitorResolutionChoice(Scanner in) {
         while (true) {
             System.out.println("Please select monitor Resolution:");
-            System.out.println("0. " + RESOLUTION1);
-            System.out.println("1. " + RESOLUTION2);
+            System.out.println("0. " + Monitor.RESOLUTION1);
+            System.out.println("1. " + Monitor.RESOLUTION2);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return RESOLUTION1;
+                    return Monitor.RESOLUTION1;
                 case "1":
-                    return RESOLUTION2;
+                    return Monitor.RESOLUTION2;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -1025,15 +991,15 @@ public class Main {
     private static String monitorDimensionsChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the monitor Dimensions :");
-            System.out.println("0. " + DIMENSION17);
-            System.out.println("1. " + DIMENSION24);
+            System.out.println("0. " + Monitor.DIMENSION17);
+            System.out.println("1. " + Monitor.DIMENSION24);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return DIMENSION17;
+                    return Monitor.DIMENSION17;
                 case "1":
-                    return DIMENSION24;
+                    return Monitor.DIMENSION24;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -1044,18 +1010,18 @@ public class Main {
     private static String monitorTypeChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the monitor Type:");
-            System.out.println("0. " + MONITOR);
-            System.out.println("1. " + PORTABLE_MONITOR);
-            System.out.println("2. " + TV_MONITOR);
+            System.out.println("0. " + Monitor.MONITOR);
+            System.out.println("1. " + Monitor.PORTABLE_MONITOR);
+            System.out.println("2. " + Monitor.TV_MONITOR);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return MONITOR;
+                    return Monitor.MONITOR;
                 case "1":
-                    return PORTABLE_MONITOR;
+                    return Monitor.PORTABLE_MONITOR;
                 case "2":
-                    return TV_MONITOR;
+                    return Monitor.TV_MONITOR;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -1066,15 +1032,15 @@ public class Main {
     private static String monitorManufacturerChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the monitor Manufacturer:");
-            System.out.println("0. " + SAMSUNG);
-            System.out.println("1. " + LG);
+            System.out.println("0. " + Product.SAMSUNG);
+            System.out.println("1. " + Product.LG);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return SAMSUNG;
+                    return Product.SAMSUNG;
                 case "1":
-                    return LG;
+                    return Product.LG;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -1099,15 +1065,15 @@ public class Main {
     private static String keyboardConnectChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the keyboard Connection:");
-            System.out.println("0. " + WIRED);
-            System.out.println("1. " + WIRELESS);
+            System.out.println("0. " + Keyboard.WIRED);
+            System.out.println("1. " + Keyboard.WIRELESS);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return WIRED;
+                    return Keyboard.WIRED;
                 case "1":
-                    return WIRELESS;
+                    return Keyboard.WIRELESS;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
@@ -1118,15 +1084,15 @@ public class Main {
     private static String keyboardManufacturerChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the keyboard Connection:");
-            System.out.println("0. " + LOGITECH);
-            System.out.println("1. " + RAZER);
+            System.out.println("0. " + Product.LOGITECH);
+            System.out.println("1. " + Product.RAZER);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
                 case "0":
-                    return LOGITECH;
+                    return Product.LOGITECH;
                 case "1":
-                    return RAZER;
+                    return Product.RAZER;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
