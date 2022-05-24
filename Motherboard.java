@@ -1,6 +1,9 @@
 
 
 public class Motherboard extends ComputerComponent {
+
+    // Constants
+
     public static final String NAME = "Motherboard";
     public static final String TYPE_INTEL = "TYPE_INTEL";
     public static final String TYPE_AMD = "TYPE_AMD";
@@ -15,6 +18,8 @@ public class Motherboard extends ComputerComponent {
     static String numOfPortsSataType;
     static int numOfMotherboards = 0;
 
+    //Constructors for Motherboard
+
     public Motherboard() {
         super(NAME);
         setProcessorType("");
@@ -27,7 +32,6 @@ public class Motherboard extends ComputerComponent {
         super(modelName, modelYear, modelManufacturer, modelPrice);
     }
 
-    //Compare products of Motherboard
 
     public Motherboard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String processorType, String memoryType, String numOfPortsSataType) {
         super(modelName, modelYear, modelManufacturer, modelPrice);
@@ -71,26 +75,14 @@ public class Motherboard extends ComputerComponent {
         numOfMotherboards++;
     }
 
+    //Getters and Setters for Motherboard
+
     public static int getNumOfMotherboards() {
         return numOfMotherboards;
     }
 
     public static void setNumOfMotherboards(int numOfMotherboards) {
         Motherboard.numOfMotherboards = numOfMotherboards;
-    }
-
-    public boolean sameProductAs(Product obj) {
-        try {
-            Motherboard newObj = (Motherboard) obj;
-            return (newObj.getProcessorType().equals(this.getProcessorType()))
-                    && (newObj.getMemoryType().equals(this.getMemoryType()))
-                    && (newObj.getNumOfPortsSataType().equals(this.getNumOfPortsSataType()))
-                    && (newObj.getModelName().equals(this.getModelName()))
-                    && (newObj.getModelYear() == this.getModelYear())
-                    && (newObj.getModelManufacturer().equals(this.getModelManufacturer()));
-        } catch (Exception ignored) {
-            return false;
-        }
     }
 
     public String getProcessorType() {
@@ -133,6 +125,22 @@ public class Motherboard extends ComputerComponent {
             numOfPortsSataType = SATA6;
         else
             numOfPortsSataType = SATA8;
+    }
+
+    //Method for comparing two objects using its characteristics
+
+    public boolean sameProductAs(Product obj) {
+        try {
+            Motherboard newObj = (Motherboard) obj;
+            return (newObj.getProcessorType().equals(this.getProcessorType()))
+                    && (newObj.getMemoryType().equals(this.getMemoryType()))
+                    && (newObj.getNumOfPortsSataType().equals(this.getNumOfPortsSataType()))
+                    && (newObj.getModelName().equals(this.getModelName()))
+                    && (newObj.getModelYear() == this.getModelYear())
+                    && (newObj.getModelManufacturer().equals(this.getModelManufacturer()));
+        } catch (Exception ignored) {
+            return false;
+        }
     }
 
     public String toString() {

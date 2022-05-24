@@ -198,7 +198,7 @@ public class mainApp {
             System.out.println("Please select the ram Frequency:");
             System.out.println("0. " + Ram.FREQUENCY1600);
             System.out.println("1. " + Ram.FREQUENCY2666);
-            System.out.println("1. " + Ram.FREQUENCY3200);
+            System.out.println("2. " + Ram.FREQUENCY3200);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
@@ -220,7 +220,7 @@ public class mainApp {
             System.out.println("Please select the ram size:");
             System.out.println("0. " + Ram.SIZE4);
             System.out.println("1. " + Ram.SIZE8);
-            System.out.println("1. " + Ram.SIZE16);
+            System.out.println("2. " + Ram.SIZE16);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
@@ -242,7 +242,7 @@ public class mainApp {
             System.out.println("Please select the ram Type:");
             System.out.println("0. " + Ram.DDR3);
             System.out.println("1. " + Ram.DDR4);
-            System.out.println("1. " + Ram.DDR5);
+            System.out.println("2. " + Ram.DDR5);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
@@ -279,7 +279,7 @@ public class mainApp {
             System.out.println("Please select the num Of Ports Sata Type:");
             System.out.println("0. " + Motherboard.SATA4);
             System.out.println("1. " + Motherboard.SATA6);
-            System.out.println("1. " + Motherboard.SATA8);
+            System.out.println("2. " + Motherboard.SATA8);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
@@ -301,7 +301,7 @@ public class mainApp {
             System.out.println("Please select the memory Type:");
             System.out.println("0. " + Motherboard.MEM32);
             System.out.println("1. " + Motherboard.MEM64);
-            System.out.println("1. " + Motherboard.MEM128);
+            System.out.println("2. " + Motherboard.MEM128);
 
             String selectedChoice = in.nextLine();
             switch (selectedChoice) {
@@ -547,6 +547,7 @@ public class mainApp {
         Order order = new Order(product, customer, dateOfArrival, finalPrice);
         shop.addOrder(order);
         System.out.println("Congratulations! You have ordered the product!");
+        System.out.println(order);
     }
 
     private static double calulateFinalPrice(Product product) {

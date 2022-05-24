@@ -15,6 +15,7 @@ public class GraphicsCard extends ComputerComponent {
     private int numOfGraphicsCard = 0;
 
     //Constructors for GraphicsCard
+
     public GraphicsCard() {
         super(NAME);
         setChipset("");
@@ -52,6 +53,8 @@ public class GraphicsCard extends ComputerComponent {
         numOfGraphicsCard++;
     }
 
+    //Getters and Setters for GraphicsCard
+
     public String getChipset() {
         return chipset;
     }
@@ -62,13 +65,10 @@ public class GraphicsCard extends ComputerComponent {
         else
             chipset = AMD;
     }
-    //getters for GraphicsCard
 
     public String getCardMemory() {
         return cardMemory;
     }
-
-    //setters for GraphicsCard
 
     public static void setCardMemory(String Type) {
         if (Type.equals(MEM6))
@@ -83,6 +83,8 @@ public class GraphicsCard extends ComputerComponent {
     public String returnStringOfAllProperties() {
         return super.returnStringOfAllProperties() + getChipset() + getCardMemory();
     }
+
+    //Method for comparing two objects using its characteristics
 
     @Override
     public boolean sameProductAs(Product obj) {
@@ -99,6 +101,7 @@ public class GraphicsCard extends ComputerComponent {
     }
 
     // toString method
+
     public String toString() {
         return "\n----------------------------------------------------------------\n"
                 + super.toString()

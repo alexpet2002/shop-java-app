@@ -1,6 +1,9 @@
 
 
 public class Ram extends ComputerComponent {
+
+    // Constants
+
     public static final String NAME = "Ram";
     public static final String DDR3 = "DDR3";
     public static final String DDR4 = "DDR4";
@@ -15,6 +18,8 @@ public class Ram extends ComputerComponent {
     private static String ramType;
     private static String ramSize;
     private static String ramFrequency;
+
+    //Constructors for Ram
 
     public Ram() {
         super(NAME);
@@ -70,6 +75,8 @@ public class Ram extends ComputerComponent {
         numOfRams++;
     }
 
+    //Getters and Setters for Ram
+
     public String getRamType() {
         return ramType;
     }
@@ -113,6 +120,8 @@ public class Ram extends ComputerComponent {
     public String returnStringOfAllProperties() {
         return super.returnStringOfAllProperties() + getRamType() + getRamSize() + getRamFrequency();
     }
+
+    //Method for comparing two objects using its characteristics
 
     @Override
     public boolean sameProductAs(Product obj) {

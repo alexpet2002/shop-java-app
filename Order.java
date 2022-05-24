@@ -3,8 +3,6 @@ import java.time.format.DateTimeFormatter;
 
 public class Order {
     public static final LocalDate DEFAULT_DATE_OF_ORDER = LocalDate.of(2022, 5, 11);
-
-    //TODO: ADD PRIMARY KEY
     static int nextOrderNum = 0;
     static DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
@@ -31,7 +29,7 @@ public class Order {
     public String toString() {
         return orderedProduct.toString()
                 + "\nCustomer name: " + customer.name + " "
-                + "\nCustomer phoneumber: " + customer.phonenumber + " "
+                + "\nCustomer phone number: " + customer.phonenumber + " "
                 + "\nOrder Number: " + orderNum + " "
                 + "\nDate of the order: " + dateOfOrder.format(myFormatObj) + " "
                 + "\nDate of the arrival: " + dateOfArrival.format(myFormatObj) + " "

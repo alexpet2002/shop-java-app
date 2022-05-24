@@ -1,6 +1,9 @@
 
 
 public class Printer extends ComputerPeripheral {
+
+    // Constants
+
     public static final String NAME = "Printer";
     public static final String LASER = "Laser";
     public static final String INKJET = "Inkjet";
@@ -9,6 +12,8 @@ public class Printer extends ComputerPeripheral {
     private static String printerTech;
     private static String printType;
     private static int numOfPrinters = 0;
+
+    //Constructors for Printer
 
     public Printer() {
         super(NAME);
@@ -43,10 +48,7 @@ public class Printer extends ComputerPeripheral {
         numOfPrinters++;
     }
 
-    @Override
-    public String returnStringOfAllProperties() {
-        return super.returnStringOfAllProperties() + getPrintType() + getPrinterTech();
-    }
+    //Getters and Setters for Printer
 
     public String getPrinterTech() {
         return printerTech;
@@ -71,6 +73,13 @@ public class Printer extends ComputerPeripheral {
     }
 
     @Override
+    public String returnStringOfAllProperties() {
+        return super.returnStringOfAllProperties() + getPrintType() + getPrinterTech();
+    }
+
+    //Method for comparing two objects using its characteristics
+
+    @Override
     public boolean sameProductAs(Product obj) {
         try {
             Printer newObj = (Printer) obj;
@@ -83,6 +92,8 @@ public class Printer extends ComputerPeripheral {
             return false;
         }
     }
+
+    // toString method
 
     public String toString() {
         return "\n----------------------------------------------------------------\n"

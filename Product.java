@@ -20,12 +20,15 @@ public abstract class Product implements Model {
     public static final int YEAR_2021 = 2021;
     public static final int YEAR_2022 = 2022;
 
+    static int nextProductNum = 0;
 
     private String modelName = "modelName";
     private int modelYear = 0;
     private String modelManufacturer = "modelManufacturer";
     private double modelPrice = 0.0;
     private double discount = 0.2;
+
+    int productNum;
 
     protected Product() {
     }
@@ -42,6 +45,8 @@ public abstract class Product implements Model {
     }
 
     public Product(String modelName, int modelYear, String modelManufacturer, double modelPrice, double discount) {
+        Product.nextProductNum++;
+        this.productNum = nextProductNum;
         this.modelName = modelName;
         this.modelYear = modelYear;
         this.modelManufacturer = modelManufacturer;

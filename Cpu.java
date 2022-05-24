@@ -57,12 +57,11 @@ public class Cpu extends ComputerComponent {
         numOfCpus++;
     }
 
-    //Getters for Cpu
+    //Getters and Setters for Cpu
     public String getCpuSpeed() {
         return cpuSpeed;
     }
 
-    //Setters for Cpu
     public static void setCpuSpeed(String Type) {
         if (Type.equals(SPEED28))
             cpuSpeed = SPEED28;
@@ -98,7 +97,7 @@ public class Cpu extends ComputerComponent {
         return super.returnStringOfAllProperties() + getCpuSpeed() + getNumOfCores() + isCpuGraphics();
     }
 
-    //Method for comparing two objects
+    //Method for comparing two objects using its characteristics
     @Override
     public boolean sameProductAs(Product obj) {
         try {

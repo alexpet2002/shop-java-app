@@ -1,6 +1,9 @@
 
 
 public class HardDrive extends ComputerComponent {
+
+    // Constants
+
     public static final String NAME = "HardDrive";
     public static final String HDD = "HDD";
     public static final String SSD = "SSD";
@@ -23,6 +26,8 @@ public class HardDrive extends ComputerComponent {
         setDriveCapacity("");
         numOfHardDrives++;
     }
+
+    //Constructors for HardDrive
 
     public HardDrive(String modelName, int modelYear, String modelManufacturer, double modelPrice, String driveType, String driveSize, String driveCapacity) {
         super(modelName, modelYear, modelManufacturer, modelPrice);
@@ -87,6 +92,8 @@ public class HardDrive extends ComputerComponent {
         return super.returnStringOfAllProperties() + getDriveType() + getDriveSize() + getDriveCapacity();
     }
 
+    //Getters and Setters for HardDrive
+
     public String getDriveType() {
         return driveType;
     }
@@ -126,6 +133,8 @@ public class HardDrive extends ComputerComponent {
             driveCapacity = CAPACITY_2TB;
     }
 
+    //Method for comparing two objects using its characteristics
+
     @Override
     public boolean sameProductAs(Product obj) {
         try {
@@ -141,6 +150,7 @@ public class HardDrive extends ComputerComponent {
         }
     }
 
+    // toString method
     public String toString() {
         return "\n----------------------------------------------------------------\n"
                 + super.toString()

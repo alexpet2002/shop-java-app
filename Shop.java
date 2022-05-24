@@ -5,20 +5,19 @@ import java.util.Map;
 public class Shop {
     static int numOfAvailableProducts = 0;
 
+    //////////////////////////Arraylists///////////////////////////////////////
     private final ArrayList<Product> availableProducts = new ArrayList<Product>();
     private final ArrayList<Order> orders = new ArrayList<Order>();
     private final ArrayList<Sale> sales = new ArrayList<Sale>();
+    //////////////////////////HashMaps///////////////////////////////////////
 
     /* The productNames HashMap contains increment integers as keys and modelNames as values */
-    private final HashMap<Integer, String> productNames = new HashMap<Integer, String>();    // new
+    private final HashMap<Integer, String> productNames = new HashMap<Integer, String>();
 
     /* The productStock HashMap contains modelNames as keys and stock of specific model as values */
-    private final HashMap<String, Integer> productStock = new HashMap<String, Integer>(); // new
+    private final HashMap<String, Integer> productStock = new HashMap<String, Integer>();
 
-    ////////////////////// Methods for HashMap productNames ///////////////////////
-
-    // initialize HashMap ProductNames and put keys(increment number) and values(modelNames) witch exists in products list
-
+    //Methods for orders
     public String displayOrders() {
         return orders.toString();
     }
@@ -27,14 +26,20 @@ public class Shop {
         return Order.nextOrderNum;
     }
 
-    public String displaySales() {
-        return sales.toString();
-    }
-
     public void addOrder(Order order) {
         orders.add(order);
     }
 
+    //Methods for sales
+    public String displaySales() {
+        return sales.toString();
+    }
+
+    public void addSale(Sale sale) {
+        sales.add(sale);
+    }
+
+    //Methods for Stock
     public String displayTotalStock() {
         return availableProducts.toString();
     }
@@ -43,6 +48,7 @@ public class Shop {
         ArrayList<Product> arrayList = (ArrayList<Product>) availableProducts.clone();
         HashMap<Product, Integer> hashMap = new HashMap<Product, Integer>();
 
+        //Method that counts the occurence of a product in the arraylist of availableProducts
 
         for (Product p : availableProducts) {
             int count = (int) arrayList.stream().filter(product -> p.sameProductAs(product)).count();
@@ -61,10 +67,7 @@ public class Shop {
 
     }
 
-    public void addSale(Sale sale) {
-        sales.add(sale);
-    }
-
+    //TODO REMOVE UNNECESSARY METHODS
     public void setProductNames(ArrayList<Product> products) {
         int i = 0;
         for (Product product : products) {

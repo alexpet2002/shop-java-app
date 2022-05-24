@@ -1,9 +1,10 @@
 
 
 public abstract class ComputerComponent extends Product {
-
+    // Component discount
     public static final double COMPONENT_DISCOUNT = 0.25;
 
+    // constructors for ComputerComponent
     protected ComputerComponent() {
     }
 
@@ -15,6 +16,7 @@ public abstract class ComputerComponent extends Product {
         super(modelName, modelYear, modelManufacturer, modelPrice, COMPONENT_DISCOUNT);
     }
 
+    //toString method for Component
     public String toString() {
         return super.toString();
     }

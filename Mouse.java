@@ -1,6 +1,9 @@
 
 
 public class Mouse extends ComputerPeripheral {
+
+    // Constants
+
     public static final String NAME = "Mouse";
     public static final String OPTICAL = "Optical";
     public static final String WIRED = "Wired";
@@ -9,6 +12,8 @@ public class Mouse extends ComputerPeripheral {
     private static String mouseTech;
     private static String mouseConnect;
     private static int numOfMice = 0;
+
+    //Constructors for Mouse
 
     public Mouse() {
         super(NAME);
@@ -43,6 +48,8 @@ public class Mouse extends ComputerPeripheral {
         numOfMice++;
     }
 
+    //Getters and Setters for Mouse
+
     public String getMouseTech() {
         return mouseTech;
     }
@@ -70,6 +77,8 @@ public class Mouse extends ComputerPeripheral {
         return super.returnStringOfAllProperties() + getMouseTech() + getMouseConnect();
     }
 
+    //Method for comparing two objects using its characteristics
+
     @Override
     public boolean sameProductAs(Product obj) {
         try {
@@ -83,6 +92,8 @@ public class Mouse extends ComputerPeripheral {
             return false;
         }
     }
+
+    // toString method
 
     public String toString() {
         return "\n----------------------------------------------------------------\n"
