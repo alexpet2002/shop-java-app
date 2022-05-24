@@ -1,6 +1,4 @@
-package com.aueb.model.components;
 
-import com.aueb.model.Product;
 
 public abstract class ComputerComponent extends Product {
 
