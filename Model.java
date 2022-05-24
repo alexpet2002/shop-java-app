@@ -8,7 +8,4 @@ public interface Model {
 
     public double getModelPrice();
 
-    //public double getDiscount()
-
-    //public double finalPrice();
 }

@@ -2,11 +2,16 @@
 
 
 public class Keyboard extends ComputerPeripheral {
+
+    // Constants
+
     public static final String NAME = "Keyboard";
     static final String WIRED = "Wired";
     static final String WIRELESS = "Wireless";
     private static String keyboardConnect;
     private static int numOfKeyboards = 0;
+
+    //Constructors for Keyboard
 
     public Keyboard() {
         super(NAME);
@@ -32,6 +37,8 @@ public class Keyboard extends ComputerPeripheral {
         numOfKeyboards++;
     }
 
+    //Getters and Setters for Keyboard
+
     public String getKeyboardConnect() {
         return keyboardConnect;
     }
@@ -48,6 +55,8 @@ public class Keyboard extends ComputerPeripheral {
         return super.returnStringOfAllProperties() + getKeyboardConnect();
     }
 
+    //Method for comparing two objects using its characteristics
+
     @Override
     public boolean sameProductAs(Product obj) {
         try {
@@ -60,6 +69,8 @@ public class Keyboard extends ComputerPeripheral {
             return false;
         }
     }
+
+    // toString method
 
     public String toString() {
         return "\n----------------------------------------------------------------\n"

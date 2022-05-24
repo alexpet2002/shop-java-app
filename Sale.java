@@ -12,6 +12,8 @@ public class Sale {
     LocalDate dateOfSale = DEFAULT_DATE_OF_SALE;
     double finalCost = 0;
 
+    //Constructors for Sale
+
     public Sale() {
     }
 
@@ -39,6 +41,8 @@ public class Sale {
         this.customer = customer;
         this.finalCost = finalCost;
     }
+
+    // toString method
 
     public String toString() {
         return soldProduct.toString()

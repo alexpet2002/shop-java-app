@@ -1,6 +1,9 @@
 
 
 public class Monitor extends ComputerPeripheral {
+
+    // Constants
+
     public static final String NAME = "Monitor";
     public static final String MONITOR = "Monitor";
     public static final String PORTABLE_MONITOR = "Portable Monitor";
@@ -17,6 +20,8 @@ public class Monitor extends ComputerPeripheral {
     private static String monitorDimensions;
     private static String monitorResolution;
     private static String monitorPort;
+
+    //Constructors for Monitor
 
     public Monitor() {
         super(NAME);
@@ -77,6 +82,8 @@ public class Monitor extends ComputerPeripheral {
         numOfMonitors++;
     }
 
+    //Getters and Setters for Monitor
+
     public String getMonitorType() {
         return monitorType;
     }
@@ -130,6 +137,8 @@ public class Monitor extends ComputerPeripheral {
         return super.returnStringOfAllProperties() + getMonitorPort() + getMonitorDimensions() + getMonitorResolution() + getMonitorType();
     }
 
+    //Method for comparing two objects using its characteristics
+
     @Override
     public boolean sameProductAs(Product obj) {
         try {
@@ -145,6 +154,8 @@ public class Monitor extends ComputerPeripheral {
             return false;
         }
     }
+
+    // toString method
 
     public String toString() {
         return "\n----------------------------------------------------------------\n"
