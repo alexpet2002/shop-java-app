@@ -3,8 +3,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Shop {
-    static int numOfAvailableProducts = 0;
-
     //////////////////////////Arraylists///////////////////////////////////////
     private final ArrayList<Product> availableProducts = new ArrayList<Product>();
     private final ArrayList<Order> orders = new ArrayList<Order>();

@@ -459,7 +459,7 @@ public class mainApp {
 
         String modelNameChoice = GraphicsCard.NAME;
         int yearChoice = yearChoice(in);
-        String manufacturerChoice = cpuManufacturerChoice(in);
+        String manufacturerChoice = graphicsCardManufacturerChoice(in);
 
         String chipsetChoice = chipsetChoice(in);
         String cardMemoryChoice = cardMemoryChoice(in);
@@ -468,6 +468,26 @@ public class mainApp {
         graphicsCard.setModelPriceToRandom();
 
         sellOrOrder(in, graphicsCard);
+
+    }
+
+    private static String graphicsCardManufacturerChoice(Scanner in) {
+        while (true) {
+            System.out.println("Please select the manufacturer:");
+            System.out.println("0. " + Product.nVIDIA);
+            System.out.println("1. " + Product.AMD);
+
+            String selectedChoice = in.nextLine();
+            switch (selectedChoice) {
+                case "0":
+                    return Product.nVIDIA;
+                case "1":
+                    return Product.AMD;
+                default:
+                    System.out.println("Your input is invalid. Please select either 0 1");
+            }
+
+        }
 
     }
 
@@ -516,11 +536,12 @@ public class mainApp {
         Product p = shop.findMatchingAvailableProduct(product);
 
         if (p == null) {
-            boolean orderProductChoice = orderProductChoice(in);
+            boolean orderProductChoice = orderProductChoice(in, product);
             if (orderProductChoice) {
                 orderingProduct(in, product);
             }
         } else {
+            decrementStaticsInCaseInstanceIsNotUsed(product);
             boolean sellProductChoice = sellProductChoice(in);
             if (sellProductChoice) {
                 sellingProduct(in, p);
@@ -559,18 +580,20 @@ public class mainApp {
 
     private static LocalDate askArrivalDate(Scanner in) {
         while (true) {
-            System.out.println("Please input the date of the arrival:");
-            System.out.println("Year:");
-            int year = Integer.parseInt(in.nextLine());
-            System.out.println("Month:");
-            int month = Integer.parseInt(in.nextLine());
-            System.out.println("Day:");
-            int day = Integer.parseInt(in.nextLine());
-
             LocalDate selectedDate = Order.DEFAULT_DATE_OF_ORDER;
+
             try {
+                System.out.println("Please input the date of the arrival:");
+                System.out.println("Year:");
+                int year = Integer.parseInt(in.nextLine());
+                System.out.println("Month:");
+                int month = Integer.parseInt(in.nextLine());
+                System.out.println("Day:");
+                int day = Integer.parseInt(in.nextLine());
+
                 selectedDate = LocalDate.of(year, month, day);
-            } catch (Exception e) {
+            } catch (Exception ignored) {
+
             }
 
             if (selectedDate.isAfter(Order.DEFAULT_DATE_OF_ORDER)) {
@@ -594,7 +617,7 @@ public class mainApp {
 
     }
 
-    private static boolean orderProductChoice(Scanner in) {
+    private static boolean orderProductChoice(Scanner in, Product product) {
         while (true) {
             System.out.println("Do you wish to order this product");
             System.out.println("0. yes");
@@ -605,11 +628,35 @@ public class mainApp {
                 case "0":
                     return true;
                 case "1":
+                    decrementStaticsInCaseInstanceIsNotUsed(product);
                     return false;
                 default:
                     System.out.println("Your input is invalid. Please select either 0 1");
             }
 
+        }
+    }
+
+    private static void decrementStaticsInCaseInstanceIsNotUsed(Product product) {
+        Product.nextProductNum--;
+        if (product instanceof Cpu) {
+            Cpu.numOfCpus--;
+        } else if (product instanceof HardDrive) {
+            HardDrive.numOfHardDrives--;
+        } else if (product instanceof GraphicsCard) {
+            GraphicsCard.numOfGraphicsCards--;
+        } else if (product instanceof Printer) {
+            Printer.numOfPrinters--;
+        } else if (product instanceof Ram) {
+            Ram.numOfRams--;
+        } else if (product instanceof Motherboard) {
+            Motherboard.numOfMotherboards--;
+        } else if (product instanceof Mouse) {
+            Mouse.numOfMice--;
+        } else if (product instanceof Monitor) {
+            Monitor.numOfMonitors--;
+        } else if (product instanceof Keyboard) {
+            Keyboard.numOfKeyboards--;
         }
     }
 

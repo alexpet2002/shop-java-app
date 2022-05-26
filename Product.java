@@ -1,4 +1,3 @@
-
 public abstract class Product implements Model {
 
     public static final String INTEL = "Intel";
@@ -21,16 +20,16 @@ public abstract class Product implements Model {
     public static final int YEAR_2022 = 2022;
 
     static int nextProductNum = 0;
-
+    int productNum;
     private String modelName = "modelName";
     private int modelYear = 0;
     private String modelManufacturer = "modelManufacturer";
     private double modelPrice = 0.0;
     private double discount = 0.2;
-
-    int productNum;
+    private int productId;
 
     protected Product() {
+        nextProductNum++;
     }
 
     protected Product(String modelName) {
@@ -42,23 +41,23 @@ public abstract class Product implements Model {
         this.modelYear = modelYear;
         this.modelManufacturer = modelManufacturer;
         this.modelPrice = modelPrice;
+        this.productId = nextProductNum;
+        nextProductNum++;
     }
 
     public Product(String modelName, int modelYear, String modelManufacturer, double modelPrice, double discount) {
-        Product.nextProductNum++;
-        this.productNum = nextProductNum;
         this.modelName = modelName;
         this.modelYear = modelYear;
         this.modelManufacturer = modelManufacturer;
         this.modelPrice = modelPrice;
         this.discount = discount;
+        this.productId = nextProductNum;
+        nextProductNum++;
     }
 
     public static double priceBasedOnName(String model) {
 
-        String str1 = model;
-
-        char[] c = str1.toCharArray();
+        char[] c = model.toCharArray();
         int sum = 0;
         for (int i = 0; i < c.length; i++) {
             if (Character.isDigit(c[i])) {
@@ -72,9 +71,7 @@ public abstract class Product implements Model {
 
     public static int yearBasedOnName(String model) {
 
-        String str1 = model;
-
-        char[] c = str1.toCharArray();
+        char[] c = model.toCharArray();
         int sum = 0;
         for (int i = 0; i < c.length; i++) {
             if (Character.isDigit(c[i])) {
@@ -122,13 +119,13 @@ public abstract class Product implements Model {
         return discount;
     }
 
-    public void setDiscount(double discount) {
-        this.discount = discount;
-    }
-
     public double finalPrice() {
         return modelPrice - (modelPrice * discount);
 
+    }
+
+    public int getProductId() {
+        return productId;
     }
 
     public String returnStringOfAllProperties() {
@@ -147,6 +144,7 @@ public abstract class Product implements Model {
 
     public String toString() {
         return "Model Name:\t\t\t" + getModelName() + " "
+                + "\nModel productId:\t\t\t" + String.format("|%010d|", getProductId()) + " "
                 + "\nModel Year:\t\t\t" + getModelYear() + " "
                 + "\nModel Manufacturer:\t\t" + getModelManufacturer() + " "
                 + "\nModel Price:\t\t\t" + getModelPrice();

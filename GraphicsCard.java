@@ -1,26 +1,23 @@
-
-
 public class GraphicsCard extends ComputerComponent {
 
     // Constants
-
     public static final String NAME = "GraphicsCard";
     public static final String NVIDIA = "nVIDIA";
     public static final String AMD = "AMD";
     public static final String MEM6 = "6";
     public static final String MEM8 = "8";
     public static final String MEM12 = "12";
-    private static String chipset;
-    private static String cardMemory;
-    private int numOfGraphicsCard = 0;
+    static int numOfGraphicsCards = 0;
+    private String chipset;
+    private String cardMemory;
+
 
     //Constructors for GraphicsCard
-
     public GraphicsCard() {
         super(NAME);
         setChipset("");
         setCardMemory("");
-        numOfGraphicsCard++;
+        numOfGraphicsCards++;
     }
 
     public GraphicsCard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String chipset, String cardMemory) {
@@ -35,7 +32,7 @@ public class GraphicsCard extends ComputerComponent {
             setCardMemory(MEM8);
         else
             setCardMemory(MEM12);
-        numOfGraphicsCard++;
+        numOfGraphicsCards++;
     }
 
     public GraphicsCard(int modelYear, String modelManufacturer, double modelPrice, String chipset, String cardMemory) {
@@ -50,16 +47,16 @@ public class GraphicsCard extends ComputerComponent {
             setCardMemory(MEM8);
         else
             setCardMemory(MEM12);
-        numOfGraphicsCard++;
+        numOfGraphicsCards++;
     }
 
-    //Getters and Setters for GraphicsCard
 
+    //Getters and Setters for GraphicsCard
     public String getChipset() {
         return chipset;
     }
 
-    public static void setChipset(String Type) {
+    public void setChipset(String Type) {
         if (Type.equals(NVIDIA))
             chipset = NVIDIA;
         else
@@ -70,7 +67,7 @@ public class GraphicsCard extends ComputerComponent {
         return cardMemory;
     }
 
-    public static void setCardMemory(String Type) {
+    public void setCardMemory(String Type) {
         if (Type.equals(MEM6))
             cardMemory = MEM6;
         else if (Type.equals(MEM8))
@@ -84,8 +81,8 @@ public class GraphicsCard extends ComputerComponent {
         return super.returnStringOfAllProperties() + getChipset() + getCardMemory();
     }
 
-    //Method for comparing two objects using its characteristics
 
+    //Method for comparing two objects using its characteristics
     @Override
     public boolean sameProductAs(Product obj) {
         try {

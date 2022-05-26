@@ -1,5 +1,3 @@
-
-
 public class Ram extends ComputerComponent {
 
     // Constants
@@ -15,9 +13,9 @@ public class Ram extends ComputerComponent {
     public static final String FREQUENCY2666 = "2666";
     public static final String FREQUENCY3200 = "3200";
     static int numOfRams = 0;
-    private static String ramType;
-    private static String ramSize;
-    private static String ramFrequency;
+    private String ramType;
+    private String ramSize;
+    private String ramFrequency;
 
     //Constructors for Ram
 
@@ -81,7 +79,7 @@ public class Ram extends ComputerComponent {
         return ramType;
     }
 
-    public static void setRamType(String Type) {
+    public void setRamType(String Type) {
         if (Type.equals(DDR3))
             ramType = DDR3;
         else if (Type.equals(DDR4))
@@ -94,7 +92,7 @@ public class Ram extends ComputerComponent {
         return ramSize;
     }
 
-    public static void setRamSize(String Type) {
+    public void setRamSize(String Type) {
         if (Type.equals(SIZE4))
             ramSize = SIZE4;
         else if (Type.equals(SIZE8))
@@ -107,7 +105,7 @@ public class Ram extends ComputerComponent {
         return ramFrequency;
     }
 
-    public static void setRamFrequency(String Type) {
+    public void setRamFrequency(String Type) {
         if (Type.equals(FREQUENCY1600))
             ramFrequency = FREQUENCY1600;
         else if (Type.equals(FREQUENCY2666))

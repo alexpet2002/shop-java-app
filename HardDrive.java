@@ -1,5 +1,3 @@
-
-
 public class HardDrive extends ComputerComponent {
 
     // Constants
@@ -14,18 +12,10 @@ public class HardDrive extends ComputerComponent {
     public static final String CAPACITY512 = "512 GB";
     public static final String CAPACITY_1TB = "1 TB";
     public static final String CAPACITY_2TB = "2 TB";
-    private static String driveType;
-    private static String driveSize;
-    private static String driveCapacity;
-    private int numOfHardDrives = 0;
-
-    public HardDrive() {
-        super(NAME);
-        setDriveType("");
-        setDriveSize("");
-        setDriveCapacity("");
-        numOfHardDrives++;
-    }
+    static int numOfHardDrives = 0;
+    private String driveType;
+    private String driveSize;
+    private String driveCapacity;
 
     //Constructors for HardDrive
 
@@ -98,7 +88,7 @@ public class HardDrive extends ComputerComponent {
         return driveType;
     }
 
-    public static void setDriveType(String Type) {
+    public void setDriveType(String Type) {
         if (Type.equals(HDD))
             driveType = HDD;
         else
@@ -109,7 +99,7 @@ public class HardDrive extends ComputerComponent {
         return driveSize;
     }
 
-    public static void setDriveSize(String Type) {
+    public void setDriveSize(String Type) {
         if (Type.equals(DRIVE_SIZE18))
             driveSize = DRIVE_SIZE18;
         else if (Type.equals(DRIVE_SIZE25))
@@ -122,7 +112,7 @@ public class HardDrive extends ComputerComponent {
         return driveCapacity;
     }
 
-    public static void setDriveCapacity(String Type) {
+    public void setDriveCapacity(String Type) {
         if (Type.equals(CAPACITY256))
             driveCapacity = CAPACITY256;
         else if (Type.equals(CAPACITY512))

@@ -1,5 +1,3 @@
-
-
 public class Monitor extends ComputerPeripheral {
 
     // Constants
@@ -16,49 +14,15 @@ public class Monitor extends ComputerPeripheral {
     public static final String PORT2 = "HDMI";
     public static final String PORT3 = "USB-C";
     static int numOfMonitors = 0;
-    private static String monitorType;
-    private static String monitorDimensions;
-    private static String monitorResolution;
-    private static String monitorPort;
+    private String monitorType;
+    private String monitorDimensions;
+    private String monitorResolution;
+    private String monitorPort;
 
     //Constructors for Monitor
 
-    public Monitor() {
-        super(NAME);
-        setMonitorType("");
-        setMonitorDimensions("");
-        setMonitorResolution("");
-        setMonitorPort("");
-        numOfMonitors++;
-    }
-
     public Monitor(String modelName, int modelYear, String modelManufacturer, double modelPrice, String monitorType, String monitorDimensions, String monitorResolution, String monitorPort) {
         super(modelName, modelYear, modelManufacturer, modelPrice);
-        if (monitorType.equals("Monitor"))
-            setMonitorType(MONITOR);
-        else if (monitorType.equals("Portable Monitor"))
-            setMonitorType(PORTABLE_MONITOR);
-        else
-            setMonitorType(TV_MONITOR);
-        if (monitorDimensions.equals("17"))
-            setMonitorDimensions(DIMENSION17);
-        else
-            setMonitorDimensions(DIMENSION24);
-        if (monitorResolution.equals("1920 x 1080"))
-            setMonitorResolution(RESOLUTION1);
-        else
-            setMonitorResolution(RESOLUTION2);
-        if (monitorPort.equals("Display Port"))
-            setMonitorPort(PORT1);
-        else if (monitorPort.equals("HDMI"))
-            setMonitorPort(PORT2);
-        else
-            setMonitorPort(PORT3);
-        numOfMonitors++;
-    }
-
-    public Monitor(int modelYear, String modelManufacturer, double modelPrice, String monitorType, String monitorDimensions, String monitorResolution, String monitorPort) {
-        super(NAME, modelYear, modelManufacturer, modelPrice);
         if (monitorType.equals("Monitor"))
             setMonitorType(MONITOR);
         else if (monitorType.equals("Portable Monitor"))
@@ -88,7 +52,7 @@ public class Monitor extends ComputerPeripheral {
         return monitorType;
     }
 
-    public static void setMonitorType(String Type) {
+    public void setMonitorType(String Type) {
         if (Type.equals(MONITOR))
             monitorType = MONITOR;
         else if (Type.equals(PORTABLE_MONITOR))
@@ -101,7 +65,7 @@ public class Monitor extends ComputerPeripheral {
         return monitorDimensions;
     }
 
-    public static void setMonitorDimensions(String Type) {
+    public void setMonitorDimensions(String Type) {
         if (Type.equals(DIMENSION17))
             monitorDimensions = DIMENSION17;
         else
@@ -112,7 +76,7 @@ public class Monitor extends ComputerPeripheral {
         return monitorResolution;
     }
 
-    public static void setMonitorResolution(String Type) {
+    public void setMonitorResolution(String Type) {
         if (Type.equals(RESOLUTION1))
             monitorResolution = RESOLUTION1;
         else
@@ -123,7 +87,7 @@ public class Monitor extends ComputerPeripheral {
         return monitorPort;
     }
 
-    public static void setMonitorPort(String Type) {
+    public void setMonitorPort(String Type) {
         if (Type.equals(PORT1))
             monitorPort = PORT1;
         else if (Type.equals(PORT2))

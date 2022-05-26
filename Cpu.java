@@ -8,8 +8,8 @@ public class Cpu extends ComputerComponent {
     public static final String CORES8 = "8";
     public static final String CORES16 = "16";
     static int numOfCpus = 0;
-    private static String cpuSpeed;
-    private static String numOfCores;
+    private String numOfCores;
+    private String cpuSpeed;
     private boolean cpuGraphics;
 
     //Constructors for Cpu
@@ -39,30 +39,12 @@ public class Cpu extends ComputerComponent {
         numOfCpus++;
     }
 
-    public Cpu(int modelYear, String modelManufacturer, double modelPrice, String cpuSpeed, String numOfCores, boolean cpuGraphics) {
-        super(NAME, modelYear, modelManufacturer, modelPrice);
-        if (cpuSpeed.equals("2.8"))
-            setCpuSpeed(SPEED28);
-        else if (cpuSpeed.equals("3.3"))
-            setCpuSpeed(SPEED33);
-        else
-            setCpuSpeed(SPEED41);
-        if (numOfCores.equals("6"))
-            setNumOfCores(CORES6);
-        else if (numOfCores.equals("8"))
-            setNumOfCores(CORES8);
-        else
-            setNumOfCores(CORES16);
-        setCpuGraphics(cpuGraphics);
-        numOfCpus++;
-    }
-
     //Getters and Setters for Cpu
     public String getCpuSpeed() {
         return cpuSpeed;
     }
 
-    public static void setCpuSpeed(String Type) {
+    public void setCpuSpeed(String Type) {
         if (Type.equals(SPEED28))
             cpuSpeed = SPEED28;
         else if (Type.equals(SPEED33))
@@ -75,7 +57,7 @@ public class Cpu extends ComputerComponent {
         return numOfCores;
     }
 
-    public static void setNumOfCores(String Type) {
+    public void setNumOfCores(String Type) {
         if (Type.equals(CORES6))
             numOfCores = CORES6;
         else if (Type.equals(CORES8))

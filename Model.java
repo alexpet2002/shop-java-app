@@ -1,11 +1,10 @@
-
 public interface Model {
-    public String getModelName();
+    String getModelName();
 
-    public int getModelYear();
+    int getModelYear();
 
-    public String getModelManufacturer();
+    String getModelManufacturer();
 
-    public double getModelPrice();
+    double getModelPrice();
 
 }

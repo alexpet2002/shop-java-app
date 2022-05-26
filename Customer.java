@@ -1,4 +1,3 @@
-
 public class Customer {
     String name = "Name";
     String phonenumber = "983928932";
