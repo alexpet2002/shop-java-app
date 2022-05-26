@@ -14,25 +14,6 @@ public class Sale {
 
     //Constructors for Sale
 
-    public Sale() {
-    }
-
-    public Sale(Product soldProduct, Customer customer, LocalDate dateOfSale, double finalCost) {
-        Sale.nextSalesNum++;
-        this.salesNum = nextSalesNum;
-        this.soldProduct = soldProduct;
-        this.customer = customer;
-        this.dateOfSale = dateOfSale;
-        this.finalCost = finalCost;
-    }
-
-
-    public Sale(Product soldProduct, Customer customer) {
-        Sale.nextSalesNum++;
-        this.salesNum = nextSalesNum;
-        this.soldProduct = soldProduct;
-        this.customer = customer;
-    }
 
     public Sale(Product soldProduct, Customer customer, double finalCost) {
         Sale.nextSalesNum++;

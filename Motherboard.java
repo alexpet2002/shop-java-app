@@ -1,5 +1,3 @@
-
-
 public class Motherboard extends ComputerComponent {
 
     // Constants
@@ -13,10 +11,10 @@ public class Motherboard extends ComputerComponent {
     public static final String SATA4 = "4";
     public static final String SATA6 = "6";
     public static final String SATA8 = "8";
-    static String processorType;
-    static String memoryType;
-    static String numOfPortsSataType;
     static int numOfMotherboards = 0;
+    private String processorType;
+    private String memoryType;
+    private String numOfPortsSataType;
 
     //Constructors for Motherboard
 
@@ -89,7 +87,7 @@ public class Motherboard extends ComputerComponent {
         return processorType;
     }
 
-    public static void setProcessorType(String Type) {
+    public void setProcessorType(String Type) {
         if (Type.equals(TYPE_INTEL)) {
             processorType = TYPE_INTEL;
         } else
@@ -100,7 +98,7 @@ public class Motherboard extends ComputerComponent {
         return memoryType;
     }
 
-    public static void setMemoryType(String Type) {
+    public void setMemoryType(String Type) {
         if (Type.equals(MEM32))
             memoryType = MEM32;
         else if (Type.equals(MEM64))
@@ -118,7 +116,7 @@ public class Motherboard extends ComputerComponent {
         return numOfPortsSataType;
     }
 
-    public static void setNumOfPortsSataType(String Type) {
+    public void setNumOfPortsSataType(String Type) {
         if (Type.equals(SATA4))
             numOfPortsSataType = SATA4;
         else if (Type.equals(SATA6))

@@ -1,6 +1,3 @@
-
-
-
 public class Keyboard extends ComputerPeripheral {
 
     // Constants
@@ -8,28 +5,13 @@ public class Keyboard extends ComputerPeripheral {
     public static final String NAME = "Keyboard";
     static final String WIRED = "Wired";
     static final String WIRELESS = "Wireless";
-    private static String keyboardConnect;
-    private static int numOfKeyboards = 0;
+    static int numOfKeyboards = 0;
+    private String keyboardConnect;
 
     //Constructors for Keyboard
 
-    public Keyboard() {
-        super(NAME);
-        keyboardConnect = "";
-        numOfKeyboards++;
-    }
-
     public Keyboard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String keyboardConnect) {
         super(modelName, modelYear, modelManufacturer, modelPrice);
-        if (keyboardConnect.equals("Wired"))
-            setKeyboardConnect(WIRED);
-        else
-            setKeyboardConnect(WIRELESS);
-        numOfKeyboards++;
-    }
-
-    public Keyboard(int modelYear, String modelManufacturer, double modelPrice, String keyboardConnect) {
-        super(NAME, modelYear, modelManufacturer, modelPrice);
         if (keyboardConnect.equals("Wired"))
             setKeyboardConnect(WIRED);
         else
@@ -43,7 +25,7 @@ public class Keyboard extends ComputerPeripheral {
         return keyboardConnect;
     }
 
-    public static void setKeyboardConnect(String Type) {
+    public void setKeyboardConnect(String Type) {
         if (Type.equals(WIRED))
             keyboardConnect = WIRED;
         else

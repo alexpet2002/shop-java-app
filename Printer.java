@@ -1,5 +1,3 @@
-
-
 public class Printer extends ComputerPeripheral {
 
     // Constants
@@ -9,34 +7,14 @@ public class Printer extends ComputerPeripheral {
     public static final String INKJET = "Inkjet";
     public static final String COLORED = "Colored";
     public static final String BLACK_WHITE = "Black_and_White";
-    private static String printerTech;
-    private static String printType;
-    private static int numOfPrinters = 0;
+    static int numOfPrinters = 0;
+    private String printerTech;
+    private String printType;
 
     //Constructors for Printer
 
-    public Printer() {
-        super(NAME);
-        printerTech = "";
-        printType = "";
-        numOfPrinters++;
-    }
-
     public Printer(String modelName, int modelYear, String modelManufacturer, double modelPrice, String printerTech, String printType) {
         super(modelName, modelYear, modelManufacturer, modelPrice);
-        if (printerTech.equals("Laser"))
-            setPrinterTech(LASER);
-        else
-            setPrinterTech(INKJET);
-        if (printType.equals("Colored"))
-            setPrintType(COLORED);
-        else
-            setPrintType(BLACK_WHITE);
-        numOfPrinters++;
-    }
-
-    public Printer(int modelYear, String modelManufacturer, double modelPrice, String printerTech, String printType) {
-        super(NAME, modelYear, modelManufacturer, modelPrice);
         if (printerTech.equals("Laser"))
             setPrinterTech(LASER);
         else
@@ -54,7 +32,7 @@ public class Printer extends ComputerPeripheral {
         return printerTech;
     }
 
-    public static void setPrinterTech(String Type) {
+    public void setPrinterTech(String Type) {
         if (Type.equals(LASER))
             printerTech = LASER;
         else
@@ -65,7 +43,7 @@ public class Printer extends ComputerPeripheral {
         return printType;
     }
 
-    public static void setPrintType(String Type) {
+    public void setPrintType(String Type) {
         if (Type.equals(COLORED))
             printType = COLORED;
         else
