@@ -1,5 +1,6 @@
 import java.time.LocalDate;
-import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class mainApp {
 
@@ -9,17 +10,50 @@ public class mainApp {
     public static void main(String[] args) {
 
         // initializing product catalog
+        //Component products
         GraphicsCard graphicsCard01 = new GraphicsCard(2019, Product.AMD, 270.0, GraphicsCard.AMD, GraphicsCard.MEM8);
-        Motherboard motherboard01 = new Motherboard(2018, Product.SAMSUNG, 270.0, Motherboard.TYPE_INTEL, Motherboard.MEM32, Motherboard.SATA4);
-        Ram ram01 = new Ram(2021, Product.VENGEANCE, 269.0, Ram.DDR3, Ram.SIZE4, Ram.FREQUENCY1600);
-        HardDrive hardDrive01 = new HardDrive(2022, Product.SAMSUNG, 278.0, HardDrive.HDD, HardDrive.DRIVE_SIZE18, HardDrive.CAPACITY256);
-        Cpu cpu01 = new Cpu(Cpu.NAME, Product.YEAR_2018, Product.INTEL, 600, Cpu.SPEED28, Cpu.CORES6, true);
+        GraphicsCard graphicsCard02 = new GraphicsCard(2019, Product.AMD, 270.0, GraphicsCard.AMD, GraphicsCard.MEM8);
 
+        Motherboard motherboard01 = new Motherboard(2018, Product.SAMSUNG, 270.0, Motherboard.TYPE_INTEL, Motherboard.MEM32, Motherboard.SATA4);
+        Motherboard motherboard02 = new Motherboard(2022, Product.SEAGATE, 274.0, Motherboard.TYPE_AMD, Motherboard.MEM64, Motherboard.SATA8);
+
+        Ram ram01 = new Ram(2021, Product.VENGEANCE, 269.0, Ram.DDR3, Ram.SIZE4, Ram.FREQUENCY1600);
+        Ram ram02 = new Ram(2022, Product.CRUCIAL, 272.0, Ram.DDR5, Ram.SIZE4, Ram.FREQUENCY1600);
+
+        HardDrive hardDrive01 = new HardDrive(2022, Product.SAMSUNG, 278.0, HardDrive.HDD, HardDrive.DRIVE_SIZE18, HardDrive.CAPACITY256);
+        HardDrive hardDrive02 = new HardDrive(2021, Product.SAMSUNG, 278.0, HardDrive.HDD, HardDrive.DRIVE_SIZE18, HardDrive.CAPACITY_2TB);
+
+        Cpu cpu01 = new Cpu(Cpu.NAME, Product.YEAR_2018, Product.INTEL, 600, Cpu.SPEED28, Cpu.CORES6, true);
+        Cpu cpu02 = new Cpu(Cpu.NAME, Product.YEAR_2018, Product.AMD, 268.0, Cpu.SPEED33, Cpu.CORES16, true);
+        //Peripheral products
+        Keyboard keyboard01 = new Keyboard(Keyboard.NAME,2021, Product.RAZER, 255.0, Keyboard.WIRED);
+        Keyboard keyboard02 = new Keyboard(Keyboard.NAME,2020, Product.RAZER, 254.0, Keyboard.WIRELESS);
+        Monitor monitor01 = new Monitor(Monitor.NAME,2018, Product.SAMSUNG, 292.0,Monitor.MONITOR, Monitor.DIMENSION17, Monitor.RESOLUTION2, Monitor.PORT2);
+        Monitor monitor02 = new Monitor(Monitor.NAME,2018, Product.SAMSUNG, 292.0,Monitor.MONITOR, Monitor.DIMENSION17, Monitor.RESOLUTION2, Monitor.PORT2);
+        Mouse mouse01 = new Mouse( 2019, Mouse.SAMSUNG, 262.0, Mouse.OPTICAL, Mouse.WIRELESS );
+        Mouse mouse02 = new Mouse( 2022, Mouse.LOGITECH, 256.0, Mouse.OPTICAL, Mouse.WIRELESS );
+        Printer printer01 = new Printer(Printer.NAME, 2018, Printer.HP, 261.0,Printer.LASER, Printer.COLORED );
+        Printer printer02 = new Printer(Printer.NAME, 2021, Printer.HP, 255.0, Printer.LASER, Printer.BLACK_WHITE );
+
+        //Adding products to the store
         shop.storeProduct(motherboard01);
+        shop.storeProduct(motherboard02);
         shop.storeProduct(cpu01);
+        shop.storeProduct(cpu02);
         shop.storeProduct(ram01);
+        shop.storeProduct(ram02);
         shop.storeProduct(graphicsCard01);
+        shop.storeProduct(graphicsCard02);
         shop.storeProduct(hardDrive01);
+        shop.storeProduct(hardDrive02);
+        shop.storeProduct(keyboard01);
+        shop.storeProduct(keyboard02);
+        shop.storeProduct(monitor01);
+        shop.storeProduct(monitor02);
+        shop.storeProduct(mouse01);
+        shop.storeProduct(mouse02);
+        shop.storeProduct(printer01);
+        shop.storeProduct(printer02);
 
         // Menu
         // Welcome Screen
@@ -28,7 +62,7 @@ public class mainApp {
         mainLoop(shop, in);
 
     }
-
+    //Main loop
     private static void mainLoop(Shop shop, Scanner in) {
         boolean endOfProgram = false;
 
@@ -65,14 +99,7 @@ public class mainApp {
             }
         }
     }
-
-    private static void productsInStock(Shop shop) {
-        System.out.println("Showing products in Stock");
-        System.out.println("Total amount of products in stock: " + shop.totalAmountOfProductsInStock());
-        shop.displayUniqueStock();
-        System.out.println();
-    }
-
+    //Method for invalid choices
     private static void invalidChoices(int choices) {
         StringBuilder s = new StringBuilder("Your input is invalid. Please select");
         for (int i = 0; i < choices; i++) {
@@ -81,7 +108,7 @@ public class mainApp {
         s.append(".");
         System.out.println(s);
     }
-
+    //Method for ending the program
     private static boolean isEndOfProgram() {
         boolean endOfProgram;
         System.out.println("End of the program!");
@@ -116,6 +143,13 @@ public class mainApp {
                     System.out.println("Your input is invalid. Please select either 0, 1, 2 or 3");
             }
         }
+    }
+
+    private static void productsInStock(Shop shop) {
+        System.out.println("Showing products in Stock");
+        System.out.println("Total amount of products in stock: " + shop.totalAmountOfProductsInStock());
+        shop.displayUniqueStock();
+        System.out.println();
     }
 
     private static void overviewOfComponents(Scanner in) {
@@ -157,7 +191,7 @@ public class mainApp {
             }
         }
     }
-
+    //Choices for Ram
     private static void RamComponent(Scanner in) {
         String modelNameChoice = Ram.NAME;
         int yearChoice = yearChoice(in);
@@ -258,7 +292,7 @@ public class mainApp {
 
         }
     }
-
+    //Choices for Motherboard
     private static void MotherboardComponent(Scanner in) {
         String modelNameChoice = Motherboard.NAME;
         int yearChoice = yearChoice(in);
@@ -352,7 +386,7 @@ public class mainApp {
 
         sellOrOrder(in, hardDrive);
     }
-
+    //Choices for HardDrive
     private static String hardDriveManufacturerChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the hardDrive Manufacturer:");
@@ -558,6 +592,7 @@ public class mainApp {
         shop.addSale(sale);
         shop.removeTheProductFromStock(product);
         System.out.println("Congratulations! You have bought the product!");
+        System.out.println(sale);
     }
 
     private static void orderingProduct(Scanner in, Product product) {
@@ -599,7 +634,7 @@ public class mainApp {
             if (selectedDate.isAfter(Order.DEFAULT_DATE_OF_ORDER)) {
                 return selectedDate;
             } else {
-                System.out.println("Invalid date. Must be after 11-05-2022. Please select another day!");
+                System.out.println("Invalid date. Must be after today's Date. Please select another day!");
             }
 
         }
@@ -637,6 +672,7 @@ public class mainApp {
         }
     }
 
+    // Method for decreasing the number of products in case user chose a product but doesn't want to buy/order it
     private static void decrementStaticsInCaseInstanceIsNotUsed(Product product) {
         Product.nextProductNum--;
         if (product instanceof Cpu) {

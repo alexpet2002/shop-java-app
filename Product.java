@@ -144,7 +144,7 @@ public abstract class Product implements Model {
 
     public String toString() {
         return "Model Name:\t\t\t" + getModelName() + " "
-                + "\nModel productId:\t\t\t" + String.format("|%010d|", getProductId()) + " "
+                + "\nModel productId:\t" + String.format("|%010d|", getProductId()) + " "
                 + "\nModel Year:\t\t\t" + getModelYear() + " "
                 + "\nModel Manufacturer:\t\t" + getModelManufacturer() + " "
                 + "\nModel Price:\t\t\t" + getModelPrice();

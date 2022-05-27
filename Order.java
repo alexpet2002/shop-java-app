@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Order {
-    public static final LocalDate DEFAULT_DATE_OF_ORDER = LocalDate.of(2022, 5, 11);
+    public static final LocalDate DEFAULT_DATE_OF_ORDER = LocalDate.now();
     static int nextOrderNum = 0;
     static DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
@@ -10,9 +10,9 @@ public class Order {
     Product orderedProduct = new Cpu();
     Customer customer = new Customer();
     LocalDate dateOfOrder = DEFAULT_DATE_OF_ORDER;
-    LocalDate dateOfArrival = LocalDate.of(2022, 5, 12);
+    LocalDate dateOfArrival = LocalDate.now();
     double finalCost = 0;
-    OrderStatus status = OrderStatus.EXPECTED;
+    OrderStatus status = OrderStatus.EXECUTED;
 
 
     public Order(Product orderedProduct, Customer customer, LocalDate dateOfArrival, double finalCost) {
