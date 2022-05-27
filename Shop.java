@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Shop {
     //////////////////////////Arraylists///////////////////////////////////////
@@ -9,6 +7,7 @@ public class Shop {
     private final ArrayList<Sale> sales = new ArrayList<Sale>();
     //////////////////////////HashMaps///////////////////////////////////////
 
+    //Hashmaps for future use NOT used in this program
     /* The productNames HashMap contains increment integers as keys and modelNames as values */
     private final HashMap<Integer, String> productNames = new HashMap<Integer, String>();
 
@@ -65,7 +64,8 @@ public class Shop {
 
     }
 
-    //TODO REMOVE UNNECESSARY METHODS
+    //Methods for future use NOT used in this program
+
     public void setProductNames(ArrayList<Product> products) {
         int i = 0;
         for (Product product : products) {
@@ -81,7 +81,8 @@ public class Shop {
 
     ///////////////////// Methods for HashMap productStock /////////////////////////
 
-    // might not be needed
+    //Methods for future use NOT used in this program
+
     public void setProductStock(Product product) {
         if (productStock.containsKey(product.getModelName())) {
             int value = productStock.get(product.getModelName()) + 1;
@@ -97,6 +98,8 @@ public class Shop {
     }
     ///////////////////// Methods for ArrayList products///////////////////////////
 
+    //Methods for future use NOT used in this program
+
     // stores the product to list products
     public void storeProduct(Product product) {
         availableProducts.add(product);
@@ -109,7 +112,9 @@ public class Shop {
             System.out.println("list products at position[" + i++ + "] " + product);
     }
 
-    // search a product in list products
+    //Methods used in this program
+
+    // search for a product in list products
     public void showProduct(int productNumber) {
         if (productNumber >= 0 && productNumber < totalAmountOfProductsInStock())
             System.out.println("[" + productNumber + "] " + availableProducts.get(productNumber));

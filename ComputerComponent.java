@@ -1,5 +1,4 @@
 
-
 public abstract class ComputerComponent extends Product {
     // Component discount
     public static final double COMPONENT_DISCOUNT = 0.25;

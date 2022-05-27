@@ -27,7 +27,7 @@ public class Mouse extends ComputerPeripheral {
         if (mouseTech.equals("Laser")) setMouseTech(LASER);
         else setMouseTech(OPTICAL);
         if (mouseConnect.equals("Wired")) setMouseConnect(WIRED);
-        else setMouseTech(WIRELESS);
+        else setMouseConnect(WIRELESS);
         numOfMice++;
     }
 
@@ -71,6 +71,10 @@ public class Mouse extends ComputerPeripheral {
     // toString method
 
     public String toString() {
-        return "\n----------------------------------------------------------------\n" + super.toString() + "\nMouse Technology:\t\t" + getMouseTech() + "\nMouse Connection:\t\t" + getMouseConnect() + "\n----------------------------------------------------------------";
+        return "\n----------------------------------------------------------------\n"
+                + super.toString()
+                + "\nMouse Technology:\t\t" + getMouseTech()
+                + "\nMouse Connection:\t\t" + getMouseConnect()
+                + "\n----------------------------------------------------------------";
     }
 } //class Mouse
