@@ -1,3 +1,9 @@
+/*
+    Names: ALEKSANDRA PETUKHOVA, AIKATERINI VANTARAKI
+    Student Numbers: 3210229, 3210020
+    Team number: 011
+
+*/
 public class Motherboard extends ComputerComponent {
 
     // Constants
@@ -19,10 +25,6 @@ public class Motherboard extends ComputerComponent {
     //Constructors for Motherboard
 
     public Motherboard() {
-        super(NAME);
-        setProcessorType("");
-        setMemoryType("");
-        setNumOfPortsSataType("");
         numOfMotherboards++;
     }
 
@@ -33,27 +35,6 @@ public class Motherboard extends ComputerComponent {
 
     public Motherboard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String processorType, String memoryType, String numOfPortsSataType) {
         super(modelName, modelYear, modelManufacturer, modelPrice);
-        if (processorType.equals("TYPE_INTEL"))
-            setProcessorType(TYPE_INTEL);
-        else
-            setProcessorType(TYPE_AMD);
-        if (memoryType.equals("32"))
-            setMemoryType(MEM32);
-        else if (memoryType.equals("64"))
-            setMemoryType(MEM64);
-        else
-            setMemoryType(MEM128);
-        if (numOfPortsSataType.equals("4"))
-            setNumOfPortsSataType(SATA4);
-        else if (numOfPortsSataType.equals("6"))
-            setNumOfPortsSataType(SATA6);
-        else
-            setNumOfPortsSataType(SATA8);
-        numOfMotherboards++;
-    }
-
-    public Motherboard(int modelYear, String modelManufacturer, double modelPrice, String processorType, String memoryType, String numOfPortsSataType) {
-        super(NAME, modelYear, modelManufacturer, modelPrice);
         if (processorType.equals("TYPE_INTEL"))
             setProcessorType(TYPE_INTEL);
         else

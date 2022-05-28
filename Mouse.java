@@ -1,3 +1,9 @@
+/*
+    Names: ALEKSANDRA PETUKHOVA, AIKATERINI VANTARAKI
+    Student Numbers: 3210229, 3210020
+    Team number: 011
+
+*/
 public class Mouse extends ComputerPeripheral {
 
     // Constants
@@ -22,12 +28,7 @@ public class Mouse extends ComputerPeripheral {
         numOfMice++;
     }
 
-    public Mouse(int modelYear, String modelManufacturer, double modelPrice, String mouseTech, String mouseConnect) {
-        super(NAME, modelYear, modelManufacturer, modelPrice);
-        if (mouseTech.equals("Laser")) setMouseTech(LASER);
-        else setMouseTech(OPTICAL);
-        if (mouseConnect.equals("Wired")) setMouseConnect(WIRED);
-        else setMouseConnect(WIRELESS);
+    public Mouse() {
         numOfMice++;
     }
 
@@ -62,7 +63,11 @@ public class Mouse extends ComputerPeripheral {
     public boolean sameProductAs(Product obj) {
         try {
             Mouse newObj = (Mouse) obj;
-            return (newObj.getMouseTech().equals(this.getMouseTech())) && (newObj.getMouseConnect().equals(this.getMouseConnect())) && (newObj.getModelName().equals(this.getModelName())) && (newObj.getModelYear() == this.getModelYear()) && (newObj.getModelManufacturer().equals(this.getModelManufacturer()));
+            return (newObj.getMouseTech().equals(this.getMouseTech())) &&
+                    (newObj.getMouseConnect().equals(this.getMouseConnect())) &&
+                    (newObj.getModelName().equals(this.getModelName())) &&
+                    (newObj.getModelYear() == this.getModelYear()) &&
+                    (newObj.getModelManufacturer().equals(this.getModelManufacturer()));
         } catch (Exception exception) {
             return false;
         }

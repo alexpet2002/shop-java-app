@@ -1,3 +1,9 @@
+/*
+    Names: ALEKSANDRA PETUKHOVA, AIKATERINI VANTARAKI
+    Student Numbers: 3210229, 3210020
+    Team number: 011
+
+*/
 public class GraphicsCard extends ComputerComponent {
 
     // Constants
@@ -13,12 +19,6 @@ public class GraphicsCard extends ComputerComponent {
 
 
     //Constructors for GraphicsCard
-    public GraphicsCard() {
-        super(NAME);
-        setChipset("");
-        setCardMemory("");
-        numOfGraphicsCards++;
-    }
 
     public GraphicsCard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String chipset, String cardMemory) {
         super(modelName, modelYear, modelManufacturer, modelPrice);
@@ -35,18 +35,7 @@ public class GraphicsCard extends ComputerComponent {
         numOfGraphicsCards++;
     }
 
-    public GraphicsCard(int modelYear, String modelManufacturer, double modelPrice, String chipset, String cardMemory) {
-        super(NAME, modelYear, modelManufacturer, modelPrice);
-        if (chipset.equals("nVIDIA"))
-            setChipset(NVIDIA);
-        else
-            setChipset(AMD);
-        if (cardMemory.equals("6"))
-            setCardMemory(MEM6);
-        else if (cardMemory.equals("8"))
-            setCardMemory(MEM8);
-        else
-            setCardMemory(MEM12);
+    public GraphicsCard() {
         numOfGraphicsCards++;
     }
 

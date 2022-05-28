@@ -1,3 +1,9 @@
+/*
+    Names: ALEKSANDRA PETUKHOVA, AIKATERINI VANTARAKI
+    Student Numbers: 3210229, 3210020
+    Team number: 011
+
+*/
 public class Cpu extends ComputerComponent {
     // Constants
     public static final String NAME = "Cpu";
@@ -14,10 +20,6 @@ public class Cpu extends ComputerComponent {
 
     //Constructors for Cpu
     public Cpu() {
-        super(NAME);
-        setCpuSpeed("");
-        setNumOfCores("");
-        setCpuGraphics(false);
         numOfCpus++;
     }
 

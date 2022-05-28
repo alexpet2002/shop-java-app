@@ -1,3 +1,9 @@
+/*
+    Names: ALEKSANDRA PETUKHOVA, AIKATERINI VANTARAKI
+    Student Numbers: 3210229, 3210020
+    Team number: 011
+
+*/
 import java.util.*;
 
 public class Shop {
@@ -5,14 +11,6 @@ public class Shop {
     private final ArrayList<Product> availableProducts = new ArrayList<Product>();
     private final ArrayList<Order> orders = new ArrayList<Order>();
     private final ArrayList<Sale> sales = new ArrayList<Sale>();
-    //////////////////////////HashMaps///////////////////////////////////////
-
-    //Hashmaps for future use NOT used in this program
-    /* The productNames HashMap contains increment integers as keys and modelNames as values */
-    private final HashMap<Integer, String> productNames = new HashMap<Integer, String>();
-
-    /* The productStock HashMap contains modelNames as keys and stock of specific model as values */
-    private final HashMap<String, Integer> productStock = new HashMap<String, Integer>();
 
     //Methods for orders
     public String displayOrders() {
@@ -37,10 +35,6 @@ public class Shop {
     }
 
     //Methods for Stock
-    public String displayTotalStock() {
-        return availableProducts.toString();
-    }
-
     public void displayUniqueStock() {
         ArrayList<Product> arrayList = (ArrayList<Product>) availableProducts.clone();
         HashMap<Product, Integer> hashMap = new HashMap<Product, Integer>();
@@ -49,7 +43,12 @@ public class Shop {
 
         for (Product p : availableProducts) {
             int count = (int) arrayList.stream().filter(product -> p.sameProductAs(product)).count();
-            hashMap.put(p, count);
+            if (count !=0){
+                hashMap.put(p, count);
+            }
+            else
+                hashMap.put(p, 1);
+
         }
 
         for (Map.Entry<Product, Integer> entry : hashMap.entrySet()) {
@@ -63,88 +62,15 @@ public class Shop {
 
 
     }
-
-    //Methods for future use NOT used in this program
-
-    public void setProductNames(ArrayList<Product> products) {
-        int i = 0;
-        for (Product product : products) {
-            productNames.put(i, product.getModelName());
-            i++;
-        }
-    }
-
-    // remove from HashMap ProductNames
-    public void removeProductName(Integer number) {
-        productNames.remove(number);
-    }
-
-    ///////////////////// Methods for HashMap productStock /////////////////////////
-
-    //Methods for future use NOT used in this program
-
-    public void setProductStock(Product product) {
-        if (productStock.containsKey(product.getModelName())) {
-            int value = productStock.get(product.getModelName()) + 1;
-            productStock.replace(product.getModelName(), value);
-        } else
-            productStock.put(product.getModelName(), 1);
-    }
-
-    // decrease value of stock
-    public void updateStock(String key, HashMap<String, Integer> stockMap) {
-        int value = stockMap.get(key) - 1;
-        stockMap.replace(key, value);
-    }
     ///////////////////// Methods for ArrayList products///////////////////////////
 
-    //Methods for future use NOT used in this program
 
     // stores the product to list products
     public void storeProduct(Product product) {
         availableProducts.add(product);
     }
 
-    // prints the list of ArrayList<product> products
-    public void showProducts() {
-        int i = 0;
-        for (Product product : availableProducts)
-            System.out.println("list products at position[" + i++ + "] " + product);
-    }
-
-    //Methods used in this program
-
-    // search for a product in list products
-    public void showProduct(int productNumber) {
-        if (productNumber >= 0 && productNumber < totalAmountOfProductsInStock())
-            System.out.println("[" + productNumber + "] " + availableProducts.get(productNumber));
-        else System.out.println("Product not found");
-    }
-
-    // deletes a product from the list product and from the list stock
-    public void removeProduct(int productNumber) {
-        if (productNumber >= 0 && productNumber < totalAmountOfProductsInStock()) {
-            availableProducts.remove(productNumber);
-            //stock.remove(productNumber);
-            System.out.println("Product deleted!");
-        } else System.out.println("Product not found!");
-    }
-
-    // returns the position of a product in list products
-    public int getIndexOfProduct(Product product) {
-        if (availableProducts.contains(product)) {
-            return availableProducts.indexOf(product);
-        }
-        return -1;
-    }
-
-    // returns the product
-    public Product getProduct(int index) {
-        if (index >= 0 && index < availableProducts.size())
-            return availableProducts.get(index);
-        return null;
-    }
-
+    //Checks if the product(created based on user's choice) matches any products in arraylist
     public Product findMatchingAvailableProduct(Product product) {
         for (Product p : availableProducts) {
             if (p.sameProductAs(product)) {

@@ -7,6 +7,7 @@ public abstract class Product implements Model {
     public static final String VENGEANCE = "VENGEANCE";
     public static final String SAMSUNG = "Samsung";
     public static final String LG = "LG";
+
     public static final String HYPERX = "HYPERX";
     public static final String LOGITECH = "LOGITECH";
     public static final String RAZER = "RAZER";
@@ -20,7 +21,6 @@ public abstract class Product implements Model {
     public static final int YEAR_2022 = 2022;
 
     static int nextProductNum = 0;
-    int productNum;
     private String modelName = "modelName";
     private int modelYear = 0;
     private String modelManufacturer = "modelManufacturer";

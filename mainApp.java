@@ -1,6 +1,12 @@
+/*
+    Names: ALEKSANDRA PETUKHOVA, AIKATERINI VANTARAKI
+    Student Numbers: 3210229, 3210020
+    Team number: 011
+
+*/
+
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.Scanner;
 
 public class mainApp {
 
@@ -11,29 +17,32 @@ public class mainApp {
 
         // initializing product catalog
         //Component products
-        GraphicsCard graphicsCard01 = new GraphicsCard(2019, Product.AMD, 270.0, GraphicsCard.AMD, GraphicsCard.MEM8);
-        GraphicsCard graphicsCard02 = new GraphicsCard(2019, Product.AMD, 270.0, GraphicsCard.AMD, GraphicsCard.MEM8);
+        GraphicsCard graphicsCard01 = new GraphicsCard(GraphicsCard.NAME,Product.YEAR_2019, Product.AMD, 270.0, GraphicsCard.AMD, GraphicsCard.MEM8);
+        GraphicsCard graphicsCard02 = new GraphicsCard(GraphicsCard.NAME, Product.YEAR_2019, Product.AMD, 270.0, GraphicsCard.AMD, GraphicsCard.MEM8);
 
-        Motherboard motherboard01 = new Motherboard(2018, Product.SAMSUNG, 270.0, Motherboard.TYPE_INTEL, Motherboard.MEM32, Motherboard.SATA4);
-        Motherboard motherboard02 = new Motherboard(2022, Product.SEAGATE, 274.0, Motherboard.TYPE_AMD, Motherboard.MEM64, Motherboard.SATA8);
+        Motherboard motherboard01 = new Motherboard(Motherboard.NAME,Product.YEAR_2018, Product.SAMSUNG, 270.0, Motherboard.TYPE_INTEL, Motherboard.MEM32, Motherboard.SATA4);
+        Motherboard motherboard02 = new Motherboard(Motherboard.NAME,Product.YEAR_2022, Product.SEAGATE, 274.0, Motherboard.TYPE_AMD, Motherboard.MEM64, Motherboard.SATA8);
 
-        Ram ram01 = new Ram(2021, Product.VENGEANCE, 269.0, Ram.DDR3, Ram.SIZE4, Ram.FREQUENCY1600);
-        Ram ram02 = new Ram(2022, Product.CRUCIAL, 272.0, Ram.DDR5, Ram.SIZE4, Ram.FREQUENCY1600);
+        Ram ram01 = new Ram(Ram.NAME, Product.YEAR_2021, Product.VENGEANCE, 269.0, Ram.DDR3, Ram.SIZE4, Ram.FREQUENCY1600);
+        Ram ram02 = new Ram(Ram.NAME, Product.YEAR_2021, Product.CRUCIAL, 272.0, Ram.DDR5, Ram.SIZE4, Ram.FREQUENCY1600);
 
-        HardDrive hardDrive01 = new HardDrive(2022, Product.SAMSUNG, 278.0, HardDrive.HDD, HardDrive.DRIVE_SIZE18, HardDrive.CAPACITY256);
-        HardDrive hardDrive02 = new HardDrive(2021, Product.SAMSUNG, 278.0, HardDrive.HDD, HardDrive.DRIVE_SIZE18, HardDrive.CAPACITY_2TB);
+        HardDrive hardDrive01 = new HardDrive(HardDrive.NAME, Product.YEAR_2022, Product.SAMSUNG, 278.0, HardDrive.HDD, HardDrive.DRIVE_SIZE18, HardDrive.CAPACITY256);
+        HardDrive hardDrive02 = new HardDrive(HardDrive.NAME, Product.YEAR_2021, Product.SAMSUNG, 278.0, HardDrive.HDD, HardDrive.DRIVE_SIZE18, HardDrive.CAPACITY_2TB);
 
         Cpu cpu01 = new Cpu(Cpu.NAME, Product.YEAR_2018, Product.INTEL, 600, Cpu.SPEED28, Cpu.CORES6, true);
         Cpu cpu02 = new Cpu(Cpu.NAME, Product.YEAR_2018, Product.AMD, 268.0, Cpu.SPEED33, Cpu.CORES16, true);
         //Peripheral products
-        Keyboard keyboard01 = new Keyboard(Keyboard.NAME,2021, Product.RAZER, 255.0, Keyboard.WIRED);
-        Keyboard keyboard02 = new Keyboard(Keyboard.NAME,2020, Product.RAZER, 254.0, Keyboard.WIRELESS);
-        Monitor monitor01 = new Monitor(Monitor.NAME,2018, Product.SAMSUNG, 292.0,Monitor.MONITOR, Monitor.DIMENSION17, Monitor.RESOLUTION2, Monitor.PORT2);
-        Monitor monitor02 = new Monitor(Monitor.NAME,2018, Product.SAMSUNG, 292.0,Monitor.MONITOR, Monitor.DIMENSION17, Monitor.RESOLUTION2, Monitor.PORT2);
-        Mouse mouse01 = new Mouse( 2019, Mouse.SAMSUNG, 262.0, Mouse.OPTICAL, Mouse.WIRELESS );
-        Mouse mouse02 = new Mouse( 2022, Mouse.LOGITECH, 256.0, Mouse.OPTICAL, Mouse.WIRELESS );
-        Printer printer01 = new Printer(Printer.NAME, 2018, Printer.HP, 261.0,Printer.LASER, Printer.COLORED );
-        Printer printer02 = new Printer(Printer.NAME, 2021, Printer.HP, 255.0, Printer.LASER, Printer.BLACK_WHITE );
+        Keyboard keyboard01 = new Keyboard(Keyboard.NAME, Product.YEAR_2021, Product.RAZER, 255.0, Keyboard.WIRED);
+        Keyboard keyboard02 = new Keyboard(Keyboard.NAME, Product.YEAR_2021, Product.RAZER, 254.0, Keyboard.WIRELESS);
+
+        Monitor monitor01 = new Monitor(Monitor.NAME, Product.YEAR_2018, Product.SAMSUNG, 292.0, Monitor.MONITOR, Monitor.DIMENSION17, Monitor.RESOLUTION2, Monitor.PORT2);
+        Monitor monitor02 = new Monitor(Monitor.NAME, Product.YEAR_2018, Product.SAMSUNG, 292.0, Monitor.MONITOR, Monitor.DIMENSION17, Monitor.RESOLUTION2, Monitor.PORT2);
+
+        Mouse mouse01 = new Mouse(Mouse.NAME,Product.YEAR_2019, Mouse.SAMSUNG, 262.0, Mouse.OPTICAL, Mouse.WIRELESS);
+        Mouse mouse02 = new Mouse(Mouse.NAME,Product.YEAR_2022, Mouse.LOGITECH, 256.0, Mouse.OPTICAL, Mouse.WIRELESS);
+
+        Printer printer01 = new Printer(Printer.NAME, Product.YEAR_2018, Printer.HP, 261.0, Printer.LASER, Printer.COLORED);
+        Printer printer02 = new Printer(Printer.NAME, Product.YEAR_2021, Printer.HP, 255.0, Printer.LASER, Printer.BLACK_WHITE);
 
         //Adding products to the store
         shop.storeProduct(motherboard01);
@@ -62,7 +71,8 @@ public class mainApp {
         mainLoop(shop, in);
 
     }
-    //Main loop
+
+    //////////////////////////Main loop///////////////////////////////////////
     private static void mainLoop(Shop shop, Scanner in) {
         boolean endOfProgram = false;
 
@@ -99,6 +109,7 @@ public class mainApp {
             }
         }
     }
+
     //Method for invalid choices
     private static void invalidChoices(int choices) {
         StringBuilder s = new StringBuilder("Your input is invalid. Please select");
@@ -108,6 +119,7 @@ public class mainApp {
         s.append(".");
         System.out.println(s);
     }
+
     //Method for ending the program
     private static boolean isEndOfProgram() {
         boolean endOfProgram;
@@ -116,6 +128,7 @@ public class mainApp {
         return true;
     }
 
+    //Method for overviewing all products
     private static void overviewOfAllAvailableProducts(Scanner in) {
         boolean endOfSelectedMenuChoice = false;
 
@@ -151,7 +164,9 @@ public class mainApp {
         shop.displayUniqueStock();
         System.out.println();
     }
+    //////////////////////////Methods for Components///////////////////////////////////////
 
+    //Method for overviewing all components
     private static void overviewOfComponents(Scanner in) {
         boolean endOfSelectedCategoryChoice = false;
         while (!endOfSelectedCategoryChoice) {
@@ -191,6 +206,7 @@ public class mainApp {
             }
         }
     }
+
     //Choices for Ram
     private static void RamComponent(Scanner in) {
         String modelNameChoice = Ram.NAME;
@@ -292,6 +308,7 @@ public class mainApp {
 
         }
     }
+
     //Choices for Motherboard
     private static void MotherboardComponent(Scanner in) {
         String modelNameChoice = Motherboard.NAME;
@@ -371,6 +388,7 @@ public class mainApp {
         }
     }
 
+    //Choices for HardDrive
     private static void HardDriveComponent(Scanner in) {
         String modelNameChoice = HardDrive.NAME;
         int yearChoice = yearChoice(in);
@@ -386,7 +404,7 @@ public class mainApp {
 
         sellOrOrder(in, hardDrive);
     }
-    //Choices for HardDrive
+
     private static String hardDriveManufacturerChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the hardDrive Manufacturer:");
@@ -472,6 +490,7 @@ public class mainApp {
         }
     }
 
+    //Choices for Cpu
     private static void CpuComponent(Scanner in) {
 
         String modelNameChoice = Cpu.NAME;
@@ -488,6 +507,97 @@ public class mainApp {
         sellOrOrder(in, cpu);
 
     }
+
+    private static String cpuManufacturerChoice(Scanner in) {
+        while (true) {
+            System.out.println("Please select the manufacturer:");
+            System.out.println("0. " + Product.INTEL);
+            System.out.println("1. " + Product.AMD);
+
+            String selectedChoice = in.nextLine();
+            switch (selectedChoice) {
+                case "0":
+                    return Product.INTEL;
+                case "1":
+                    return Product.AMD;
+                default:
+                    System.out.println("Your input is invalid. Please select either 0 1");
+            }
+
+        }
+
+    }
+
+    private static boolean cpuGraphicsChoice(Scanner in) {
+        while (true) {
+            System.out.println("Please select yes or no for Cpu Graphics:");
+            System.out.println("0. yes");
+            System.out.println("1. no");
+            String selectedChoiceOfCpuGraphics = in.nextLine();
+            switch (selectedChoiceOfCpuGraphics) {
+                case "0":
+                    return true;
+                case "1":
+                    return false;
+                default:
+                    System.out.println("Your input is invalid. Please select either 0 or 1");
+
+            }
+        }
+    }
+
+    private static String cpuNumberOfCoresChoice(Scanner in) {
+        while (true) {
+            System.out.println("Please select CPU number of cores:");
+            System.out.println("0. " + Cpu.CORES6);
+            System.out.println("1. " + Cpu.CORES8);
+            System.out.println("2. " + Cpu.CORES16);
+            String selectedChoiceOfNbOfCores = in.nextLine();
+            switch (selectedChoiceOfNbOfCores) {
+                case "0":
+                    System.out.println("You've selected " + Cpu.CORES6);
+                    return Cpu.CORES6;
+                case "1":
+                    System.out.println("You've selected " + Cpu.CORES8);
+                    return Cpu.CORES8;
+                case "2":
+                    System.out.println("You've selected " + Cpu.CORES16);
+                    return Cpu.CORES16;
+                default:
+                    System.out.println("Your input is invalid. Please select either 0, 1, 2");
+            }
+        }
+    }
+
+    private static String cpuSpeedChoice(Scanner in) {
+        while (true) {
+
+            System.out.println("Selected Cpu");
+            System.out.println("Please select CPU speed:");
+            System.out.println("0. " + Cpu.SPEED28);
+            System.out.println("1. " + Cpu.SPEED33);
+            System.out.println("2. " + Cpu.SPEED41);
+
+
+            String selectedChoiceOfCpuSpeed = in.nextLine();
+            switch (selectedChoiceOfCpuSpeed) {
+                case "0":
+                    System.out.println("You've selected " + Cpu.SPEED28);
+                    return Cpu.SPEED28;
+                case "1":
+                    System.out.println("You've selected " + Cpu.SPEED33);
+                    return Cpu.SPEED33;
+                case "2":
+                    System.out.println("You've selected " + Cpu.SPEED41);
+                    return Cpu.SPEED41;
+                default:
+                    System.out.println("Your input is invalid. Please select either 0, 1, 2");
+
+            }
+        }
+    }
+
+    //Choices for GraphicsCard
 
     private static void GraphicsCardComponent(Scanner in) {
 
@@ -565,6 +675,8 @@ public class mainApp {
 
         }
     }
+
+    //////////////////////////Selling and Ordering///////////////////////////////////////
 
     private static void sellOrOrder(Scanner in, Product product) {
         Product p = shop.findMatchingAvailableProduct(product);
@@ -673,6 +785,7 @@ public class mainApp {
     }
 
     // Method for decreasing the number of products in case user chose a product but doesn't want to buy/order it
+
     private static void decrementStaticsInCaseInstanceIsNotUsed(Product product) {
         Product.nextProductNum--;
         if (product instanceof Cpu) {
@@ -715,26 +828,6 @@ public class mainApp {
         }
     }
 
-    private static String cpuManufacturerChoice(Scanner in) {
-        while (true) {
-            System.out.println("Please select the manufacturer:");
-            System.out.println("0. " + Product.INTEL);
-            System.out.println("1. " + Product.AMD);
-
-            String selectedChoice = in.nextLine();
-            switch (selectedChoice) {
-                case "0":
-                    return Product.INTEL;
-                case "1":
-                    return Product.AMD;
-                default:
-                    System.out.println("Your input is invalid. Please select either 0 1");
-            }
-
-        }
-
-    }
-
     private static int yearChoice(Scanner in) {
         while (true) {
             System.out.println("Please select the year:");
@@ -763,76 +856,9 @@ public class mainApp {
         }
 
     }
+    //////////////////////////Methods for Peripherals///////////////////////////////////////
 
-    private static boolean cpuGraphicsChoice(Scanner in) {
-        while (true) {
-            System.out.println("Please select yes or no for Cpu Graphics:");
-            System.out.println("0. yes");
-            System.out.println("1. no");
-            String selectedChoiceOfCpuGraphics = in.nextLine();
-            switch (selectedChoiceOfCpuGraphics) {
-                case "0":
-                    return true;
-                case "1":
-                    return false;
-                default:
-                    System.out.println("Your input is invalid. Please select either 0 or 1");
-
-            }
-        }
-    }
-
-    private static String cpuNumberOfCoresChoice(Scanner in) {
-        while (true) {
-            System.out.println("Please select CPU number of cores:");
-            System.out.println("0. " + Cpu.CORES6);
-            System.out.println("1. " + Cpu.CORES8);
-            System.out.println("2. " + Cpu.CORES16);
-            String selectedChoiceOfNbOfCores = in.nextLine();
-            switch (selectedChoiceOfNbOfCores) {
-                case "0":
-                    System.out.println("You've selected " + Cpu.CORES6);
-                    return Cpu.CORES6;
-                case "1":
-                    System.out.println("You've selected " + Cpu.CORES8);
-                    return Cpu.CORES8;
-                case "2":
-                    System.out.println("You've selected " + Cpu.CORES16);
-                    return Cpu.CORES16;
-                default:
-                    System.out.println("Your input is invalid. Please select either 0, 1, 2");
-            }
-        }
-    }
-
-    private static String cpuSpeedChoice(Scanner in) {
-        while (true) {
-
-            System.out.println("Selected Cpu");
-            System.out.println("Please select CPU speed:");
-            System.out.println("0. " + Cpu.SPEED28);
-            System.out.println("1. " + Cpu.SPEED33);
-            System.out.println("2. " + Cpu.SPEED41);
-
-
-            String selectedChoiceOfCpuSpeed = in.nextLine();
-            switch (selectedChoiceOfCpuSpeed) {
-                case "0":
-                    System.out.println("You've selected " + Cpu.SPEED28);
-                    return Cpu.SPEED28;
-                case "1":
-                    System.out.println("You've selected " + Cpu.SPEED33);
-                    return Cpu.SPEED33;
-                case "2":
-                    System.out.println("You've selected " + Cpu.SPEED41);
-                    return Cpu.SPEED41;
-                default:
-                    System.out.println("Your input is invalid. Please select either 0, 1, 2");
-
-            }
-        }
-    }
-
+    //Method for overviewing all Peripherals
     private static void overviewOfPeripherals(Scanner in) {
         boolean endOfSelectedCategoryChoice = false;
         while (!endOfSelectedCategoryChoice) {
@@ -869,6 +895,7 @@ public class mainApp {
         }
     }
 
+    //printer choice
     private static void PrinterPeripheral(Scanner in) {
         String modelNameChoice = Printer.NAME;
         int yearChoice = yearChoice(in);
@@ -941,6 +968,7 @@ public class mainApp {
         }
     }
 
+    //Mouse choice
     private static void MousePeripheral(Scanner in) {
         String modelNameChoice = Mouse.NAME;
         int yearChoice = yearChoice(in);
@@ -1013,6 +1041,7 @@ public class mainApp {
         }
     }
 
+    //Monitor choice
     private static void MonitorPeripheral(Scanner in) {
         String modelNameChoice = Monitor.NAME;
         int yearChoice = yearChoice(in);
@@ -1132,6 +1161,7 @@ public class mainApp {
         }
     }
 
+    //Keyboard choice
     private static void KeyboardPeripheral(Scanner in) {
         String modelNameChoice = Keyboard.NAME;
         int yearChoice = yearChoice(in);
@@ -1184,6 +1214,7 @@ public class mainApp {
         }
     }
 
+    //////////////////////////Sales and Orders overview///////////////////////////////////////
 
     private static void salesOverview(Shop shop) {
         System.out.println("Overview of Sales");

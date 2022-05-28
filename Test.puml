@@ -1,0 +1,491 @@
+'@startuml
+
+title Shop project
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+
+
+footer Page 1 of 11
+class Shop{
+    - final ArrayList<Product> availableProducts
+    - final ArrayList<Order> orders
+    - final ArrayList<Sale> sales
+
+    + String displayOrders()
+    + int totalAmountOfOrders()
+    + void addOrder(Order order)
+    + String displaySales()
+    + void addSale(Sale sale)
+    + void displayUniqueStock()
+    + void storeProduct(Product product)
+    + Product findMatchingAvailableProduct(Product product)
+    + void removeTheProductFromStock(Product product)
+    + int totalAmountOfSales()
+    + int totalAmountOfProductsInStock()
+}
+enum OrderStatus {
+    EXPECTED
+    EXECUTED
+}
+class Order{
+    + {static} final LocalDate DEFAULT_DATE_OF_ORDER
+    {static} int nextOrderNum
+    {static} DateTimeFormatter myFormatObj
+    int orderNum
+    Product orderedProduct
+    Customer customer
+    LocalDate dateOfOrder
+    LocalDate dateOfArrival
+    double finalCost
+    OrderStatus status
+
+    + Order()
+
+    + Order(Product orderedProduct, Customer customer, LocalDate dateOfArrival, double finalCost)
+
+    + String toString()
+ }
+class Sale{
+    + {static} final LocalDate DEFAULT_DATE_OF_SALE
+    {static} final DateTimeFormatter myFormatObj
+    {static} int nextSalesNum
+    Product soldProduct
+    Customer customer
+    int salesNum
+    LocalDate dateOfSale
+    double finalCost
+
+
+    + Sale(Product soldProduct, Customer customer, double finalCost)
+
+    + Sale()
+
+    + String toString()
+
+}
+class mainApp{
+    + {static} final Shop shop
+}
+newpage
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+footer Page 2 of 11
+
+interface Model {
+    String getModelName()
+
+    int getModelYear()
+
+    String getModelManufacturer()
+
+    double getModelPrice()
+}
+abstract class Product implements Model  {
+    + {static} final String INTEL
+    + {static} final String AMD
+    + {static} final String nVIDIA
+    + {static} final String CRUCIAL
+    + {static} final String VENGEANCE
+    + {static} final String SAMSUNG
+    + {static} final String LG
+    + {static} final String HYPERX
+    + {static} final String LOGITECH
+    + {static} final String RAZER
+    + {static} final String HP
+    + {static} final String SEAGATE
+
+    + {static} final int YEAR_2018
+    + {static} final int YEAR_2019
+    + {static} final int YEAR_2020
+    + {static} final int YEAR_2021
+    + {static} final int YEAR_2022
+    + {static} double priceBasedOnName(String model)
+    + {static} int yearBasedOnName(String model)
+    + double finalPrice()
+    + int getProductId()
+    + String returnStringOfAllProperties()
+    + abstract boolean sameProductAs(Product obj)
+    + String toString()
+}
+abstract class ComputerComponent extends Product{
+    public static final double COMPONENT_DISCOUNT
+
+    + ComputerComponent()
+
+    + ComputerComponent(String modelName)
+
+    + ComputerComponent(String modelName, int modelYear, String modelManufacturer, double modelPrice)
+}
+
+class ComputerPeripheral extends Product{
+    + static final double PERIPHERAL_DISCOUNT
+
+    + ComputerPeripheral(String modelName, int modelYear, String modelManufacturer, double modelPrice)
+
+    + ComputerPeripheral()
+
+    + String toString()
+}
+newpage
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+footer Page 3 of 11
+
+class Printer extends ComputerPeripheral{
+    + {static} final String NAME
+    + {static} final String LASER
+    + {static} final String INKJET
+    + {static} final String COLORED
+    + {static} final String BLACK_WHITE
+    - {static} int numOfPrinters
+    - String printerTech
+    - String printType
+
+    + Printer(String modelName, int modelYear, String modelManufacturer, double modelPrice, String printerTech, String printType)
+
+    + Printer()
+
+    + String getPrinterTech()
+
+    + void setPrinterTech(String Type)
+
+    + String getPrintType()
+
+    + void setPrintType(String Type)
+
+    + String returnStringOfAllProperties()
+
+    + boolean sameProductAs(Product obj)
+
+    + String toString()
+}
+newpage
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+footer Page 4 of 11
+
+class Mouse extends ComputerPeripheral{
+    + {static} final String NAME
+    + {static} final String OPTICAL
+    + {static} final String WIRED
+    + {static} final String WIRELESS
+    {static} final String LASER
+    {static} int numOfMice
+    - String mouseTech
+    - String mouseConnect
+
+    + Mouse(String modelName, int modelYear, String modelManufacturer, double modelPrice, String mouseTech, String mouseConnect)
+
+    + Mouse()
+
+    + Mouse(int modelYear, String modelManufacturer, double modelPrice, String mouseTech, String mouseConnect)
+
+    + String getMouseTech()
+
+    + void setMouseTech(String Type)
+
+    + String getMouseConnect()
+
+    + void setMouseConnect(String Type)
+
+    + String returnStringOfAllProperties()
+
+    + boolean sameProductAs(Product obj)
+
+    + String toString()
+
+}
+
+newpage
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+footer Page 5 of 11
+class Monitor extends ComputerPeripheral{
+    + {static} final String NAME
+    + {static} final String MONITOR
+    + {static} final String PORTABLE_MONITOR
+    + {static} final String TV_MONITOR
+    + {static} final String DIMENSION17
+    + {static} final String DIMENSION24
+    + {static} final String RESOLUTION1
+    + {static} final String RESOLUTION2
+    + {static} final String PORT1
+    + {static} final String PORT2
+    + {static} final String PORT3
+    {static} int numOfMonitors
+    - String monitorType
+    - String monitorDimensions
+    - String monitorResolution
+    - String monitorPort
+
+    + Monitor(String modelName, int modelYear, String modelManufacturer, double modelPrice, String monitorType, String monitorDimensions, String monitorResolution, String monitorPort)
+
+    + Monitor()
+
+    + String getMonitorType()
+
+    + void setMonitorType(String Type)
+
+    + String getMonitorDimensions()
+
+    + void setMonitorDimensions(String Type)
+
+    + String getMonitorResolution()
+
+    + void setMonitorResolution(String Type)
+
+    + String getMonitorPort()
+
+    + void setMonitorPort(String Type)
+
+    + String returnStringOfAllProperties()
+
+    + boolean sameProductAs(Product obj)
+
+    + String toString()
+
+}
+newpage
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+footer Page 6 of 11
+
+class Keyboard extends ComputerPeripheral{
+    + {static} final String NAME
+    {static} final String WIRED
+    {static} final String WIRELESS
+    {static} int numOfKeyboards
+    - String keyboardConnect
+
+    + Keyboard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String keyboardConnect)
+
+    + Keyboard()
+
+    + String getKeyboardConnect()
+
+    + void setKeyboardConnect(String Type)
+
+    + String returnStringOfAllProperties()
+
+    + boolean sameProductAs(Product obj)
+
+    + String toString()
+}
+newpage
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+footer Page 7 of 11
+
+
+class Ram extends ComputerComponent{
+    + static final String NAME
+    + {static} final String DDR3
+    + {static} final String DDR4
+    + {static} final String DDR5
+    + {static} final String SIZE4
+    + {static} final String SIZE8
+    + {static} final String SIZE16
+    + {static} final String FREQUENCY1600
+    + {static} final String FREQUENCY2666
+    + {static} final String FREQUENCY3200
+    {static} int numOfRams
+    - String ramType
+    - String ramSize
+    - String ramFrequency
+
+    + Ram()
+
+    + Ram(String modelName, int modelYear, String modelManufacturer, double modelPrice, String ramType, String ramSize, String ramFrequency)
+
+    + Ram(int modelYear, String modelManufacturer, double modelPrice, String ramType, String ramSize, String ramFrequency)
+
+    + String getRamType()
+
+    + void setRamType(String Type)
+
+    + String getRamSize()
+
+    + void setRamSize(String Type)
+
+    + String getRamFrequency()
+
+    + void setRamFrequency(String Type)
+
+    + String returnStringOfAllProperties()
+
+    + boolean sameProductAs(Product obj)
+
+    + String toString()
+
+}
+newpage
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+footer Page 8 of 11
+
+class Motherboard extends ComputerComponent{
+    + {static} final String NAME
+    + {static} final String TYPE_INTEL
+    + {static} final String TYPE_AMD
+    + {static} final String MEM32
+    + {static} final String MEM64
+    + {static} final String MEM128
+    + {static} final String SATA4
+    + {static} final String SATA6
+    + {static} final String SATA8
+    {static} int numOfMotherboards
+    - String processorType
+    - String memoryType
+    - String numOfPortsSataType
+
+    + Motherboard()
+
+    + Motherboard(String modelName, int modelYear, String modelManufacturer, double modelPrice)
+
+    + Motherboard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String processorType, String memoryType, String numOfPortsSataType)
+
+    + Motherboard(int modelYear, String modelManufacturer, double modelPrice, String processorType, String memoryType, String numOfPortsSataType)
+
+    + {static} int getNumOfMotherboards()
+
+    + {static} void setNumOfMotherboards(int numOfMotherboards)
+
+    + String getProcessorType()
+
+    + void setProcessorType(String Type)
+
+    + String getMemoryType()
+
+    + void setMemoryType(String Type)
+
+    + String returnStringOfAllProperties()
+
+    + String getNumOfPortsSataType()
+
+    + void setNumOfPortsSataType(String Type)
+
+    + boolean sameProductAs(Product obj)
+
+    + String toString()
+}
+newpage
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+footer Page 9 of 11
+class Cpu extends ComputerComponent {
+    + {static} final String NAME
+    + {static} final String SPEED28
+    + {static} final String SPEED33
+    + {static} final String SPEED41
+    + {static} final String CORES6
+    + {static} final String CORES8
+    + {static} final String CORES16
+    {static} int numOfCpus
+    - String numOfCores
+    - String cpuSpeed
+    - boolean cpuGraphics
+
+    + Cpu()
+
+    + Cpu(String modelName, int modelYear, String modelManufacturer, double modelPrice, String cpuSpeed, String numOfCores, boolean cpuGraphics)
+
+    + String getCpuSpeed()
+
+    + void setCpuSpeed(String Type)
+
+    + String getNumOfCores()
+
+    + void setNumOfCores(String Type)
+
+    + boolean isCpuGraphics()
+
+    + void setCpuGraphics(boolean yes)
+
+    + String returnStringOfAllProperties()
+
+    + boolean sameProductAs(Product obj)
+
+    + String toString()
+}
+newpage
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+footer Page 10 of 11
+
+class GraphicsCard extends ComputerComponent{
+    + static final String NAME
+    + static final String NVIDIA
+    + static final String AMD
+    + static final String MEM6
+    + static final String MEM8
+    + static final String MEM12
+    static int numOfGraphicsCards
+    - String chipset
+    - String cardMemory
+
+    + GraphicsCard()
+
+    + GraphicsCard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String chipset, String cardMemory)
+
+    + GraphicsCard(int modelYear, String modelManufacturer, double modelPrice, String chipset, String cardMemory)
+
+    + String getChipset()
+
+    + void setChipset(String Type)
+
+    + String getCardMemory()
+
+    + void setCardMemory(String Type)
+
+    + String returnStringOfAllProperties()
+
+    + boolean sameProductAs(Product obj)
+
+    + String toString()
+}
+newpage
+header Developed by: ALEKSANDRA PETUKHOVA 3210229, AIKATERINI VANTARAKI 3210020
+
+footer Page 11 of 11
+class HardDrive extends ComputerComponent{
+    + {static} final String NAME
+    + {static} final String HDD
+    + {static} final String SSD
+    + {static} final String DRIVE_SIZE18
+    + {static} final String DRIVE_SIZE25
+    + {static} final String DRIVE_SIZE35
+    + {static} final String CAPACITY256
+    + {static} final String CAPACITY512
+    + {static} final String CAPACITY_1TB
+    + {static} final String CAPACITY_2TB
+    {static} int numOfHardDrives
+    - String driveType
+    - String driveSize
+    - String driveCapacity
+
+         + HardDrive(String modelName, int modelYear, String modelManufacturer, double modelPrice, String driveType, String driveSize, String driveCapacity)
+
+         + HardDrive()
+
+         + HardDrive(int modelYear, String modelManufacturer, double modelPrice, String driveType, String driveSize, String driveCapacity)
+
+         + String returnStringOfAllProperties()
+
+         + String getDriveType()
+
+         + void setDriveType(String Type)
+
+         + String getDriveSize()
+
+         + void setDriveSize(String Type)
+
+         + String getDriveCapacity()
+
+         + void setDriveCapacity(String Type)
+
+         + boolean sameProductAs(Product obj)
+
+         + String toString()
+}
+
+@enduml
