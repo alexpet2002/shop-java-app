@@ -1,3 +1,9 @@
+/*
+    Names: ALEKSANDRA PETUKHOVA, AIKATERINI VANTARAKI
+    Student Numbers: 3210229, 3210020
+    Team number: 011
+
+*/
 public class HardDrive extends ComputerComponent {
 
     // Constants
@@ -48,32 +54,8 @@ public class HardDrive extends ComputerComponent {
         numOfHardDrives++;
     }
 
-    public HardDrive(int modelYear, String modelManufacturer, double modelPrice, String driveType, String driveSize, String driveCapacity) {
-        super(NAME, modelYear, modelManufacturer, modelPrice);
-        if (driveType.equals("HDD"))
-            setDriveType(HDD);
-        else
-            setDriveType(SSD);
-        if (driveSize.equals("1.8"))
-            setDriveSize(DRIVE_SIZE18);
-        else if (driveSize.equals("2.5"))
-            setDriveSize(DRIVE_SIZE25);
-        else
-            setDriveSize(DRIVE_SIZE35);
-        switch (driveCapacity) {
-            case "256 GB":
-                setDriveCapacity(CAPACITY256);
-                break;
-            case "512 GB":
-                setDriveCapacity(CAPACITY512);
-                break;
-            case "1 TB":
-                setDriveCapacity(CAPACITY_1TB);
-                break;
-            default:
-                setDriveCapacity(CAPACITY_2TB);
-                break;
-        }
+
+    public HardDrive() {
         numOfHardDrives++;
     }
 

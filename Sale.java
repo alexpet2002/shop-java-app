@@ -1,9 +1,15 @@
+/*
+    Names: ALEKSANDRA PETUKHOVA, AIKATERINI VANTARAKI
+    Student Numbers: 3210229, 3210020
+    Team number: 011
+
+*/
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Sale {
 
-    public static final LocalDate DEFAULT_DATE_OF_SALE = LocalDate.of(2022, 5, 11);
+    public static final LocalDate DEFAULT_DATE_OF_SALE = LocalDate.now();
     static final DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     static int nextSalesNum = 0;
     Product soldProduct = new Cpu();
@@ -23,6 +29,10 @@ public class Sale {
         this.finalCost = finalCost;
     }
 
+    public Sale() {
+        Sale.nextSalesNum++;
+    }
+
     // toString method
 
     public String toString() {
@@ -30,7 +40,7 @@ public class Sale {
                 + "\nCustomer name: " + customer.name + " "
                 + "\nCustomer phonenumber: " + customer.phonenumber + " "
                 + "\nOrder Number: " + salesNum + " "
-                + "\nDate of the order: " + dateOfSale.format(myFormatObj) + " "
+                + "\nDate of the sale: " + dateOfSale.format(myFormatObj) + " "
                 + "\nFinal cost: " + finalCost + "\n";
     }
 

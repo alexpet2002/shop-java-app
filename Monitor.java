@@ -1,3 +1,9 @@
+/*
+    Names: ALEKSANDRA PETUKHOVA, AIKATERINI VANTARAKI
+    Student Numbers: 3210229, 3210020
+    Team number: 011
+
+*/
 public class Monitor extends ComputerPeripheral {
 
     // Constants
@@ -43,6 +49,10 @@ public class Monitor extends ComputerPeripheral {
             setMonitorPort(PORT2);
         else
             setMonitorPort(PORT3);
+        numOfMonitors++;
+    }
+
+    public Monitor() {
         numOfMonitors++;
     }
 

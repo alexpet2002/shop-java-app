@@ -1,3 +1,9 @@
+/*
+    Names: ALEKSANDRA PETUKHOVA, AIKATERINI VANTARAKI
+    Student Numbers: 3210229, 3210020
+    Team number: 011
+
+*/
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -22,6 +28,10 @@ public class Order {
         this.customer = customer;
         this.dateOfArrival = dateOfArrival;
         this.finalCost = finalCost;
+    }
+
+    public Order() {
+        Order.nextOrderNum++;
     }
 
 
