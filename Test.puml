@@ -178,8 +178,6 @@ class Mouse extends ComputerPeripheral{
 
     + Mouse()
 
-    + Mouse(int modelYear, String modelManufacturer, double modelPrice, String mouseTech, String mouseConnect)
-
     + String getMouseTech()
 
     + void setMouseTech(String Type)
@@ -297,8 +295,6 @@ class Ram extends ComputerComponent{
 
     + Ram(String modelName, int modelYear, String modelManufacturer, double modelPrice, String ramType, String ramSize, String ramFrequency)
 
-    + Ram(int modelYear, String modelManufacturer, double modelPrice, String ramType, String ramSize, String ramFrequency)
-
     + String getRamType()
 
     + void setRamType(String Type)
@@ -343,8 +339,6 @@ class Motherboard extends ComputerComponent{
     + Motherboard(String modelName, int modelYear, String modelManufacturer, double modelPrice)
 
     + Motherboard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String processorType, String memoryType, String numOfPortsSataType)
-
-    + Motherboard(int modelYear, String modelManufacturer, double modelPrice, String processorType, String memoryType, String numOfPortsSataType)
 
     + {static} int getNumOfMotherboards()
 
@@ -427,8 +421,6 @@ class GraphicsCard extends ComputerComponent{
 
     + GraphicsCard(String modelName, int modelYear, String modelManufacturer, double modelPrice, String chipset, String cardMemory)
 
-    + GraphicsCard(int modelYear, String modelManufacturer, double modelPrice, String chipset, String cardMemory)
-
     + String getChipset()
 
     + void setChipset(String Type)
@@ -466,8 +458,6 @@ class HardDrive extends ComputerComponent{
          + HardDrive(String modelName, int modelYear, String modelManufacturer, double modelPrice, String driveType, String driveSize, String driveCapacity)
 
          + HardDrive()
-
-         + HardDrive(int modelYear, String modelManufacturer, double modelPrice, String driveType, String driveSize, String driveCapacity)
 
          + String returnStringOfAllProperties()
 

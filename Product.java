@@ -29,6 +29,7 @@ public abstract class Product implements Model {
     private int productId;
 
     protected Product() {
+		this.productId = nextProductNum;
         nextProductNum++;
     }
 
@@ -54,6 +55,10 @@ public abstract class Product implements Model {
         this.productId = nextProductNum;
         nextProductNum++;
     }
+
+	public void setProductId(){
+		this.productId = getProductId();
+	}
 
     public static double priceBasedOnName(String model) {
 
@@ -144,7 +149,7 @@ public abstract class Product implements Model {
 
     public String toString() {
         return "Model Name:\t\t\t" + getModelName() + " "
-                + "\nModel productId:\t" + String.format("|%010d|", getProductId()) + " "
+                + "\nModel productId:\t\t" + String.format("|%010d|", getProductId()) + " "
                 + "\nModel Year:\t\t\t" + getModelYear() + " "
                 + "\nModel Manufacturer:\t\t" + getModelManufacturer() + " "
                 + "\nModel Price:\t\t\t" + getModelPrice();
