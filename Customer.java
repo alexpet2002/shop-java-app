@@ -22,4 +22,12 @@ public class Customer {
     public String toString() {
         return "Customer name: " + name + " Customer phone: " + phonenumber;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
 }

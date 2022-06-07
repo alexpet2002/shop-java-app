@@ -4,6 +4,7 @@
     Team number: 011
 
 */
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -17,10 +18,7 @@ public class Sale {
     int salesNum;
     LocalDate dateOfSale = DEFAULT_DATE_OF_SALE;
     double finalCost = 0;
-
-    //Constructors for Sale
-
-
+    String randomDateOfSale = "";
     public Sale(Product soldProduct, Customer customer, double finalCost) {
         Sale.nextSalesNum++;
         this.salesNum = nextSalesNum;
@@ -29,8 +27,28 @@ public class Sale {
         this.finalCost = finalCost;
     }
 
+    public Sale(Product soldProduct, Customer customer, String randomDateOfSale,double finalCost) {
+        Sale.nextSalesNum++;
+        this.soldProduct = soldProduct;
+        this.customer = customer;
+        this.salesNum = nextSalesNum;
+        this.randomDateOfSale = randomDateOfSale;
+        this.finalCost = finalCost;
+
+    }
+
+    public Product getSoldProduct() {
+        return soldProduct;
+    }
+//Constructors for Sale
+
+
     public Sale() {
         Sale.nextSalesNum++;
+    }
+
+    public int getSalesNum() {
+        return salesNum;
     }
 
     // toString method
@@ -44,4 +62,12 @@ public class Sale {
                 + "\nFinal cost: " + finalCost + "\n";
     }
 
+    public String getRandomDateOfSale() {
+        return randomDateOfSale;
+    }
+
+
+    public Customer getCustomer() {
+        return customer;
+    }
 }// class Sale

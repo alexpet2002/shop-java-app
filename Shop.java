@@ -10,6 +10,19 @@ public class Shop {
     //////////////////////////Arraylists///////////////////////////////////////
     private final ArrayList<Product> availableProducts = new ArrayList<Product>();
     private final ArrayList<Order> orders = new ArrayList<Order>();
+
+    public ArrayList<Product> getAvailableProducts() {
+        return availableProducts;
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
+
+    public ArrayList<Sale> getSales() {
+        return sales;
+    }
+
     private final ArrayList<Sale> sales = new ArrayList<Sale>();
 
     //Methods for orders
