@@ -24,3 +24,5 @@ hs_err_pid*
 /.idea/
 /shop-java-app.iml
 /out/
+/sales.txt
+/products.txt

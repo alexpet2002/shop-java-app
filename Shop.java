@@ -4,7 +4,10 @@
     Team number: 011
 
 */
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Shop {
     //////////////////////////Arraylists///////////////////////////////////////
@@ -58,8 +61,7 @@ public class Shop {
             int count = (int) arrayList.stream().filter(product -> p.sameProductAs(product)).count();
             if (count !=0){
                 hashMap.put(p, count);
-            }
-            else
+            } else
                 hashMap.put(p, 1);
 
         }
@@ -74,6 +76,12 @@ public class Shop {
         }
 
 
+    }
+
+    public static int countUniqueStock(Product product, ArrayList<Product> availableProducts) {
+
+        int count = (int) availableProducts.stream().filter(p -> p.sameProductAs(product)).count();
+        return count;
     }
     ///////////////////// Methods for ArrayList products///////////////////////////
 
