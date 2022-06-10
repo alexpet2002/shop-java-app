@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 class CreateFileProducts {
 
+    public static final String PRODUCTS_TXT = "products.txt";
     public ArrayList<Product> products = new ArrayList<Product>();
 
     public static void CreateFile(ArrayList<Product> products) {
@@ -19,120 +20,120 @@ class CreateFileProducts {
         FileWriter writer = null;
 
         try {
-            writer = new FileWriter(new File("products.txt"));
+            writer = new FileWriter(new File(PRODUCTS_TXT));
 
             writer.write(" ITEM_LIST\n {\n\n");
             for (Product product : products)
 
                 if (product instanceof Motherboard) {
                     writer.write("\tITEM" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + product.getModelName()
-                            + "\n" + "\t\t" + "MODEL " + "AEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + product.getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + product.getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + product.getModelPrice()
-                            + "\n\t" + "\t" + "PROCESSOR_TYPE " + ((Motherboard) product).getProcessorType()
-                            + "\n\t" + "\t" + "MEMORY_TYPE " + ((Motherboard) product).getMemoryType()
-                            + "\n\t" + "\t" + "NUMBER_OF_SATA_TYPE " + ((Motherboard) product).getNumOfPortsSataType()
-                            + "\n\t" + "\t" + "ITEMS " + Shop.countUniqueStock(product, products)
+                            + "\n\t\t" + "ITEM_TYPE " + product.getModelName()
+                            + "\n\t\t" + "MODEL " + "AEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + product.getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + product.getModelPrice()
+                            + "\n\t\t" + "PROCESSOR_TYPE " + ((Motherboard) product).getProcessorType()
+                            + "\n\t\t" + "MEMORY_TYPE " + ((Motherboard) product).getMemoryType()
+                            + "\n\t\t" + "NUMBER_OF_SATA_TYPE " + ((Motherboard) product).getNumOfPortsSataType()
+                            + "\n\t\t" + "ITEMS " + Shop.countUniqueStock(product, products)
                             + "\n\t" + "}" + "\n");
                 }//Motherboard
                 else if (product instanceof Cpu) {
                     writer.write("\tITEM" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + product.getModelName()
-                            + "\n" + "\t\t" + "MODEL " + "BEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + product.getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + product.getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + product.getModelPrice()
-                            + "\n\t" + "\t" + "CPU_SPEED " + ((Cpu) product).getCpuSpeed()
-                            + "\n\t" + "\t" + "NUMBER_OF_CORES " + ((Cpu) product).getNumOfCores()
-                            + "\n\t" + "\t" + "CPU_GRAPHICS " + ((Cpu) product).isCpuGraphics()
-                            + "\n\t" + "\t" + "ITEMS " + Shop.countUniqueStock(product, products)
+                            + "\n\t\t" + "ITEM_TYPE " + product.getModelName()
+                            + "\n\t\t" + "MODEL " + "BEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + product.getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + product.getModelPrice()
+                            + "\n\t\t" + "CPU_SPEED " + ((Cpu) product).getCpuSpeed()
+                            + "\n\t\t" + "NUMBER_OF_CORES " + ((Cpu) product).getNumOfCores()
+                            + "\n\t\t" + "CPU_GRAPHICS " + ((Cpu) product).isCpuGraphics()
+                            + "\n\t\t" + "ITEMS " + Shop.countUniqueStock(product, products)
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (product instanceof GraphicsCard) {
                     writer.write("\tITEM" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + product.getModelName()
-                            + "\n" + "\t\t" + "MODEL " + "CEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + product.getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + product.getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + product.getModelPrice()
-                            + "\n\t" + "\t" + "CHIPSET " + ((GraphicsCard) product).getChipset()
-                            + "\n\t" + "\t" + "MEMORY_TYPE " + ((GraphicsCard) product).getCardMemory()
-                            + "\n\t" + "\t" + "ITEMS " + Shop.countUniqueStock(product, products)
+                            + "\n\t\t" + "ITEM_TYPE " + product.getModelName()
+                            + "\n\t\t" + "MODEL " + "CEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + product.getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + product.getModelPrice()
+                            + "\n\t\t" + "CHIPSET " + ((GraphicsCard) product).getChipset()
+                            + "\n\t\t" + "MEMORY_TYPE " + ((GraphicsCard) product).getCardMemory()
+                            + "\n\t\t" + "ITEMS " + Shop.countUniqueStock(product, products)
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (product instanceof HardDrive) {
                     writer.write("\tITEM" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + product.getModelName()
-                            + "\n" + "\t\t" + "MODEL " + "DEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + product.getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + product.getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + product.getModelPrice()
-                            + "\n\t" + "\t" + "DRIVE_TYPE " + ((HardDrive) product).getDriveType()
-                            + "\n\t" + "\t" + "DRIVE_SIZE " + ((HardDrive) product).getDriveSize()
-                            + "\n\t" + "\t" + "DRIVE_CAPACITY " + ((HardDrive) product).getDriveCapacity()
-                            + "\n\t" + "\t" + "ITEMS " + Shop.countUniqueStock(product, products)
+                            + "\n\t\t" + "ITEM_TYPE " + product.getModelName()
+                            + "\n\t\t" + "MODEL " + "DEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + product.getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + product.getModelPrice()
+                            + "\n\t\t" + "DRIVE_TYPE " + ((HardDrive) product).getDriveType()
+                            + "\n\t\t" + "DRIVE_SIZE " + ((HardDrive) product).getDriveSize()
+                            + "\n\t\t" + "DRIVE_CAPACITY " + ((HardDrive) product).getDriveCapacity()
+                            + "\n\t\t" + "ITEMS " + Shop.countUniqueStock(product, products)
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (product instanceof Keyboard) {
                     writer.write("\tITEM" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + product.getModelName()
-                            + "\n" + "\t\t" + "MODEL " + "EEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + product.getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + product.getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + product.getModelPrice()
-                            + "\n\t" + "\t" + "KEYBOARD_CONNECTION " + ((Keyboard) product).getKeyboardConnect()
-                            + "\n\t" + "\t" + "ITEMS " + Shop.countUniqueStock(product, products)
+                            + "\n\t\t" + "ITEM_TYPE " + product.getModelName()
+                            + "\n\t\t" + "MODEL " + "EEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + product.getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + product.getModelPrice()
+                            + "\n\t\t" + "KEYBOARD_CONNECTION " + ((Keyboard) product).getKeyboardConnect()
+                            + "\n\t\t" + "ITEMS " + Shop.countUniqueStock(product, products)
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (product instanceof Mouse) {
                     writer.write("\tITEM" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + product.getModelName()
-                            + "\n" + "\t\t" + "MODEL " + "FEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + product.getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + product.getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + product.getModelPrice()
-                            + "\n\t" + "\t" + "MOUSE_CONNECTION " + ((Mouse) product).getMouseConnect()
-                            + "\n\t" + "\t" + "MOUSE_TECHNOLOGY " + ((Mouse) product).getMouseTech()
-                            + "\n\t" + "\t" + "ITEMS " + Shop.countUniqueStock(product, products)
+                            + "\n\t\t" + "ITEM_TYPE " + product.getModelName()
+                            + "\n\t\t" + "MODEL " + "FEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + product.getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + product.getModelPrice()
+                            + "\n\t\t" + "MOUSE_CONNECTION " + ((Mouse) product).getMouseConnect()
+                            + "\n\t\t" + "MOUSE_TECHNOLOGY " + ((Mouse) product).getMouseTech()
+                            + "\n\t\t" + "ITEMS " + Shop.countUniqueStock(product, products)
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (product instanceof Printer) {
                     writer.write("\tITEM" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + product.getModelName()
-                            + "\n" + "\t\t" + "MODEL " + "GEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + product.getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + product.getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + product.getModelPrice()
-                            + "\n\t" + "\t" + "PRINTER_TECHNOLOGY " + ((Printer) product).getPrinterTech()
-                            + "\n\t" + "\t" + "ITEMS " + Shop.countUniqueStock(product, products)
+                            + "\n\t\t" + "ITEM_TYPE " + product.getModelName()
+                            + "\n\t\t" + "MODEL " + "GEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + product.getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + product.getModelPrice()
+                            + "\n\t\t" + "PRINTER_TECHNOLOGY " + ((Printer) product).getPrinterTech()
+                            + "\n\t\t" + "ITEMS " + Shop.countUniqueStock(product, products)
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (product instanceof Monitor) {
                     writer.write("\tITEM" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + product.getModelName()
-                            + "\n" + "\t\t" + "MODEL " + "HEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + product.getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + product.getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + product.getModelPrice()
-                            + "\n\t" + "\t" + "DIMENSIONS " + ((Monitor) product).getMonitorDimensions()
-                            + "\n\t" + "\t" + "RESOLUTION " + ((Monitor) product).getMonitorResolution()
-                            + "\n\t" + "\t" + "INTERFACES " + ((Monitor) product).getMonitorPort()
-                            + "\n\t" + "\t" + "ITEMS " + Shop.countUniqueStock(product, products)
+                            + "\n\t\t" + "ITEM_TYPE " + product.getModelName()
+                            + "\n\t\t" + "MODEL " + "HEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + product.getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + product.getModelPrice()
+                            + "\n\t\t" + "DIMENSIONS " + ((Monitor) product).getMonitorDimensions()
+                            + "\n\t\t" + "RESOLUTION " + ((Monitor) product).getMonitorResolution()
+                            + "\n\t\t" + "INTERFACES " + ((Monitor) product).getMonitorPort()
+                            + "\n\t\t" + "ITEMS " + Shop.countUniqueStock(product, products)
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (product instanceof Ram) {
                     writer.write("\tITEM" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + product.getModelName()
-                            + "\n" + "\t\t" + "MODEL " + "JEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + product.getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + product.getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + product.getModelPrice()
-                            + "\n\t" + "\t" + "RAM_FREQUENCY " + ((Ram) product).getRamFrequency()
-                            + "\n\t" + "\t" + "RAM_SIZE " + ((Ram) product).getRamSize()
-                            + "\n\t" + "\t" + "RAM_TYPE " + ((Ram) product).getRamType()
-                            + "\n\t" + "\t" + "ITEMS " + Shop.countUniqueStock(product, products)
+                            + "\n\t\t" + "ITEM_TYPE " + product.getModelName()
+                            + "\n\t\t" + "MODEL " + "JEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + product.getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + product.getModelPrice()
+                            + "\n\t\t" + "RAM_FREQUENCY " + ((Ram) product).getRamFrequency()
+                            + "\n\t\t" + "RAM_SIZE " + ((Ram) product).getRamSize()
+                            + "\n\t\t" + "RAM_TYPE " + ((Ram) product).getRamType()
+                            + "\n\t\t" + "ITEMS " + Shop.countUniqueStock(product, products)
                             + "\n\t" + "}" + "\n");
                 }//Cpu
             writer.write(" }");
@@ -148,7 +149,7 @@ class CreateFileProducts {
     public static void main(String[] args) {
         CreateFileProducts app = new CreateFileProducts();
         app.CreateList();
-        app.CreateFile(app.getProducts());
+        CreateFile(app.getProducts());
         app.PrintFile();
     }//main
 
@@ -214,7 +215,7 @@ class CreateFileProducts {
 
         try {
 
-            BufferedReader reader = new BufferedReader(new FileReader(new File("products.txt")));
+            BufferedReader reader = new BufferedReader(new FileReader(new File(PRODUCTS_TXT)));
             String line = reader.readLine();
             while (line != null) {
                 System.out.println(line);

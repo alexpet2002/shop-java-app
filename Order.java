@@ -20,6 +20,8 @@ public class Order {
     double finalCost = 0;
     OrderStatus status = OrderStatus.EXECUTED;
 
+    String randomDateOfOrder = "";
+
 
     public Order(Product orderedProduct, Customer customer, LocalDate dateOfArrival, double finalCost) {
         Order.nextOrderNum++;
@@ -47,4 +49,19 @@ public class Order {
                 + "\nOrder status: " + status + "\n";
     }
 
+    public Object getOrderedProduct() {
+        return orderedProduct;
+    }
+
+    public int getOrderNum() {
+        return orderNum;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public String getRandomDateOfOrder() {
+        return randomDateOfOrder;
+    }
 }// class Order
