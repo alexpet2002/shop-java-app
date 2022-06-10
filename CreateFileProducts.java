@@ -22,7 +22,7 @@ class CreateFileProducts {
         try {
             writer = new FileWriter(new File(PRODUCTS_TXT));
 
-            writer.write(" ITEM_LIST\n {\n\n");
+            writer.write(" ITEM_LIST\n {\n");
             for (Product product : products)
 
                 if (product instanceof Motherboard) {

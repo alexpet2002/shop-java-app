@@ -53,7 +53,7 @@ class CreateFileSales {
         try {
             writer = new FileWriter(new File(SALES_TXT));
 
-            writer.write(" SALES_LIST\n {\n\n");
+            writer.write(" SALES_LIST\n {\n");
             for (Sale sale : sales)
 
                 if (sale.getSoldProduct() instanceof Motherboard) {

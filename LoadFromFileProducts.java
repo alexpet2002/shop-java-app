@@ -15,7 +15,7 @@ public class LoadFromFileProducts {
 
             while (line!=null){
 
-                StringTokenizer st = new StringTokenizer(line,"#");
+                StringTokenizer st = new StringTokenizer(line, " ");
                 String token = st.nextToken();
                 if (token.equals("CD")){
                     // CD("Four","Led Zeppelin", 6, 55,23.95);
@@ -45,8 +45,15 @@ public class LoadFromFileProducts {
             reader.close();
         } // try
 
-        catch (IOException e){
+        catch (IOException e) {
             System.err.println("Error Reading File...");
         }
+    }
+
+    public static void main(String[] args) {
+        Shop shop = new Shop();
+        load(shop, CreateFileProducts.PRODUCTS_TXT);
+
+        shop.getAvailableProducts();
     }
 }

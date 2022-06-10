@@ -45,7 +45,7 @@ class CreateFileOrders {
 //        try {
 //            writer = new FileWriter(new File(ORDERS_TXT));
 //
-//            writer.write(" SALES_LIST\n {\n\n");
+//            writer.write(" SALES_LIST\n {\n");
 //            for (Order order : orders)
 //
 //                if (order.getOrderedProduct() instanceof Motherboard) {
