@@ -28,519 +28,455 @@ public class LoadFromFileProducts {
                     line = reader.readLine();
                 } else if (token.equals("\tITEM")) {
 
+                    String itemString = "";
                     String typeOfProduct = null;
                     line = reader.readLine();
                     line = reader.readLine();
 
-                    st = new StringTokenizer(line, " ");
-                    token = st.nextToken();
 
-
-                    if (token.equals("\t\tITEM_TYPE")) {
-                        typeOfProduct = st.nextToken();
+                    while (!line.equals("\t}")) {
+                        itemString += line;
+                        line = reader.readLine();
                     }
 
-                    if (typeOfProduct.equals("HardDrive")) {
+                    String token2 = "";
+                    StringTokenizer st2 = null;
 
-                        String MODEL = null;
-                        String MODEL_YEAR = null;
-                        String MANUFACTURER = null;
-                        String PRICE = null;
-                        String DRIVE_TYPE = null;
-                        String DRIVE_SIZE = null;
-                        String DRIVE_CAPACITY = null;
-                        String ITEMS = null;
-
-                        st = getStringTokenizer(reader);
+                    do {
+                        st = new StringTokenizer(itemString, "\t\t");
                         token = st.nextToken();
-                        if (token.equals("\t\tMODEL")) MODEL = st.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL_YEAR")) MODEL_YEAR = st.nextToken();
+                        st2 = new StringTokenizer(token, " ");
+                        token2 = st2.nextToken();
+                    } while (!token2.equals("ITEM_TYPE"));
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMANUFACTURER")) MANUFACTURER = st.nextToken();
+                    typeOfProduct = st2.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPRICE")) PRICE = st.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tDRIVE_TYPE")) DRIVE_TYPE = st.nextToken();
+                    switch (typeOfProduct) {
+                        case "HardDrive": {
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tDRIVE_SIZE")) DRIVE_SIZE = st.nextToken();
+                            String MODEL = HardDrive.DEXX_12_13;
+                            String MODEL_YEAR = String.valueOf(Product.YEAR_2022);
+                            String MANUFACTURER = Product.SAMSUNG;
+                            String PRICE = String.valueOf(278.0);
+                            String DRIVE_TYPE = HardDrive.HDD;
+                            String DRIVE_SIZE = HardDrive.DRIVE_SIZE18;
+                            String DRIVE_CAPACITY = HardDrive.CAPACITY256;
+                            String ITEMS = String.valueOf(1);
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tDRIVE_CAPACITY")) DRIVE_CAPACITY = st.nextToken();
+                            st = new StringTokenizer(itemString, "\t\t");
+                            int countToken = st.countTokens();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
+                            for (int i = 0; i < countToken; i++) {
+                                token = st.nextToken();
+                                st2 = new StringTokenizer(token, " ");
+                                token2 = st2.nextToken();
 
-                        product = new HardDrive();
-                        ((HardDrive) product).setDriveType(DRIVE_TYPE);
-                        ((HardDrive) product).setDriveSize(DRIVE_SIZE);
-                        ((HardDrive) product).setDriveCapacity(DRIVE_CAPACITY);
-                        product.setModelName(typeOfProduct);
-                        product.setModel(MODEL);
-                        product.setModelYear(Integer.parseInt(MODEL_YEAR));
-                        product.setModelManufacturer(MANUFACTURER);
-                        product.setModelPrice(Double.parseDouble(PRICE));
+                                if (token2.equals("MODEL")) MODEL = st2.nextToken();
+                                if (token2.equals("MODEL_YEAR")) MODEL_YEAR = st2.nextToken();
+                                if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
+                                if (token2.equals("PRICE")) PRICE = st2.nextToken();
+                                if (token2.equals("DRIVE_TYPE")) DRIVE_TYPE = st2.nextToken();
+                                if (token2.equals("DRIVE_SIZE")) DRIVE_SIZE = st2.nextToken();
+                                if (token2.equals("DRIVE_CAPACITY")) DRIVE_CAPACITY = st2.nextToken();
+                                if (token2.equals("ITEMS")) ITEMS = st2.nextToken();
+
+                            }
+
+
+                            product = new HardDrive();
+                            ((HardDrive) product).setDriveType(DRIVE_TYPE);
+                            ((HardDrive) product).setDriveSize(DRIVE_SIZE);
+                            ((HardDrive) product).setDriveCapacity(DRIVE_CAPACITY);
+                            product.setModelName(typeOfProduct);
+                            product.setModel(MODEL);
+                            product.setModelYear(Integer.parseInt(MODEL_YEAR));
+                            product.setModelManufacturer(MANUFACTURER);
+                            product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setDiscount();
 //                        product.setProductId();
-                        shop.storeProduct(product);
-                        line = reader.readLine();
+                            shop.storeProduct(product);
+                            line = reader.readLine();
 
 
-                    } else if (typeOfProduct.equals("Motherboard")) {
+                            break;
+                        }
+                        case "Motherboard": {
 
-                        String MODEL = null;
-                        String MODEL_YEAR = null;
-                        String MANUFACTURER = null;
-                        String PRICE = null;
-                        String PROCESSOR_TYPE = null;
-                        String MEMORY_TYPE = null;
-                        String NUMBER_OF_SATA_TYPE = null;
-                        String ITEMS = null;
-
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL")) MODEL = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL_YEAR")) MODEL_YEAR = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMANUFACTURER")) MANUFACTURER = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPRICE")) PRICE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPROCESSOR_TYPE")) PROCESSOR_TYPE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMEMORY_TYPE")) MEMORY_TYPE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tNUMBER_OF_SATA_TYPE")) NUMBER_OF_SATA_TYPE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
+                            String MODEL = Motherboard.AEXX_12_13;
+                            String MODEL_YEAR = String.valueOf(Product.YEAR_2018);
+                            String MANUFACTURER = Product.SAMSUNG;
+                            String PRICE = String.valueOf(270.0);
+                            String PROCESSOR_TYPE = Motherboard.TYPE_INTEL;
+                            String MEMORY_TYPE = Motherboard.MEM32;
+                            String NUMBER_OF_SATA_TYPE = Motherboard.SATA4;
+                            String ITEMS = String.valueOf(1);
 
 
-                        product = new Motherboard();
-                        ((Motherboard) product).setMemoryType(MEMORY_TYPE);
-                        ((Motherboard) product).setProcessorType(PROCESSOR_TYPE);
+                            st = new StringTokenizer(itemString, "\t\t");
+                            int countToken = st.countTokens();
+
+                            for (int i = 0; i < countToken; i++) {
+                                token = st.nextToken();
+                                st2 = new StringTokenizer(token, " ");
+                                token2 = st2.nextToken();
+
+                                if (token2.equals("MODEL")) MODEL = st2.nextToken();
+                                if (token2.equals("MODEL_YEAR")) MODEL_YEAR = st2.nextToken();
+                                if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
+                                if (token2.equals("PRICE")) PRICE = st2.nextToken();
+                                if (token2.equals("PROCESSOR_TYPE")) PROCESSOR_TYPE = st2.nextToken();
+                                if (token2.equals("MEMORY_TYPE")) MEMORY_TYPE = st2.nextToken();
+                                if (token2.equals("NUMBER_OF_SATA_TYPE")) NUMBER_OF_SATA_TYPE = st2.nextToken();
+                                if (token2.equals("ITEMS")) ITEMS = st2.nextToken();
+
+
+                            }
+
+                            product = new Motherboard();
+                            ((Motherboard) product).setMemoryType(MEMORY_TYPE);
+                            ((Motherboard) product).setProcessorType(PROCESSOR_TYPE);
 //                        product.setProductId();
 //                        ((Motherboard) product).setNumOfMotherboards(); // TODO: Missing from imported file
-                        ((Motherboard) product).setNumOfPortsSataType(NUMBER_OF_SATA_TYPE);
-                        product.setModelName(typeOfProduct);
-                        product.setModel(MODEL);
-                        product.setModelYear(Integer.parseInt(MODEL_YEAR));
-                        product.setModelManufacturer(MANUFACTURER);
-                        product.setModelPrice(Double.parseDouble(PRICE));
+                            ((Motherboard) product).setNumOfPortsSataType(NUMBER_OF_SATA_TYPE);
+                            product.setModelName(typeOfProduct);
+                            product.setModel(MODEL);
+                            product.setModelYear(Integer.parseInt(MODEL_YEAR));
+                            product.setModelManufacturer(MANUFACTURER);
+                            product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setDiscount();
 
-                        shop.storeProduct(product);
-                        line = reader.readLine();
+                            shop.storeProduct(product);
+                            line = reader.readLine();
 
 
-                    } else if (typeOfProduct.equals("GraphicsCard")) {
+                            break;
+                        }
+                        case "GraphicsCard": {
 
-                        String MODEL = null;
-                        String MODEL_YEAR = null;
-                        String MANUFACTURER = null;
-                        String PRICE = null;
-                        String CHIPSET = null;
-                        String MEMORY_TYPE = null;
-                        String ITEMS = null;
+                            String MODEL = GraphicsCard.CEXX_12_13;
+                            String MODEL_YEAR = String.valueOf(Product.YEAR_2018);
+                            String MANUFACTURER = Product.AMD;
+                            String PRICE = String.valueOf(270.0);
+                            String CHIPSET = GraphicsCard.AMD;
+                            String MEMORY_TYPE = GraphicsCard.MEM8;
+                            String ITEMS = String.valueOf(1);
+
+                            st = new StringTokenizer(itemString, "\t\t");
+                            int countToken = st.countTokens();
+
+                            for (int i = 0; i < countToken; i++) {
+                                token = st.nextToken();
+                                st2 = new StringTokenizer(token, " ");
+                                token2 = st2.nextToken();
+
+                                if (token2.equals("MODEL")) MODEL = st2.nextToken();
+                                if (token2.equals("MODEL_YEAR")) MODEL_YEAR = st2.nextToken();
+                                if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
+                                if (token2.equals("PRICE")) PRICE = st2.nextToken();
+                                if (token2.equals("CHIPSET")) CHIPSET = st2.nextToken();
+                                if (token2.equals("MEMORY_TYPE")) MEMORY_TYPE = st2.nextToken();
+                                if (token2.equals("ITEMS")) ITEMS = st2.nextToken();
+
+                            }
 
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL")) MODEL = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL_YEAR")) MODEL_YEAR = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMANUFACTURER")) MANUFACTURER = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPRICE")) PRICE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tCHIPSET")) CHIPSET = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMEMORY_TYPE")) MEMORY_TYPE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
-
-                        product = new GraphicsCard();
-                        ((GraphicsCard) product).setCardMemory(MEMORY_TYPE);
-                        product.setModelName(typeOfProduct);
-                        product.setModel(MODEL);
-                        ((GraphicsCard) product).setChipset(CHIPSET);
-                        product.setModelManufacturer(MANUFACTURER);
-                        product.setModelYear(Integer.parseInt(MODEL_YEAR));
-                        product.setModelPrice(Double.parseDouble(PRICE));
+                            product = new GraphicsCard();
+                            ((GraphicsCard) product).setCardMemory(MEMORY_TYPE);
+                            product.setModelName(typeOfProduct);
+                            product.setModel(MODEL);
+                            ((GraphicsCard) product).setChipset(CHIPSET);
+                            product.setModelManufacturer(MANUFACTURER);
+                            product.setModelYear(Integer.parseInt(MODEL_YEAR));
+                            product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setDiscount();
 //                        product.setProductId();
 
-                        shop.storeProduct(product);
-                        line = reader.readLine();
+                            shop.storeProduct(product);
+                            line = reader.readLine();
 
 
-                    } else if (typeOfProduct.equals("Cpu")) {
+                            break;
+                        }
+                        case "Cpu": {
 
-                        String MODEL = null;
-                        String MODEL_YEAR = null;
-                        String MANUFACTURER = null;
-                        String PRICE = null;
-                        String CPU_SPEED = null;
-                        String NUMBER_OF_CORES = null;
-                        String CPU_GRAPHICS = null;
-                        String ITEMS = null;
+                            String MODEL = Cpu.BEXX_12_13;
+                            String MODEL_YEAR = String.valueOf(Product.YEAR_2018);
+                            String MANUFACTURER = Product.INTEL;
+                            String PRICE = String.valueOf(600.0);
+                            String CPU_SPEED = Cpu.SPEED28;
+                            String NUMBER_OF_CORES = Cpu.CORES6;
+                            String CPU_GRAPHICS = String.valueOf(true);
+                            String ITEMS = String.valueOf(1);
+
+                            st = new StringTokenizer(itemString, "\t\t");
+                            int countToken = st.countTokens();
+
+                            for (int i = 0; i < countToken; i++) {
+                                token = st.nextToken();
+                                st2 = new StringTokenizer(token, " ");
+                                token2 = st2.nextToken();
 
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL")) MODEL = st.nextToken();
+                                if (token2.equals("MODEL")) MODEL = st2.nextToken();
+                                if (token2.equals("MODEL_YEAR")) MODEL_YEAR = st2.nextToken();
+                                if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
+                                if (token2.equals("PRICE")) PRICE = st2.nextToken();
+                                if (token2.equals("CPU_SPEED")) CPU_SPEED = st2.nextToken();
+                                if (token2.equals("NUMBER_OF_CORES")) NUMBER_OF_CORES = st2.nextToken();
+                                if (token2.equals("CPU_GRAPHICS")) CPU_GRAPHICS = st2.nextToken();
+                                if (token2.equals("ITEMS")) ITEMS = st2.nextToken();
+                            }
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL_YEAR")) MODEL_YEAR = st.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMANUFACTURER")) MANUFACTURER = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPRICE")) PRICE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tCPU_SPEED")) CPU_SPEED = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tNUMBER_OF_CORES")) NUMBER_OF_CORES = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tCPU_GRAPHICS")) CPU_GRAPHICS = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
-
-                        product = new Cpu();
+                            product = new Cpu();
 //                        product.setDiscount();
-                        ((Cpu) product).setNumOfCores(NUMBER_OF_CORES);
-                        ((Cpu) product).setCpuGraphics(Boolean.parseBoolean(CPU_GRAPHICS));
-                        product.setModelYear(Integer.parseInt(MODEL_YEAR));
-                        product.setModelManufacturer(MANUFACTURER);
-                        ((Cpu) product).setCpuSpeed(CPU_SPEED);
-                        product.setModelName(typeOfProduct);
-                        product.setModel(MODEL);
-                        product.setModelPrice(Double.parseDouble(PRICE));
+                            ((Cpu) product).setNumOfCores(NUMBER_OF_CORES);
+                            ((Cpu) product).setCpuGraphics(Boolean.parseBoolean(CPU_GRAPHICS));
+                            product.setModelYear(Integer.parseInt(MODEL_YEAR));
+                            product.setModelManufacturer(MANUFACTURER);
+                            ((Cpu) product).setCpuSpeed(CPU_SPEED);
+                            product.setModelName(typeOfProduct);
+                            product.setModel(MODEL);
+                            product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setProductId();
-                        shop.storeProduct(product);
-                        line = reader.readLine();
+                            shop.storeProduct(product);
+                            line = reader.readLine();
 
 
-                    } else if (typeOfProduct.equals("Ram")) {
+                            break;
+                        }
+                        case "Ram": {
 
-                        String MODEL = null;
-                        String MODEL_YEAR = null;
-                        String MANUFACTURER = null;
-                        String PRICE = null;
-                        String RAM_FREQUENCY = null;
-                        String RAM_SIZE = null;
-                        String RAM_TYPE = null;
-                        String ITEMS = null;
+                            String MODEL = Ram.JEXX_12_13;
+                            String MODEL_YEAR = String.valueOf(Product.YEAR_2021);
+                            String MANUFACTURER = Product.VENGEANCE;
+                            String PRICE = String.valueOf(269.0);
+                            String RAM_FREQUENCY = Ram.FREQUENCY1600;
+                            String RAM_SIZE = Ram.SIZE4;
+                            String RAM_TYPE = Ram.DDR3;
+                            String ITEMS = String.valueOf(1);
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL")) MODEL = st.nextToken();
+                            st = new StringTokenizer(itemString, "\t\t");
+                            int countToken = st.countTokens();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL_YEAR")) MODEL_YEAR = st.nextToken();
+                            for (int i = 0; i < countToken; i++) {
+                                token = st.nextToken();
+                                st2 = new StringTokenizer(token, " ");
+                                token2 = st2.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMANUFACTURER")) MANUFACTURER = st.nextToken();
+                                if (token2.equals("MODEL")) MODEL = st2.nextToken();
+                                if (token2.equals("MODEL_YEAR")) MODEL_YEAR = st2.nextToken();
+                                if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
+                                if (token2.equals("PRICE")) PRICE = st2.nextToken();
+                                if (token2.equals("RAM_FREQUENCY")) RAM_FREQUENCY = st2.nextToken();
+                                if (token2.equals("RAM_SIZE")) RAM_SIZE = st2.nextToken();
+                                if (token2.equals("RAM_TYPE")) RAM_TYPE = st2.nextToken();
+                                if (token2.equals("ITEMS")) ITEMS = st2.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPRICE")) PRICE = st.nextToken();
+                            }
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tRAM_FREQUENCY")) RAM_FREQUENCY = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tRAM_SIZE")) RAM_SIZE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tRAM_TYPE")) RAM_TYPE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
-
-                        product = new Ram();
-                        ((Ram) product).setRamSize(RAM_SIZE);
-                        product.setModelYear(Integer.parseInt(MODEL_YEAR));
-                        ((Ram) product).setRamFrequency(RAM_FREQUENCY);
-                        product.setModelName(typeOfProduct);
-                        product.setModel(MODEL);
+                            product = new Ram();
+                            ((Ram) product).setRamSize(RAM_SIZE);
+                            product.setModelYear(Integer.parseInt(MODEL_YEAR));
+                            ((Ram) product).setRamFrequency(RAM_FREQUENCY);
+                            product.setModelName(typeOfProduct);
+                            product.setModel(MODEL);
 //                        product.setDiscount();
-                        ((Ram) product).setRamType(RAM_TYPE);
-                        product.setModelManufacturer(MANUFACTURER);
-                        product.setModelPrice(Double.parseDouble(PRICE));
+                            ((Ram) product).setRamType(RAM_TYPE);
+                            product.setModelManufacturer(MANUFACTURER);
+                            product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setProductId();
 
-                        shop.storeProduct(product);
-                        line = reader.readLine();
+                            shop.storeProduct(product);
+                            line = reader.readLine();
 
 
-                    } else if (typeOfProduct.equals("Monitor")) {
+                            break;
+                        }
+                        case "Monitor": {
 
-                        String MODEL = null;
-                        String MODEL_YEAR = null;
-                        String MANUFACTURER = null;
-                        String PRICE = null;
-                        String DIMENSIONS = null;
-                        String RESOLUTION = null;
-                        String INTERFACES = null;
-                        String ITEMS = null;
+                            String MODEL = Monitor.HEXX_12_13;
+                            String MODEL_YEAR = String.valueOf(Product.YEAR_2018);
+                            String MANUFACTURER = Product.SAMSUNG;
+                            String PRICE = String.valueOf(292.0);
+                            String DIMENSIONS = Monitor.DIMENSION17;
+                            String RESOLUTION = Monitor.RESOLUTION2;
+                            String INTERFACES = Monitor.PORT2;
+                            String ITEMS = String.valueOf(1);
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL")) MODEL = st.nextToken();
+                            st = new StringTokenizer(itemString, "\t\t");
+                            int countToken = st.countTokens();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL_YEAR")) MODEL_YEAR = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMANUFACTURER")) MANUFACTURER = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPRICE")) PRICE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tDIMENSIONS")) DIMENSIONS = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tRESOLUTION")) RESOLUTION = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tINTERFACES")) INTERFACES = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
+                            for (int i = 0; i < countToken; i++) {
+                                token = st.nextToken();
+                                st2 = new StringTokenizer(token, " ");
+                                token2 = st2.nextToken();
 
 
-                        product = new Monitor();
+                                if (token2.equals("MODEL")) MODEL = st2.nextToken();
+                                if (token2.equals("MODEL_YEAR")) MODEL_YEAR = st2.nextToken();
+                                if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
+                                if (token2.equals("PRICE")) PRICE = st2.nextToken();
+                                if (token2.equals("DIMENSIONS")) DIMENSIONS = st2.nextToken();
+                                if (token2.equals("RESOLUTION")) RESOLUTION = st2.nextToken();
+                                if (token2.equals("INTERFACES")) INTERFACES = st2.nextToken();
+                                if (token2.equals("ITEMS")) ITEMS = st2.nextToken();
+                            }
+
+                            product = new Monitor();
 //                        product.setProductId();
 //                        ((Monitor) product).setMonitorType(); // TODO: Missing in the file
-                        ((Monitor) product).setMonitorDimensions(DIMENSIONS);
-                        ((Monitor) product).setMonitorResolution(RESOLUTION);
-                        ((Monitor) product).setMonitorPort(INTERFACES);
-                        product.setModelName(typeOfProduct);
-                        product.setModel(MODEL);
-                        product.setModelYear(Integer.parseInt(MODEL_YEAR));
-                        product.setModelManufacturer(MANUFACTURER);
-                        product.setModelPrice(Double.parseDouble(PRICE));
+                            ((Monitor) product).setMonitorDimensions(DIMENSIONS);
+                            ((Monitor) product).setMonitorResolution(RESOLUTION);
+                            ((Monitor) product).setMonitorPort(INTERFACES);
+                            product.setModelName(typeOfProduct);
+                            product.setModel(MODEL);
+                            product.setModelYear(Integer.parseInt(MODEL_YEAR));
+                            product.setModelManufacturer(MANUFACTURER);
+                            product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setDiscount();
 
 
-                        shop.storeProduct(product);
-                        line = reader.readLine();
+                            shop.storeProduct(product);
+                            line = reader.readLine();
 
-                    } else if (typeOfProduct.equals("Mouse")) {
+                            break;
+                        }
+                        case "Mouse": {
 
-                        String MODEL = null;
-                        String MODEL_YEAR = null;
-                        String MANUFACTURER = null;
-                        String PRICE = null;
-                        String MOUSE_CONNECTION = null;
-                        String MOUSE_TECHNOLOGY = null;
-                        String ITEMS = null;
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL")) MODEL = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL_YEAR")) MODEL_YEAR = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMANUFACTURER")) MANUFACTURER = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPRICE")) PRICE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMOUSE_CONNECTION")) MOUSE_CONNECTION = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMOUSE_TECHNOLOGY")) MOUSE_TECHNOLOGY = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
+                            String MODEL = Mouse.FEXX_12_13;
+                            String MODEL_YEAR = String.valueOf(Product.YEAR_2019);
+                            String MANUFACTURER = Product.SAMSUNG;
+                            String PRICE = String.valueOf(262.0);
+                            String MOUSE_CONNECTION = Mouse.WIRELESS;
+                            String MOUSE_TECHNOLOGY = Mouse.LASER;
+                            String ITEMS = String.valueOf(1);
 
 
-                        product = new Mouse();
-                        ((Mouse) product).setMouseTech(MOUSE_TECHNOLOGY);
-                        ((Mouse) product).setMouseConnect(MOUSE_CONNECTION);
-                        product.setModelName(typeOfProduct);
-                        product.setModel(MODEL);
-                        product.setModelYear(Integer.parseInt(MODEL_YEAR));
-                        product.setModelManufacturer(MANUFACTURER);
-                        product.setModelPrice(Double.parseDouble(PRICE));
+                            st = new StringTokenizer(itemString, "\t\t");
+                            int countToken = st.countTokens();
+
+                            for (int i = 0; i < countToken; i++) {
+                                token = st.nextToken();
+                                st2 = new StringTokenizer(token, " ");
+                                token2 = st2.nextToken();
+
+                                if (token2.equals("MODEL")) MODEL = st2.nextToken();
+                                if (token2.equals("MODEL_YEAR")) MODEL_YEAR = st2.nextToken();
+                                if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
+                                if (token2.equals("PRICE")) PRICE = st2.nextToken();
+                                if (token2.equals("MOUSE_CONNECTION")) MOUSE_CONNECTION = st2.nextToken();
+                                if (token2.equals("MOUSE_TECHNOLOGY")) MOUSE_TECHNOLOGY = st2.nextToken();
+                                if (token2.equals("ITEMS")) ITEMS = st2.nextToken();
+
+                            }
+
+
+                            product = new Mouse();
+                            ((Mouse) product).setMouseTech(MOUSE_TECHNOLOGY);
+                            ((Mouse) product).setMouseConnect(MOUSE_CONNECTION);
+                            product.setModelName(typeOfProduct);
+                            product.setModel(MODEL);
+                            product.setModelYear(Integer.parseInt(MODEL_YEAR));
+                            product.setModelManufacturer(MANUFACTURER);
+                            product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setDiscount();
 //                        product.setProductId();
 
-                        shop.storeProduct(product);
-                        line = reader.readLine();
+                            shop.storeProduct(product);
+                            line = reader.readLine();
 
-                    } else if (typeOfProduct.equals("Keyboard")) {
+                            break;
+                        }
+                        case "Keyboard": {
 
 
-                        String MODEL = null;
-                        String MODEL_YEAR = null;
-                        String MANUFACTURER = null;
-                        String PRICE = null;
-                        String KEYBOARD_CONNECTION = null;
-                        String ITEMS = null;
+                            String MODEL = Keyboard.EEXX_12_13;
+                            String MODEL_YEAR = String.valueOf(Product.YEAR_2021);
+                            String MANUFACTURER = Product.RAZER;
+                            String PRICE = String.valueOf(255.0);
+                            String KEYBOARD_CONNECTION = Keyboard.WIRED;
+                            String ITEMS = String.valueOf(1);
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL")) MODEL = st.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL_YEAR")) MODEL_YEAR = st.nextToken();
+                            st = new StringTokenizer(itemString, "\t\t");
+                            int countToken = st.countTokens();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMANUFACTURER")) MANUFACTURER = st.nextToken();
+                            for (int i = 0; i < countToken; i++) {
+                                token = st.nextToken();
+                                st2 = new StringTokenizer(token, " ");
+                                token2 = st2.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPRICE")) PRICE = st.nextToken();
+                                if (token2.equals("MODEL")) MODEL = st2.nextToken();
+                                if (token2.equals("MODEL_YEAR")) MODEL_YEAR = st2.nextToken();
+                                if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
+                                if (token2.equals("PRICE")) PRICE = st2.nextToken();
+                                if (token2.equals("KEYBOARD_CONNECTION")) KEYBOARD_CONNECTION = st2.nextToken();
+                                if (token2.equals("ITEMS")) ITEMS = st2.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tKEYBOARD_CONNECTION")) KEYBOARD_CONNECTION = st.nextToken();
+                            }
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
 
-                        product = new Keyboard();
-                        ((Keyboard) product).setKeyboardConnect(KEYBOARD_CONNECTION);
-                        product.setModelName(typeOfProduct);
-                        product.setModel(MODEL);
-                        product.setModelYear(Integer.parseInt(MODEL_YEAR));
-                        product.setModelManufacturer(MANUFACTURER);
-                        product.setModelPrice(Double.parseDouble(PRICE));
+                            product = new Keyboard();
+                            ((Keyboard) product).setKeyboardConnect(KEYBOARD_CONNECTION);
+                            product.setModelName(typeOfProduct);
+                            product.setModel(MODEL);
+                            product.setModelYear(Integer.parseInt(MODEL_YEAR));
+                            product.setModelManufacturer(MANUFACTURER);
+                            product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setDiscount();
 //                        product.setProductId();
 
-                        shop.storeProduct(product);
-                        line = reader.readLine();
+                            shop.storeProduct(product);
+                            line = reader.readLine();
 
-                    } else if (typeOfProduct.equals("Printer")) {
+                            break;
+                        }
+                        case "Printer": {
 
-                        String MODEL = null;
-                        String MODEL_YEAR = null;
-                        String MANUFACTURER = null;
-                        String PRICE = null;
-                        String PRINTER_TECHNOLOGY = null;
-                        String ITEMS = null;
+                            String MODEL = Printer.GEXX_12_13;
+                            String MODEL_YEAR = String.valueOf(Product.YEAR_2018);
+                            String MANUFACTURER = Product.HP;
+                            String PRICE = String.valueOf(261.0);
+                            String PRINTER_TECHNOLOGY = Printer.LASER;
+                            String ITEMS = String.valueOf(1);
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL")) MODEL = st.nextToken();
+                            st = new StringTokenizer(itemString, "\t\t");
+                            int countToken = st.countTokens();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMODEL_YEAR")) MODEL_YEAR = st.nextToken();
+                            for (int i = 0; i < countToken; i++) {
+                                token = st.nextToken();
+                                st2 = new StringTokenizer(token, " ");
+                                token2 = st2.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tMANUFACTURER")) MANUFACTURER = st.nextToken();
+                                if (token2.equals("MODEL")) MODEL = st2.nextToken();
+                                if (token2.equals("MODEL_YEAR")) MODEL_YEAR = st2.nextToken();
+                                if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
+                                if (token2.equals("PRICE")) PRICE = st2.nextToken();
+                                if (token2.equals("PRINTER_TECHNOLOGY")) PRINTER_TECHNOLOGY = st2.nextToken();
+                                if (token2.equals("ITEMS")) ITEMS = st2.nextToken();
 
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPRICE")) PRICE = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tPRINTER_TECHNOLOGY")) PRINTER_TECHNOLOGY = st.nextToken();
-
-                        st = getStringTokenizer(reader);
-                        token = st.nextToken();
-                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
+                            }
 
 
-                        product = new Printer();
-                        ((Printer) product).setPrinterTech(PRINTER_TECHNOLOGY);
+                            product = new Printer();
+                            ((Printer) product).setPrinterTech(PRINTER_TECHNOLOGY);
 //                        ((Printer) product).setPrintType(); // TODO: Missing in the file
-                        product.setModelName(typeOfProduct);
-                        product.setModel(MODEL);
-                        product.setModelYear(Integer.parseInt(MODEL_YEAR));
-                        product.setModelManufacturer(MANUFACTURER);
-                        product.setModelPrice(Double.parseDouble(PRICE));
+                            product.setModelName(typeOfProduct);
+                            product.setModel(MODEL);
+                            product.setModelYear(Integer.parseInt(MODEL_YEAR));
+                            product.setModelManufacturer(MANUFACTURER);
+                            product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setDiscount();
 //                        product.setProductId();
 
-                        shop.storeProduct(product);
-                        line = reader.readLine();
+                            shop.storeProduct(product);
+                            line = reader.readLine();
 
+                            break;
+                        }
                     }
                 }
 
