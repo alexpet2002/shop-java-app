@@ -36,6 +36,15 @@ public class Order {
         Order.nextOrderNum++;
     }
 
+    public Order(Product orderedProduct, Customer customer, String randomDateOfOrder, double finalCost) {
+        Order.nextOrderNum++;
+        this.orderNum = nextOrderNum;
+        this.orderedProduct = orderedProduct;
+        this.customer = customer;
+        this.finalCost = finalCost;
+        this.randomDateOfOrder = randomDateOfOrder;
+    }
+
 
     @Override
     public String toString() {
@@ -63,5 +72,9 @@ public class Order {
 
     public String getRandomDateOfOrder() {
         return randomDateOfOrder;
+    }
+
+    public String getModelName() {
+        return orderedProduct.getModelName();
     }
 }// class Order
