@@ -26,3 +26,5 @@ hs_err_pid*
 /out/
 /sales.txt
 /products.txt
+/Orders.txt
+/orders.txt

@@ -27,7 +27,7 @@ public class Sale {
         this.finalCost = finalCost;
     }
 
-    public Sale(Product soldProduct, Customer customer, String randomDateOfSale,double finalCost) {
+    public Sale(Product soldProduct, Customer customer, String randomDateOfSale, double finalCost) {
         Sale.nextSalesNum++;
         this.soldProduct = soldProduct;
         this.customer = customer;
@@ -35,6 +35,34 @@ public class Sale {
         this.randomDateOfSale = randomDateOfSale;
         this.finalCost = finalCost;
 
+    }
+
+    public static void setNextSalesNum(int nextSalesNum) {
+        Sale.nextSalesNum = nextSalesNum;
+    }
+
+    public void setSoldProduct(Product soldProduct) {
+        this.soldProduct = soldProduct;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setSalesNum(int salesNum) {
+        this.salesNum = salesNum;
+    }
+
+    public void setDateOfSale(LocalDate dateOfSale) {
+        this.dateOfSale = dateOfSale;
+    }
+
+    public void setFinalCost(double finalCost) {
+        this.finalCost = finalCost;
+    }
+
+    public void setRandomDateOfSale(String randomDateOfSale) {
+        this.randomDateOfSale = randomDateOfSale;
     }
 
     public Product getSoldProduct() {

@@ -30,4 +30,12 @@ public class Customer {
     public String getPhonenumber() {
         return phonenumber;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
 }

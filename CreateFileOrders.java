@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 class CreateFileOrders {
 
-    public static final String ORDERS_TXT = "Orders.txt";
+    public static final String ORDERS_TXT = "orders.txt";
     public ArrayList<Order> orders = new ArrayList<Order>();
 
     public void CreateList() {
@@ -59,8 +59,8 @@ class CreateFileOrders {
 
                 if (order.getOrderedProduct() instanceof Motherboard) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "ITEM_TYPE " + ((Motherboard) order.getOrderedProduct()).getModelName()
+                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "MODEL " + "AEXX-12-13"
                             + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
                             + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
@@ -75,8 +75,8 @@ class CreateFileOrders {
                 }//Motherboard
                 else if (order.getOrderedProduct() instanceof Cpu) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "ITEM_TYPE " + ((Cpu) order.getOrderedProduct()).getModelName()
+                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
                             + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
                             + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
@@ -91,8 +91,8 @@ class CreateFileOrders {
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof GraphicsCard) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "ITEM_TYPE " + ((GraphicsCard) order.getOrderedProduct()).getModelName()
+                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
                             + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
                             + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
@@ -106,13 +106,13 @@ class CreateFileOrders {
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof HardDrive) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "ITEM_TYPE " + ((HardDrive) order.getOrderedProduct()).getModelName()
                             + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
+                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
                             + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
                             + "\n" + "\t\t" + "MODEL " + "DEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + ((HardDrive) order.getOrderedProduct()).getModel()
+                            + "\n\t" + "\t" + "MODEL_YEAR " + ((HardDrive) order.getOrderedProduct()).getModelYear()
                             + "\n\t" + "\t" + "MANUFACTURER " + ((HardDrive) order.getOrderedProduct()).getModelManufacturer()
                             + "\n\t" + "\t" + "PRICE " + ((HardDrive) order.getOrderedProduct()).getModelPrice()
                             + "\n\t" + "\t" + "DRIVE_TYPE " + ((HardDrive) order.getOrderedProduct()).getDriveType()
@@ -122,8 +122,8 @@ class CreateFileOrders {
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof Keyboard) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "ITEM_TYPE " + ((Keyboard) order.getOrderedProduct()).getModelName()
+                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
                             + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
                             + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
@@ -136,8 +136,8 @@ class CreateFileOrders {
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof Mouse) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "ITEM_TYPE " + ((Mouse) order.getOrderedProduct()).getModelName()
+                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
                             + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
                             + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
@@ -151,8 +151,8 @@ class CreateFileOrders {
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof Printer) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "ITEM_TYPE " + ((Printer) order.getOrderedProduct()).getModelName()
+                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
                             + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
                             + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
@@ -165,8 +165,8 @@ class CreateFileOrders {
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof Monitor) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "ITEM_TYPE " + ((Monitor) order.getOrderedProduct()).getModelName()
+                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
                             + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
                             + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
@@ -181,8 +181,8 @@ class CreateFileOrders {
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof Ram) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "ITEM_TYPE " + ((Ram) order.getOrderedProduct()).getModelName()
+                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
                             + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
                             + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
                             + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()

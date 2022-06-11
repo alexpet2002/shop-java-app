@@ -45,6 +45,33 @@ public class Order {
         this.randomDateOfOrder = randomDateOfOrder;
     }
 
+    public static void setNextOrderNum(int nextOrderNum) {
+        Order.nextOrderNum = nextOrderNum;
+    }
+
+
+    public void setOrderNum(int orderNum) {
+        this.orderNum = orderNum;
+    }
+
+    public void setOrderedProduct(Product orderedProduct) {
+        this.orderedProduct = orderedProduct;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+
+    public void setFinalCost(double finalCost) {
+        this.finalCost = finalCost;
+    }
+
+
+    public void setRandomDateOfOrder(String randomDateOfOrder) {
+        this.randomDateOfOrder = randomDateOfOrder;
+    }
+
 
     @Override
     public String toString() {
