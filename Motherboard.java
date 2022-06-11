@@ -9,6 +9,7 @@ public class Motherboard extends ComputerComponent {
     // Constants
 
     public static final String NAME = "Motherboard";
+    public static final String AEXX_12_13 = "AEXX-12-13";
     public static final String TYPE_INTEL = "TYPE_INTEL";
     public static final String TYPE_AMD = "TYPE_AMD";
     public static final String MEM32 = "32";
@@ -51,6 +52,7 @@ public class Motherboard extends ComputerComponent {
             setNumOfPortsSataType(SATA6);
         else
             setNumOfPortsSataType(SATA8);
+        super.setModel(AEXX_12_13);
         numOfMotherboards++;
     }
 

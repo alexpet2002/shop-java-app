@@ -22,6 +22,7 @@ public abstract class Product implements Model {
 
     static int nextProductNum = 0;
     private String modelName = "modelName";
+    private String model = "model";
     private int modelYear = 0;
     private String modelManufacturer = "modelManufacturer";
     private double modelPrice = 0.0;
@@ -29,7 +30,7 @@ public abstract class Product implements Model {
     private int productId;
 
     protected Product() {
-		this.productId = nextProductNum;
+        this.productId = nextProductNum;
         nextProductNum++;
     }
 
@@ -55,10 +56,6 @@ public abstract class Product implements Model {
         this.productId = nextProductNum;
         nextProductNum++;
     }
-
-	public void setProductId(){
-		this.productId = getProductId();
-	}
 
     public static double priceBasedOnName(String model) {
 
@@ -86,6 +83,18 @@ public abstract class Product implements Model {
         }
         return sum + 2000;
 
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setProductId() {
+        this.productId = getProductId();
     }
 
     public String getModelName() {
@@ -128,10 +137,6 @@ public abstract class Product implements Model {
         this.discount = discount;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
     public double finalPrice() {
         return modelPrice - (modelPrice * discount);
 
@@ -139,6 +144,10 @@ public abstract class Product implements Model {
 
     public int getProductId() {
         return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public String returnStringOfAllProperties() {
@@ -157,6 +166,7 @@ public abstract class Product implements Model {
 
     public String toString() {
         return "Model Name:\t\t\t" + getModelName() + " "
+                + "\nModel :\t\t" + getModel() + " "
                 + "\nModel productId:\t\t" + String.format("|%010d|", getProductId()) + " "
                 + "\nModel Year:\t\t\t" + getModelYear() + " "
                 + "\nModel Manufacturer:\t\t" + getModelManufacturer() + " "

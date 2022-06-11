@@ -9,6 +9,7 @@ public class Monitor extends ComputerPeripheral {
     // Constants
 
     public static final String NAME = "Monitor";
+    public static final String HEXX_12_13 = "HEXX-12-13";
     public static final String MONITOR = "Monitor";
     public static final String PORTABLE_MONITOR = "Portable Monitor";
     public static final String TV_MONITOR = "TV Monitor";
@@ -49,6 +50,7 @@ public class Monitor extends ComputerPeripheral {
             setMonitorPort(PORT2);
         else
             setMonitorPort(PORT3);
+        super.setModel(HEXX_12_13);
         numOfMonitors++;
     }
 

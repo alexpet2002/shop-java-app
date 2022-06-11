@@ -7,6 +7,7 @@
 public class Cpu extends ComputerComponent {
     // Constants
     public static final String NAME = "Cpu";
+    public static final String BEXX_12_13 = "BEXX-12-13";
     public static final String SPEED28 = "2.8";
     public static final String SPEED33 = "3.3";
     public static final String SPEED41 = "4.1";
@@ -38,6 +39,7 @@ public class Cpu extends ComputerComponent {
         else
             setNumOfCores(CORES16);
         setCpuGraphics(cpuGraphics);
+        super.setModel(BEXX_12_13);
         numOfCpus++;
     }
 

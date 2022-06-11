@@ -24,7 +24,10 @@ public class LoadFromFileProducts {
                     line = reader.readLine();
                 } else if (token.equals("}")) {
                     line = reader.readLine();
+                } else if (token.equals("\t}")) {
+                    line = reader.readLine();
                 } else if (token.equals("\tITEM")) {
+
                     String typeOfProduct = null;
                     line = reader.readLine();
                     line = reader.readLine();
@@ -38,6 +41,62 @@ public class LoadFromFileProducts {
                     }
 
                     if (typeOfProduct.equals("HardDrive")) {
+
+                        String MODEL = null;
+                        String MODEL_YEAR = null;
+                        String MANUFACTURER = null;
+                        String PRICE = null;
+                        String DRIVE_TYPE = null;
+                        String DRIVE_SIZE = null;
+                        String DRIVE_CAPACITY = null;
+                        String ITEMS = null;
+
+                        st = getStringTokenizer(reader);
+                        token = st.nextToken();
+                        if (token.equals("\t\tMODEL")) MODEL = st.nextToken();
+
+                        st = getStringTokenizer(reader);
+                        token = st.nextToken();
+                        if (token.equals("\t\tMODEL_YEAR")) MODEL_YEAR = st.nextToken();
+
+                        st = getStringTokenizer(reader);
+                        token = st.nextToken();
+                        if (token.equals("\t\tMANUFACTURER")) MANUFACTURER = st.nextToken();
+
+                        st = getStringTokenizer(reader);
+                        token = st.nextToken();
+                        if (token.equals("\t\tPRICE")) PRICE = st.nextToken();
+
+                        st = getStringTokenizer(reader);
+                        token = st.nextToken();
+                        if (token.equals("\t\tDRIVE_TYPE")) DRIVE_TYPE = st.nextToken();
+
+                        st = getStringTokenizer(reader);
+                        token = st.nextToken();
+                        if (token.equals("\t\tDRIVE_SIZE")) DRIVE_SIZE = st.nextToken();
+
+                        st = getStringTokenizer(reader);
+                        token = st.nextToken();
+                        if (token.equals("\t\tDRIVE_CAPACITY")) DRIVE_CAPACITY = st.nextToken();
+
+                        st = getStringTokenizer(reader);
+                        token = st.nextToken();
+                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
+
+                        product = new HardDrive();
+                        ((HardDrive) product).setDriveType(DRIVE_TYPE);
+                        ((HardDrive) product).setDriveSize(DRIVE_SIZE);
+                        ((HardDrive) product).setDriveCapacity(DRIVE_CAPACITY);
+                        product.setModelName(typeOfProduct);
+                        product.setModel(MODEL);
+                        product.setModelYear(Integer.parseInt(MODEL_YEAR));
+                        product.setModelManufacturer(MANUFACTURER);
+                        product.setModelPrice(Double.parseDouble(PRICE));
+//                        product.setDiscount();
+//                        product.setProductId();
+                        shop.storeProduct(product);
+                        line = reader.readLine();
+
 
                     } else if (typeOfProduct.equals("Motherboard")) {
 
@@ -90,13 +149,16 @@ public class LoadFromFileProducts {
 //                        product.setProductId();
 //                        ((Motherboard) product).setNumOfMotherboards(); // TODO: Missing from imported file
                         ((Motherboard) product).setNumOfPortsSataType(NUMBER_OF_SATA_TYPE);
-                        product.setModelName(MODEL);
+                        product.setModelName(typeOfProduct);
+                        product.setModel(MODEL);
                         product.setModelYear(Integer.parseInt(MODEL_YEAR));
                         product.setModelManufacturer(MANUFACTURER);
                         product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setDiscount();
 
                         shop.storeProduct(product);
+                        line = reader.readLine();
+
 
                     } else if (typeOfProduct.equals("GraphicsCard")) {
 
@@ -139,7 +201,8 @@ public class LoadFromFileProducts {
 
                         product = new GraphicsCard();
                         ((GraphicsCard) product).setCardMemory(MEMORY_TYPE);
-                        product.setModelName(MODEL);
+                        product.setModelName(typeOfProduct);
+                        product.setModel(MODEL);
                         ((GraphicsCard) product).setChipset(CHIPSET);
                         product.setModelManufacturer(MANUFACTURER);
                         product.setModelYear(Integer.parseInt(MODEL_YEAR));
@@ -148,6 +211,8 @@ public class LoadFromFileProducts {
 //                        product.setProductId();
 
                         shop.storeProduct(product);
+                        line = reader.readLine();
+
 
                     } else if (typeOfProduct.equals("Cpu")) {
 
@@ -200,10 +265,13 @@ public class LoadFromFileProducts {
                         product.setModelYear(Integer.parseInt(MODEL_YEAR));
                         product.setModelManufacturer(MANUFACTURER);
                         ((Cpu) product).setCpuSpeed(CPU_SPEED);
-                        product.setModelName(MODEL);
+                        product.setModelName(typeOfProduct);
+                        product.setModel(MODEL);
                         product.setModelPrice(Double.parseDouble(PRICE));
 //                        product.setProductId();
                         shop.storeProduct(product);
+                        line = reader.readLine();
+
 
                     } else if (typeOfProduct.equals("Ram")) {
 
@@ -252,7 +320,8 @@ public class LoadFromFileProducts {
                         ((Ram) product).setRamSize(RAM_SIZE);
                         product.setModelYear(Integer.parseInt(MODEL_YEAR));
                         ((Ram) product).setRamFrequency(RAM_FREQUENCY);
-                        product.setModelName(MODEL);
+                        product.setModelName(typeOfProduct);
+                        product.setModel(MODEL);
 //                        product.setDiscount();
                         ((Ram) product).setRamType(RAM_TYPE);
                         product.setModelManufacturer(MANUFACTURER);
@@ -260,6 +329,7 @@ public class LoadFromFileProducts {
 //                        product.setProductId();
 
                         shop.storeProduct(product);
+                        line = reader.readLine();
 
 
                     } else if (typeOfProduct.equals("Monitor")) {
@@ -312,7 +382,8 @@ public class LoadFromFileProducts {
                         ((Monitor) product).setMonitorDimensions(DIMENSIONS);
                         ((Monitor) product).setMonitorResolution(RESOLUTION);
                         ((Monitor) product).setMonitorPort(INTERFACES);
-                        product.setModelName(MODEL);
+                        product.setModelName(typeOfProduct);
+                        product.setModel(MODEL);
                         product.setModelYear(Integer.parseInt(MODEL_YEAR));
                         product.setModelManufacturer(MANUFACTURER);
                         product.setModelPrice(Double.parseDouble(PRICE));
@@ -320,6 +391,8 @@ public class LoadFromFileProducts {
 
 
                         shop.storeProduct(product);
+                        line = reader.readLine();
+
                     } else if (typeOfProduct.equals("Mouse")) {
 
                         String MODEL = null;
@@ -362,7 +435,8 @@ public class LoadFromFileProducts {
                         product = new Mouse();
                         ((Mouse) product).setMouseTech(MOUSE_TECHNOLOGY);
                         ((Mouse) product).setMouseConnect(MOUSE_CONNECTION);
-                        product.setModelName(MODEL);
+                        product.setModelName(typeOfProduct);
+                        product.setModel(MODEL);
                         product.setModelYear(Integer.parseInt(MODEL_YEAR));
                         product.setModelManufacturer(MANUFACTURER);
                         product.setModelPrice(Double.parseDouble(PRICE));
@@ -370,6 +444,8 @@ public class LoadFromFileProducts {
 //                        product.setProductId();
 
                         shop.storeProduct(product);
+                        line = reader.readLine();
+
                     } else if (typeOfProduct.equals("Keyboard")) {
 
 
@@ -406,7 +482,8 @@ public class LoadFromFileProducts {
 
                         product = new Keyboard();
                         ((Keyboard) product).setKeyboardConnect(KEYBOARD_CONNECTION);
-                        product.setModelName(MODEL);
+                        product.setModelName(typeOfProduct);
+                        product.setModel(MODEL);
                         product.setModelYear(Integer.parseInt(MODEL_YEAR));
                         product.setModelManufacturer(MANUFACTURER);
                         product.setModelPrice(Double.parseDouble(PRICE));
@@ -414,6 +491,8 @@ public class LoadFromFileProducts {
 //                        product.setProductId();
 
                         shop.storeProduct(product);
+                        line = reader.readLine();
+
                     } else if (typeOfProduct.equals("Printer")) {
 
                         String MODEL = null;
@@ -443,11 +522,16 @@ public class LoadFromFileProducts {
                         token = st.nextToken();
                         if (token.equals("\t\tPRINTER_TECHNOLOGY")) PRINTER_TECHNOLOGY = st.nextToken();
 
+                        st = getStringTokenizer(reader);
+                        token = st.nextToken();
+                        if (token.equals("\t\tITEMS")) ITEMS = st.nextToken();
+
 
                         product = new Printer();
                         ((Printer) product).setPrinterTech(PRINTER_TECHNOLOGY);
 //                        ((Printer) product).setPrintType(); // TODO: Missing in the file
-                        product.setModelName(MODEL);
+                        product.setModelName(typeOfProduct);
+                        product.setModel(MODEL);
                         product.setModelYear(Integer.parseInt(MODEL_YEAR));
                         product.setModelManufacturer(MANUFACTURER);
                         product.setModelPrice(Double.parseDouble(PRICE));
@@ -455,29 +539,10 @@ public class LoadFromFileProducts {
 //                        product.setProductId();
 
                         shop.storeProduct(product);
+                        line = reader.readLine();
+
                     }
-
-
-                } else if (token.equals("CD")) {
-                    // CD("Four","Led Zeppelin", 6, 55,23.95);
-                    product = new Cpu();
-
-//                    product.setsetTitle(st.nextToken());
-//                    ((CD) product).setArtist(st.nextToken());
-//                    ((CD) product).setNumberOfTracks(Integer.parseInt(st.nextToken()));
-//                    product.setplayingTime(Integer.parseInt(st.nextToken()));
-//                    product.setPrice(Float.parseFloat(st.nextToken()));
-                } else if (token.equals("DVD")) {
-                    // DVD#Match Point#woody allen#Jonathan Rhys Meyers#90
-//                    product = new DVD();
-//                    product.setTitle(st.nextToken());
-//                    ((DVD)product).setDirector(st.nextToken());
-//                    ((DVD)product).setStar(st.nextToken());
-//                    product.setplayingTime(Integer.parseInt(st.nextToken()));
-//                    product.setPrice(Float.parseFloat(st.nextToken()));
                 }
-
-//                shop.storeProduct (product);
 
             } // while
 
@@ -498,6 +563,6 @@ public class LoadFromFileProducts {
         Shop shop = new Shop();
         load(shop, CreateFileProducts.PRODUCTS_TXT);
 
-        shop.getAvailableProducts();
+        shop.displayUniqueStock();
     }
 }

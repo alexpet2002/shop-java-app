@@ -8,6 +8,7 @@ public class GraphicsCard extends ComputerComponent {
 
     // Constants
     public static final String NAME = "GraphicsCard";
+    public static final String CEXX_12_13 = "CEXX-12-13";
     public static final String NVIDIA = "nVIDIA";
     public static final String AMD = "AMD";
     public static final String MEM6 = "6";
@@ -33,6 +34,7 @@ public class GraphicsCard extends ComputerComponent {
         else
             setCardMemory(MEM12);
         numOfGraphicsCards++;
+        super.setModel(CEXX_12_13);
     }
 
     public GraphicsCard() {

@@ -9,6 +9,7 @@ public class Mouse extends ComputerPeripheral {
     // Constants
 
     public static final String NAME = "Mouse";
+    public static final String FEXX_12_13 = "FEXX-12-13";
     public static final String OPTICAL = "Optical";
     public static final String WIRED = "Wired";
     public static final String WIRELESS = "Wireless";
@@ -25,6 +26,7 @@ public class Mouse extends ComputerPeripheral {
         else setMouseTech(OPTICAL);
         if (mouseConnect.equals("Wired")) setMouseConnect(WIRED);
         else setMouseTech(WIRELESS);
+        super.setModel(FEXX_12_13);
         numOfMice++;
     }
 

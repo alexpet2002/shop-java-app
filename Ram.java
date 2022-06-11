@@ -9,6 +9,7 @@ public class Ram extends ComputerComponent {
     // Constants
 
     public static final String NAME = "Ram";
+    public static final String JEXX_12_13 = "JEXX-12-13";
     public static final String DDR3 = "DDR3";
     public static final String DDR4 = "DDR4";
     public static final String DDR5 = "DDR5";
@@ -49,6 +50,7 @@ public class Ram extends ComputerComponent {
             setRamFrequency(FREQUENCY2666);
         else
             setRamFrequency(FREQUENCY3200);
+        super.setModel(JEXX_12_13);
         numOfRams++;
     }
 

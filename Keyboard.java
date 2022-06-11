@@ -9,6 +9,7 @@ public class Keyboard extends ComputerPeripheral {
     // Constants
 
     public static final String NAME = "Keyboard";
+    public static final String EEXX_12_13 = "EEXX-12-13";
     static final String WIRED = "Wired";
     static final String WIRELESS = "Wireless";
     static int numOfKeyboards = 0;
@@ -22,6 +23,7 @@ public class Keyboard extends ComputerPeripheral {
             setKeyboardConnect(WIRED);
         else
             setKeyboardConnect(WIRELESS);
+        super.setModel(EEXX_12_13);
         numOfKeyboards++;
     }
 

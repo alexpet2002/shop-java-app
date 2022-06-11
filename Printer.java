@@ -9,6 +9,7 @@ public class Printer extends ComputerPeripheral {
     // Constants
 
     public static final String NAME = "Printer";
+    public static final String GEXX_12_13 = "GEXX-12-13";
     public static final String LASER = "Laser";
     public static final String INKJET = "Inkjet";
     public static final String COLORED = "Colored";
@@ -29,6 +30,7 @@ public class Printer extends ComputerPeripheral {
             setPrintType(COLORED);
         else
             setPrintType(BLACK_WHITE);
+        super.setModel(GEXX_12_13);
         numOfPrinters++;
     }
 

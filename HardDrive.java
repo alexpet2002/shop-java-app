@@ -9,6 +9,7 @@ public class HardDrive extends ComputerComponent {
     // Constants
 
     public static final String NAME = "HardDrive";
+    public static final String DEXX_12_13 = "DEXX-12-13";
     public static final String HDD = "HDD";
     public static final String SSD = "SSD";
     public static final String DRIVE_SIZE18 = "1.8";
@@ -51,6 +52,7 @@ public class HardDrive extends ComputerComponent {
                 setDriveCapacity(CAPACITY_2TB);
                 break;
         }
+        super.setModel(DEXX_12_13);
         numOfHardDrives++;
     }
 
