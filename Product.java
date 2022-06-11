@@ -124,6 +124,14 @@ public abstract class Product implements Model {
         return discount;
     }
 
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
     public double finalPrice() {
         return modelPrice - (modelPrice * discount);
 
