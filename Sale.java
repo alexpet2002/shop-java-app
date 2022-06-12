@@ -18,7 +18,7 @@ public class Sale {
     int salesNum;
     LocalDate dateOfSale = DEFAULT_DATE_OF_SALE;
     double finalCost = 0;
-    String randomDateOfSale = "";
+
     public Sale(Product soldProduct, Customer customer, double finalCost) {
         Sale.nextSalesNum++;
         this.salesNum = nextSalesNum;
@@ -27,14 +27,13 @@ public class Sale {
         this.finalCost = finalCost;
     }
 
-    public Sale(Product soldProduct, Customer customer, String randomDateOfSale, double finalCost) {
+    public Sale(Product soldProduct, Customer customer, LocalDate dateOfSale, double finalCost) {
         Sale.nextSalesNum++;
+        this.salesNum = nextSalesNum;
         this.soldProduct = soldProduct;
         this.customer = customer;
-        this.salesNum = nextSalesNum;
-        this.randomDateOfSale = randomDateOfSale;
+        this.dateOfSale = dateOfSale;
         this.finalCost = finalCost;
-
     }
 
     public static void setNextSalesNum(int nextSalesNum) {
@@ -49,10 +48,6 @@ public class Sale {
         this.customer = customer;
     }
 
-    public void setSalesNum(int salesNum) {
-        this.salesNum = salesNum;
-    }
-
     public void setDateOfSale(LocalDate dateOfSale) {
         this.dateOfSale = dateOfSale;
     }
@@ -61,18 +56,19 @@ public class Sale {
         this.finalCost = finalCost;
     }
 
-    public void setRandomDateOfSale(String randomDateOfSale) {
-        this.randomDateOfSale = randomDateOfSale;
-    }
-
     public Product getSoldProduct() {
         return soldProduct;
     }
 //Constructors for Sale
 
 
+    public LocalDate getDateOfSale() {
+        return dateOfSale;
+    }
+
     public Sale() {
         Sale.nextSalesNum++;
+        this.salesNum = nextSalesNum;
     }
 
     public int getSalesNum() {
@@ -88,10 +84,6 @@ public class Sale {
                 + "\nSale Number: " + salesNum + " "
                 + "\nDate of the sale: " + dateOfSale.format(myFormatObj) + " "
                 + "\nFinal cost: " + finalCost + "\n";
-    }
-
-    public String getRandomDateOfSale() {
-        return randomDateOfSale;
     }
 
 

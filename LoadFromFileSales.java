@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.StringTokenizer;
 
 
@@ -116,7 +117,7 @@ public class LoadFromFileSales {
                                 Sale sale = new Sale();
                                 sale.setSoldProduct(product);
                                 sale.setCustomer(customer);
-                                sale.setRandomDateOfSale(SALE_DATE);
+                                sale.setDateOfSale(LocalDate.parse(SALE_DATE));
                                 sale.setFinalCost(Double.parseDouble(PRICE));
 
 
@@ -184,7 +185,7 @@ public class LoadFromFileSales {
                                 Sale sale = new Sale();
                                 sale.setSoldProduct(product);
                                 sale.setCustomer(customer);
-                                sale.setRandomDateOfSale(SALE_DATE);
+                                sale.setDateOfSale(LocalDate.parse(SALE_DATE));
                                 sale.setFinalCost(Double.parseDouble(PRICE));
 
 
@@ -249,7 +250,7 @@ public class LoadFromFileSales {
                                 Sale sale = new Sale();
                                 sale.setSoldProduct(product);
                                 sale.setCustomer(customer);
-                                sale.setRandomDateOfSale(SALE_DATE);
+                                sale.setDateOfSale(LocalDate.parse(SALE_DATE));
                                 sale.setFinalCost(Double.parseDouble(PRICE));
 
 
@@ -315,7 +316,7 @@ public class LoadFromFileSales {
                                 Sale sale = new Sale();
                                 sale.setSoldProduct(product);
                                 sale.setCustomer(customer);
-                                sale.setRandomDateOfSale(SALE_DATE);
+                                sale.setDateOfSale(LocalDate.parse(SALE_DATE));
                                 sale.setFinalCost(Double.parseDouble(PRICE));
 
 
@@ -381,7 +382,7 @@ public class LoadFromFileSales {
                                 Sale sale = new Sale();
                                 sale.setSoldProduct(product);
                                 sale.setCustomer(customer);
-                                sale.setRandomDateOfSale(SALE_DATE);
+                                sale.setDateOfSale(LocalDate.parse(SALE_DATE));
                                 sale.setFinalCost(Double.parseDouble(PRICE));
 
 
@@ -448,7 +449,7 @@ public class LoadFromFileSales {
                                 Sale sale = new Sale();
                                 sale.setSoldProduct(product);
                                 sale.setCustomer(customer);
-                                sale.setRandomDateOfSale(SALE_DATE);
+                                sale.setDateOfSale(LocalDate.parse(SALE_DATE));
                                 sale.setFinalCost(Double.parseDouble(PRICE));
 
 
@@ -513,7 +514,7 @@ public class LoadFromFileSales {
                                 Sale sale = new Sale();
                                 sale.setSoldProduct(product);
                                 sale.setCustomer(customer);
-                                sale.setRandomDateOfSale(SALE_DATE);
+                                sale.setDateOfSale(LocalDate.parse(SALE_DATE));
                                 sale.setFinalCost(Double.parseDouble(PRICE));
 
 
@@ -575,7 +576,7 @@ public class LoadFromFileSales {
                                 Sale sale = new Sale();
                                 sale.setSoldProduct(product);
                                 sale.setCustomer(customer);
-                                sale.setRandomDateOfSale(SALE_DATE);
+                                sale.setDateOfSale(LocalDate.parse(SALE_DATE));
                                 sale.setFinalCost(Double.parseDouble(PRICE));
 
 
@@ -635,7 +636,7 @@ public class LoadFromFileSales {
                                 Sale sale = new Sale();
                                 sale.setSoldProduct(product);
                                 sale.setCustomer(customer);
-                                sale.setRandomDateOfSale(SALE_DATE);
+                                sale.setDateOfSale(LocalDate.parse(SALE_DATE));
                                 sale.setFinalCost(Double.parseDouble(PRICE));
 
 

@@ -6,6 +6,7 @@
 */
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 class CreateFileSales {
@@ -30,11 +31,11 @@ class CreateFileSales {
         Cpu soldcpu1 = new Cpu(Cpu.NAME, Product.YEAR_2018, Product.INTEL, 600, Cpu.SPEED28, Cpu.CORES6, true);
 
 
-        Sale sale01 = new Sale(soldcpu1, customer01,"11-12-2019",soldcpu1.finalPrice());
-        Sale sale02 = new Sale(soldgraphicsCard1, customer02,"12-11-2019", soldgraphicsCard1.finalPrice());
-        Sale sale03 = new Sale(soldram1, customer03,"13-7-2021", soldram1.finalPrice());
-        Sale sale04 = new Sale(soldram2, customer04,"14-12-2021", soldram2.finalPrice());
-        Sale sale05 = new Sale(soldhardDrive1, customer05,"11-5-2019", soldhardDrive1.finalPrice());
+        Sale sale01 = new Sale(soldcpu1, customer01, LocalDate.parse("2022-06-12"), soldcpu1.finalPrice());
+        Sale sale02 = new Sale(soldgraphicsCard1, customer02, LocalDate.parse("2022-06-12"), soldgraphicsCard1.finalPrice());
+        Sale sale03 = new Sale(soldram1, customer03, LocalDate.parse("2022-06-12"), soldram1.finalPrice());
+        Sale sale04 = new Sale(soldram2, customer04, LocalDate.parse("2022-06-12"), soldram2.finalPrice());
+        Sale sale05 = new Sale(soldhardDrive1, customer05, LocalDate.parse("2022-06-12"), soldhardDrive1.finalPrice());
 
         System.out.println(" >>>>>>> Add Objects (Sales) to ARRAYLIST...");
 
@@ -63,7 +64,7 @@ class CreateFileSales {
                             + "\n\t\t" + "MODEL " + "AEXX-12-13"
                             + "\n\t\t" + "NAME " + sale.getCustomer().getName()
                             + "\n\t\t" + "PHONE " + sale.getCustomer().getPhonenumber()
-                            + "\n\t\t" + "SALE_DATE " + sale.getRandomDateOfSale()
+                            + "\n\t\t" + "SALE_DATE " + sale.getDateOfSale()
                             + "\n\t\t" + "MODEL_YEAR " + sale.getSoldProduct().getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()
                             + "\n\t\t" + "PRICE " + sale.getSoldProduct().getModelPrice()
@@ -78,7 +79,7 @@ class CreateFileSales {
                             + "\n\t\t" + "ITEM_TYPE " + sale.getSoldProduct().getModelName()
                             + "\n\t\t" + "NAME " + sale.getCustomer().getName()
                             + "\n\t\t" + "PHONE " + sale.getCustomer().getPhonenumber()
-                            + "\n\t\t" + "SALE_DATE " + sale.getRandomDateOfSale()
+                            + "\n\t\t" + "SALE_DATE " + sale.getDateOfSale()
                             + "\n\t\t" + "MODEL " + "BEXX-12-13"
                             + "\n\t\t" + "MODEL_YEAR " + sale.getSoldProduct().getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()
@@ -94,7 +95,7 @@ class CreateFileSales {
                             + "\n\t\t" + "ITEM_TYPE " + sale.getSoldProduct().getModelName()
                             + "\n\t\t" + "NAME " + sale.getCustomer().getName()
                             + "\n\t\t" + "PHONE " + sale.getCustomer().getPhonenumber()
-                            + "\n\t\t" + "SALE_DATE " + sale.getRandomDateOfSale()
+                            + "\n\t\t" + "SALE_DATE " + sale.getDateOfSale()
                             + "\n\t\t" + "MODEL " + "CEXX-12-13"
                             + "\n\t\t" + "MODEL_YEAR " + sale.getSoldProduct().getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()
@@ -109,7 +110,7 @@ class CreateFileSales {
                             + "\n\t\t" + "ITEM_TYPE " + sale.getSoldProduct().getModelName()
                             + "\n\t\t" + "NAME " + sale.getCustomer().getName()
                             + "\n\t\t" + "PHONE " + sale.getCustomer().getPhonenumber()
-                            + "\n\t\t" + "SALE_DATE " + sale.getRandomDateOfSale()
+                            + "\n\t\t" + "SALE_DATE " + sale.getDateOfSale()
                             + "\n\t\t" + "MODEL " + "DEXX-12-13"
                             + "\n\t\t" + "MODEL_YEAR " + sale.getSoldProduct().getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()
@@ -125,7 +126,7 @@ class CreateFileSales {
                             + "\n\t\t" + "ITEM_TYPE " + sale.getSoldProduct().getModelName()
                             + "\n\t\t" + "NAME " + sale.getCustomer().getName()
                             + "\n\t\t" + "PHONE " + sale.getCustomer().getPhonenumber()
-                            + "\n\t\t" + "SALE_DATE " + sale.getRandomDateOfSale()
+                            + "\n\t\t" + "SALE_DATE " + sale.getDateOfSale()
                             + "\n\t\t" + "MODEL " + "EEXX-12-13"
                             + "\n\t\t" + "MODEL_YEAR " + sale.getSoldProduct().getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()
@@ -139,7 +140,7 @@ class CreateFileSales {
                             + "\n\t\t" + "ITEM_TYPE " + sale.getSoldProduct().getModelName()
                             + "\n\t\t" + "NAME " + sale.getCustomer().getName()
                             + "\n\t\t" + "PHONE " + sale.getCustomer().getPhonenumber()
-                            + "\n\t\t" + "SALE_DATE " + sale.getRandomDateOfSale()
+                            + "\n\t\t" + "SALE_DATE " + sale.getDateOfSale()
                             + "\n\t\t" + "MODEL " + "FEXX-12-13"
                             + "\n\t\t" + "MODEL_YEAR " + sale.getSoldProduct().getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()
@@ -154,7 +155,7 @@ class CreateFileSales {
                             + "\n\t\t" + "ITEM_TYPE " + sale.getSoldProduct().getModelName()
                             + "\n\t\t" + "NAME " + sale.getCustomer().getName()
                             + "\n\t\t" + "PHONE " + sale.getCustomer().getPhonenumber()
-                            + "\n\t\t" + "SALE_DATE " + sale.getRandomDateOfSale()
+                            + "\n\t\t" + "SALE_DATE " + sale.getDateOfSale()
                             + "\n\t\t" + "MODEL " + "GEXX-12-13"
                             + "\n\t\t" + "MODEL_YEAR " + sale.getSoldProduct().getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()
@@ -168,7 +169,7 @@ class CreateFileSales {
                             + "\n\t\t" + "ITEM_TYPE " + sale.getSoldProduct().getModelName()
                             + "\n\t\t" + "NAME " + sale.getCustomer().getName()
                             + "\n\t\t" + "PHONE " + sale.getCustomer().getPhonenumber()
-                            + "\n\t\t" + "SALE_DATE " + sale.getRandomDateOfSale()
+                            + "\n\t\t" + "SALE_DATE " + sale.getDateOfSale()
                             + "\n\t\t" + "MODEL " + "HEXX-12-13"
                             + "\n\t\t" + "MODEL_YEAR " + sale.getSoldProduct().getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()
@@ -184,7 +185,7 @@ class CreateFileSales {
                             + "\n\t\t" + "ITEM_TYPE " + sale.getSoldProduct().getModelName()
                             + "\n\t\t" + "NAME " + sale.getCustomer().getName()
                             + "\n\t\t" + "PHONE " + sale.getCustomer().getPhonenumber()
-                            + "\n\t\t" + "SALE_DATE " + sale.getRandomDateOfSale()
+                            + "\n\t\t" + "SALE_DATE " + sale.getDateOfSale()
                             + "\n\t\t" + "MODEL " + "JEXX-12-13"
                             + "\n\t\t" + "MODEL_YEAR " + sale.getSoldProduct().getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()

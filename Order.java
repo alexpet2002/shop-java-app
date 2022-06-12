@@ -34,10 +34,12 @@ public class Order {
 
     public Order() {
         Order.nextOrderNum++;
+        this.orderNum = nextOrderNum;
     }
 
     public Order(Product orderedProduct, Customer customer, String randomDateOfOrder, double finalCost) {
-        this.orderNum = nextOrderNum++;
+        Order.nextOrderNum++;
+        this.orderNum = nextOrderNum;
         this.orderedProduct = orderedProduct;
         this.customer = customer;
         this.finalCost = finalCost;
@@ -48,10 +50,6 @@ public class Order {
         Order.nextOrderNum = nextOrderNum;
     }
 
-
-    public void setOrderNum(int orderNum) {
-        this.orderNum = orderNum;
-    }
 
     public void setOrderedProduct(Product orderedProduct) {
         this.orderedProduct = orderedProduct;

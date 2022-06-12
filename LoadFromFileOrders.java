@@ -116,7 +116,6 @@ public class LoadFromFileOrders {
                                 Order order = new Order();
                                 order.setOrderedProduct(product);
                                 order.setCustomer(customer);
-                                order.setOrderNum(Integer.parseInt(NUMBER));
                                 order.setRandomDateOfOrder(ORDER_DATE);
                                 order.setFinalCost(Double.parseDouble(PRICE));
 
@@ -186,7 +185,6 @@ public class LoadFromFileOrders {
                                 Order order = new Order();
                                 order.setOrderedProduct(product);
                                 order.setCustomer(customer);
-                                order.setOrderNum(Integer.parseInt(NUMBER));
                                 order.setRandomDateOfOrder(ORDER_DATE);
                                 order.setFinalCost(Double.parseDouble(PRICE));
 
@@ -252,7 +250,6 @@ public class LoadFromFileOrders {
                                 Order order = new Order();
                                 order.setOrderedProduct(product);
                                 order.setCustomer(customer);
-                                order.setOrderNum(Integer.parseInt(NUMBER));
                                 order.setRandomDateOfOrder(ORDER_DATE);
                                 order.setFinalCost(Double.parseDouble(PRICE));
 
@@ -319,7 +316,6 @@ public class LoadFromFileOrders {
                                 Order order = new Order();
                                 order.setOrderedProduct(product);
                                 order.setCustomer(customer);
-                                order.setOrderNum(Integer.parseInt(NUMBER));
                                 order.setRandomDateOfOrder(ORDER_DATE);
                                 order.setFinalCost(Double.parseDouble(PRICE));
 
@@ -387,7 +383,6 @@ public class LoadFromFileOrders {
                                 Order order = new Order();
                                 order.setOrderedProduct(product);
                                 order.setCustomer(customer);
-                                order.setOrderNum(Integer.parseInt(NUMBER));
                                 order.setRandomDateOfOrder(ORDER_DATE);
                                 order.setFinalCost(Double.parseDouble(PRICE));
 
@@ -455,7 +450,6 @@ public class LoadFromFileOrders {
                                 Order order = new Order();
                                 order.setOrderedProduct(product);
                                 order.setCustomer(customer);
-                                order.setOrderNum(Integer.parseInt(NUMBER));
                                 order.setRandomDateOfOrder(ORDER_DATE);
                                 order.setFinalCost(Double.parseDouble(PRICE));
 
@@ -521,7 +515,6 @@ public class LoadFromFileOrders {
                                 Order order = new Order();
                                 order.setOrderedProduct(product);
                                 order.setCustomer(customer);
-                                order.setOrderNum(Integer.parseInt(NUMBER));
                                 order.setRandomDateOfOrder(ORDER_DATE);
                                 order.setFinalCost(Double.parseDouble(PRICE));
 
@@ -583,7 +576,6 @@ public class LoadFromFileOrders {
                                 Order order = new Order();
                                 order.setOrderedProduct(product);
                                 order.setCustomer(customer);
-                                order.setOrderNum(Integer.parseInt(NUMBER));
                                 order.setRandomDateOfOrder(ORDER_DATE);
                                 order.setFinalCost(Double.parseDouble(PRICE));
 
@@ -643,7 +635,6 @@ public class LoadFromFileOrders {
                                 Order order = new Order();
                                 order.setOrderedProduct(product);
                                 order.setCustomer(customer);
-                                order.setOrderNum(Integer.parseInt(NUMBER));
                                 order.setRandomDateOfOrder(ORDER_DATE);
                                 order.setFinalCost(Double.parseDouble(PRICE));
 
