@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 class CreateFileProducts {
 
+    // TODO: Make the item number relevent when creating objects.
+
     public static final String PRODUCTS_TXT = "products.txt";
     public ArrayList<Product> products = new ArrayList<Product>();
 

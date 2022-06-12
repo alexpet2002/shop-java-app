@@ -5,6 +5,7 @@ import java.util.StringTokenizer;
 
 public class LoadFromFileProducts {
 
+    // TODO: Create multiple instances based on number of items
     public static void load(Shop shop, String data) {
         BufferedReader reader = null;
         Product product = null;
