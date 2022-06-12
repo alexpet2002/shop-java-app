@@ -17,11 +17,11 @@ class CreateFileOrders {
 
         System.out.println(" >>>>>>> Create Objects (Orders) ...");
 
-        Customer customer01 = new Customer("Giorgos Antreou", "9877635");
-        Customer customer02 = new Customer("Antreas Georgiou", "9867635");
-        Customer customer03 = new Customer("Kostantina Antreou", "9877875");
-        Customer customer04 = new Customer("Nikos Georgiou", "9547635");
-        Customer customer05 = new Customer("Sam Antreou", "9811635");
+        Customer customer01 = new Customer("Giorgos_Antreou", "9877635");
+        Customer customer02 = new Customer("Antreas_Georgiou", "9867635");
+        Customer customer03 = new Customer("Kostantina_Antreou", "9877875");
+        Customer customer04 = new Customer("Nikos_Georgiou", "9547635");
+        Customer customer05 = new Customer("Sam_Antreou", "9811635");
 
         GraphicsCard soldgraphicsCard1 = new GraphicsCard(GraphicsCard.NAME, Product.YEAR_2019, Product.AMD, 270.0, GraphicsCard.AMD, GraphicsCard.MEM8);
         Ram soldram1 = new Ram(Ram.NAME, Product.YEAR_2021, Product.VENGEANCE, 269.0, Ram.DDR3, Ram.SIZE4, Ram.FREQUENCY1600);
@@ -34,6 +34,7 @@ class CreateFileOrders {
         Order order3 = new Order(soldram2, customer03, "13-7-2021", 272.0);
         Order order4 = new Order(soldhardDrive1, customer04, "14-12-2021", 278.0);
         Order order5 = new Order(soldcpu1, customer05, "11-5-2019", 600.0);
+
 
         orders.add(order1);
         orders.add(order2);
@@ -206,24 +207,6 @@ class CreateFileOrders {
     }
 
 
-//    public void PrintFile() {
-//
-//        try {
-//
-//            BufferedReader reader = new BufferedReader(new FileReader(new File(ORDERS_TXT)));
-//            String line = reader.readLine();
-//            while (line != null) {
-//                System.out.println(line);
-//                line = reader.readLine();
-//            }//dvd
-//            reader.close();
-//
-//        }//try
-//
-//        catch (IOException e) {
-//            System.err.println("Error writing file.");
-//        }
-//    } // PrintFile
 
     public ArrayList<Order> getOrders() {
         return orders;

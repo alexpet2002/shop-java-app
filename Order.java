@@ -37,8 +37,7 @@ public class Order {
     }
 
     public Order(Product orderedProduct, Customer customer, String randomDateOfOrder, double finalCost) {
-        Order.nextOrderNum++;
-        this.orderNum = nextOrderNum;
+        this.orderNum = nextOrderNum++;
         this.orderedProduct = orderedProduct;
         this.customer = customer;
         this.finalCost = finalCost;
