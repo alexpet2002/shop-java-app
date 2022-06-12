@@ -31,7 +31,7 @@ public class LoadFromFileSales {
                     case "\t}":
                         line = reader.readLine();
                         break;
-                    case "\tSALES_LIST":
+                    case "\tSALE":
 
                         String itemString = "";
                         String typeOfProduct = null;
@@ -47,8 +47,9 @@ public class LoadFromFileSales {
                         String token2 = "";
                         StringTokenizer st2 = null;
 
+                        st = new StringTokenizer(itemString, "\t\t");
+
                         do {
-                            st = new StringTokenizer(itemString, "\t\t");
                             token = st.nextToken();
 
                             st2 = new StringTokenizer(token, " ");

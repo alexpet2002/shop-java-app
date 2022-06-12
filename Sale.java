@@ -85,7 +85,7 @@ public class Sale {
         return soldProduct.toString()
                 + "\nCustomer name: " + customer.name + " "
                 + "\nCustomer phonenumber: " + customer.phonenumber + " "
-                + "\nOrder Number: " + salesNum + " "
+                + "\nSale Number: " + salesNum + " "
                 + "\nDate of the sale: " + dateOfSale.format(myFormatObj) + " "
                 + "\nFinal cost: " + finalCost + "\n";
     }

@@ -47,8 +47,8 @@ public class LoadFromFileProducts {
                         String token2 = "";
                         StringTokenizer st2 = null;
 
+                        st = new StringTokenizer(itemString, "\t\t");
                         do {
-                            st = new StringTokenizer(itemString, "\t\t");
                             token = st.nextToken();
 
                             st2 = new StringTokenizer(token, " ");
