@@ -402,6 +402,7 @@ public class LoadFromFileSales {
                                 String MODEL_YEAR = String.valueOf(Product.YEAR_2018);
                                 String MANUFACTURER = Product.SAMSUNG;
                                 String PRICE = String.valueOf(292.0);
+                                String MONITOR_TYPE = Monitor.TV_MONITOR;
                                 String DIMENSIONS = Monitor.DIMENSION17;
                                 String RESOLUTION = Monitor.RESOLUTION2;
                                 String INTERFACES = Monitor.PORT2;
@@ -424,6 +425,7 @@ public class LoadFromFileSales {
                                     if (token2.equals("MODEL_YEAR")) MODEL_YEAR = st2.nextToken();
                                     if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
                                     if (token2.equals("PRICE")) PRICE = st2.nextToken();
+                                    if (token2.equals("MONITOR_TYPE")) MONITOR_TYPE = st2.nextToken();
                                     if (token2.equals("DIMENSIONS")) DIMENSIONS = st2.nextToken();
                                     if (token2.equals("RESOLUTION")) RESOLUTION = st2.nextToken();
                                     if (token2.equals("INTERFACES")) INTERFACES = st2.nextToken();
@@ -432,6 +434,7 @@ public class LoadFromFileSales {
 
                                 product = new Monitor();
 
+                                ((Monitor) product).setMonitorType(MONITOR_TYPE);
                                 ((Monitor) product).setMonitorDimensions(DIMENSIONS);
                                 ((Monitor) product).setMonitorResolution(RESOLUTION);
                                 ((Monitor) product).setMonitorPort(INTERFACES);
@@ -596,6 +599,7 @@ public class LoadFromFileSales {
                                 String MANUFACTURER = Product.HP;
                                 String PRICE = String.valueOf(261.0);
                                 String PRINTER_TECHNOLOGY = Printer.LASER;
+                                String PRINTER_TYPE = Printer.BLACK_WHITE;
                                 String ITEMS = String.valueOf(1);
 
                                 st = new StringTokenizer(itemString, "\t\t");
@@ -616,6 +620,7 @@ public class LoadFromFileSales {
                                     if (token2.equals("MANUFACTURER")) MANUFACTURER = st2.nextToken();
                                     if (token2.equals("PRICE")) PRICE = st2.nextToken();
                                     if (token2.equals("PRINTER_TECHNOLOGY")) PRINTER_TECHNOLOGY = st2.nextToken();
+                                    if (token2.equals("PRINTER_TYPE")) PRINTER_TYPE = st2.nextToken();
                                     if (token2.equals("ITEMS")) ITEMS = st2.nextToken();
 
                                 }
@@ -623,6 +628,7 @@ public class LoadFromFileSales {
 
                                 product = new Printer();
                                 ((Printer) product).setPrinterTech(PRINTER_TECHNOLOGY);
+                                ((Printer) product).setPrintType(PRINTER_TYPE);
                                 product.setModelName(typeOfProduct);
                                 product.setModel(MODEL);
                                 product.setModelYear(Integer.parseInt(MODEL_YEAR));

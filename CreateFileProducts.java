@@ -109,6 +109,7 @@ class CreateFileProducts {
                             + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
                             + "\n\t\t" + "PRICE " + product.getModelPrice()
                             + "\n\t\t" + "PRINTER_TECHNOLOGY " + ((Printer) product).getPrinterTech()
+                            + "\n\t\t" + "PRINTER_TYPE " + ((Printer) product).getPrintType()
                             + "\n\t\t" + "ITEMS " + Shop.countUniqueStock(product, products)
                             + "\n\t" + "}" + "\n");
                 }//Cpu
@@ -119,6 +120,7 @@ class CreateFileProducts {
                             + "\n\t\t" + "MODEL_YEAR " + product.getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + product.getModelManufacturer()
                             + "\n\t\t" + "PRICE " + product.getModelPrice()
+                            + "\n\t\t" + "MONITOR_TYPE " + ((Monitor) product).getMonitorType()
                             + "\n\t\t" + "DIMENSIONS " + ((Monitor) product).getMonitorDimensions()
                             + "\n\t\t" + "RESOLUTION " + ((Monitor) product).getMonitorResolution()
                             + "\n\t\t" + "INTERFACES " + ((Monitor) product).getMonitorPort()

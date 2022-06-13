@@ -136,10 +136,10 @@ public class Monitor extends ComputerPeripheral {
     public String toString() {
         return "\n----------------------------------------------------------------\n"
                 + super.toString()
-                + "Monitor Type:\t\t\t" + getMonitorType() + "\n"
-                + "Monitor Dimensions:\t\t" + getMonitorDimensions() + " inches\n"
-                + "Monitor Resolution:\t\t" + getMonitorResolution() + "\n"
-                + "Monitor Port:\t\t\t" + getMonitorPort()
+                + "\nMonitor Type:\t\t\t" + getMonitorType()
+                + "\nMonitor Dimensions:\t\t" + getMonitorDimensions() + " inches"
+                + "\nMonitor Resolution:\t\t" + getMonitorResolution()
+                + "\nMonitor Port:\t\t\t" + getMonitorPort()
                 + "\n----------------------------------------------------------------";
     }
 }// class Monitor

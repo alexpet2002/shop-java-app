@@ -60,140 +60,142 @@ class CreateFileOrders {
 
                 if (order.getOrderedProduct() instanceof Motherboard) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + ((Motherboard) order.getOrderedProduct()).getModelName()
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
-                            + "\n" + "\t\t" + "MODEL " + "AEXX-12-13"
-                            + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
-                            + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
-                            + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
-                            + "\n\t" + "\t" + "MODEL_YEAR " + ((Motherboard) order.getOrderedProduct()).getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + ((Motherboard) order.getOrderedProduct()).getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + ((Motherboard) order.getOrderedProduct()).getModelPrice()
-                            + "\n\t" + "\t" + "PROCESSOR_TYPE " + ((Motherboard) order.getOrderedProduct()).getProcessorType()
-                            + "\n\t" + "\t" + "MEMORY_TYPE " + ((Motherboard) order.getOrderedProduct()).getMemoryType()
-                            + "\n\t" + "\t" + "NUMBER_OF_SATA_TYPE " + ((Motherboard) order.getOrderedProduct()).getNumOfPortsSataType()
+                            + "\n\t\t" + "ITEM_TYPE " + ((Motherboard) order.getOrderedProduct()).getModelName()
+                            + "\n\t\t" + "NUMBER " + order.getOrderNum()
+                            + "\n\t\t" + "MODEL " + "AEXX-12-13"
+                            + "\n\t\t" + "NAME " + order.getCustomer().getName()
+                            + "\n\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
+                            + "\n\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
+                            + "\n\t\t" + "MODEL_YEAR " + ((Motherboard) order.getOrderedProduct()).getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + ((Motherboard) order.getOrderedProduct()).getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + ((Motherboard) order.getOrderedProduct()).getModelPrice()
+                            + "\n\t\t" + "PROCESSOR_TYPE " + ((Motherboard) order.getOrderedProduct()).getProcessorType()
+                            + "\n\t\t" + "MEMORY_TYPE " + ((Motherboard) order.getOrderedProduct()).getMemoryType()
+                            + "\n\t\t" + "NUMBER_OF_SATA_TYPE " + ((Motherboard) order.getOrderedProduct()).getNumOfPortsSataType()
                             + "\n\t" + "}" + "\n");
                 }//Motherboard
                 else if (order.getOrderedProduct() instanceof Cpu) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + ((Cpu) order.getOrderedProduct()).getModelName()
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
-                            + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
-                            + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
-                            + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
-                            + "\n" + "\t\t" + "MODEL " + "BEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + ((Cpu) order.getOrderedProduct()).getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + ((Cpu) order.getOrderedProduct()).getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + ((Cpu) order.getOrderedProduct()).getModelPrice()
-                            + "\n\t" + "\t" + "CPU_SPEED " + ((Cpu) order.getOrderedProduct()).getCpuSpeed()
-                            + "\n\t" + "\t" + "NUMBER_OF_CORES " + ((Cpu) order.getOrderedProduct()).getNumOfCores()
-                            + "\n\t" + "\t" + "CPU_GRAPHICS " + ((Cpu) order.getOrderedProduct()).isCpuGraphics()
+                            + "\n\t\t" + "ITEM_TYPE " + ((Cpu) order.getOrderedProduct()).getModelName()
+                            + "\n\t\t" + "NUMBER " + order.getOrderNum()
+                            + "\n\t\t" + "NAME " + order.getCustomer().getName()
+                            + "\n\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
+                            + "\n\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
+                            + "\n\t\t" + "MODEL " + "BEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + ((Cpu) order.getOrderedProduct()).getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + ((Cpu) order.getOrderedProduct()).getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + ((Cpu) order.getOrderedProduct()).getModelPrice()
+                            + "\n\t\t" + "CPU_SPEED " + ((Cpu) order.getOrderedProduct()).getCpuSpeed()
+                            + "\n\t\t" + "NUMBER_OF_CORES " + ((Cpu) order.getOrderedProduct()).getNumOfCores()
+                            + "\n\t\t" + "CPU_GRAPHICS " + ((Cpu) order.getOrderedProduct()).isCpuGraphics()
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof GraphicsCard) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + ((GraphicsCard) order.getOrderedProduct()).getModelName()
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
-                            + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
-                            + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
-                            + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
-                            + "\n" + "\t\t" + "MODEL " + "CEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + ((GraphicsCard) order.getOrderedProduct()).getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + ((GraphicsCard) order.getOrderedProduct()).getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + ((GraphicsCard) order.getOrderedProduct()).getModelPrice()
-                            + "\n\t" + "\t" + "CHIPSET " + ((GraphicsCard) order.getOrderedProduct()).getChipset()
-                            + "\n\t" + "\t" + "MEMORY_TYPE " + ((GraphicsCard) order.getOrderedProduct()).getCardMemory()
+                            + "\n\t\t" + "ITEM_TYPE " + ((GraphicsCard) order.getOrderedProduct()).getModelName()
+                            + "\n\t\t" + "NUMBER " + order.getOrderNum()
+                            + "\n\t\t" + "NAME " + order.getCustomer().getName()
+                            + "\n\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
+                            + "\n\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
+                            + "\n\t\t" + "MODEL " + "CEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + ((GraphicsCard) order.getOrderedProduct()).getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + ((GraphicsCard) order.getOrderedProduct()).getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + ((GraphicsCard) order.getOrderedProduct()).getModelPrice()
+                            + "\n\t\t" + "CHIPSET " + ((GraphicsCard) order.getOrderedProduct()).getChipset()
+                            + "\n\t\t" + "MEMORY_TYPE " + ((GraphicsCard) order.getOrderedProduct()).getCardMemory()
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof HardDrive) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + ((HardDrive) order.getOrderedProduct()).getModelName()
-                            + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
-                            + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
-                            + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
-                            + "\n" + "\t\t" + "MODEL " + "DEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + ((HardDrive) order.getOrderedProduct()).getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + ((HardDrive) order.getOrderedProduct()).getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + ((HardDrive) order.getOrderedProduct()).getModelPrice()
-                            + "\n\t" + "\t" + "DRIVE_TYPE " + ((HardDrive) order.getOrderedProduct()).getDriveType()
-                            + "\n\t" + "\t" + "DRIVE_SIZE " + ((HardDrive) order.getOrderedProduct()).getDriveSize()
-                            + "\n\t" + "\t" + "DRIVE_CAPACITY " + ((HardDrive) order.getOrderedProduct()).getDriveCapacity()
+                            + "\n\t\t" + "ITEM_TYPE " + ((HardDrive) order.getOrderedProduct()).getModelName()
+                            + "\n\t\t" + "NAME " + order.getCustomer().getName()
+                            + "\n\t\t" + "NUMBER " + order.getOrderNum()
+                            + "\n\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
+                            + "\n\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
+                            + "\n\t\t" + "MODEL " + "DEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + ((HardDrive) order.getOrderedProduct()).getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + ((HardDrive) order.getOrderedProduct()).getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + ((HardDrive) order.getOrderedProduct()).getModelPrice()
+                            + "\n\t\t" + "DRIVE_TYPE " + ((HardDrive) order.getOrderedProduct()).getDriveType()
+                            + "\n\t\t" + "DRIVE_SIZE " + ((HardDrive) order.getOrderedProduct()).getDriveSize()
+                            + "\n\t\t" + "DRIVE_CAPACITY " + ((HardDrive) order.getOrderedProduct()).getDriveCapacity()
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof Keyboard) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + ((Keyboard) order.getOrderedProduct()).getModelName()
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
-                            + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
-                            + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
-                            + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
-                            + "\n" + "\t\t" + "MODEL " + "EEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + ((Keyboard) order.getOrderedProduct()).getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + ((Keyboard) order.getOrderedProduct()).getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + ((Keyboard) order.getOrderedProduct()).getModelPrice()
-                            + "\n\t" + "\t" + "KEYBOARD_CONNECTION " + ((Keyboard) order.getOrderedProduct()).getKeyboardConnect()
+                            + "\n\t\t" + "ITEM_TYPE " + ((Keyboard) order.getOrderedProduct()).getModelName()
+                            + "\n\t\t" + "NUMBER " + order.getOrderNum()
+                            + "\n\t\t" + "NAME " + order.getCustomer().getName()
+                            + "\n\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
+                            + "\n\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
+                            + "\n\t\t" + "MODEL " + "EEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + ((Keyboard) order.getOrderedProduct()).getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + ((Keyboard) order.getOrderedProduct()).getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + ((Keyboard) order.getOrderedProduct()).getModelPrice()
+                            + "\n\t\t" + "KEYBOARD_CONNECTION " + ((Keyboard) order.getOrderedProduct()).getKeyboardConnect()
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof Mouse) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + ((Mouse) order.getOrderedProduct()).getModelName()
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
-                            + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
-                            + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
-                            + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
-                            + "\n" + "\t\t" + "MODEL " + "FEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + ((Mouse) order.getOrderedProduct()).getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + ((Mouse) order.getOrderedProduct()).getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + ((Mouse) order.getOrderedProduct()).getModelPrice()
-                            + "\n\t" + "\t" + "MOUSE_CONNECTION " + ((Mouse) order.getOrderedProduct()).getMouseConnect()
-                            + "\n\t" + "\t" + "MOUSE_TECHNOLOGY " + ((Mouse) order.getOrderedProduct()).getMouseTech()
+                            + "\n\t\t" + "ITEM_TYPE " + ((Mouse) order.getOrderedProduct()).getModelName()
+                            + "\n\t\t" + "NUMBER " + order.getOrderNum()
+                            + "\n\t\t" + "NAME " + order.getCustomer().getName()
+                            + "\n\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
+                            + "\n\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
+                            + "\n\t\t" + "MODEL " + "FEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + ((Mouse) order.getOrderedProduct()).getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + ((Mouse) order.getOrderedProduct()).getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + ((Mouse) order.getOrderedProduct()).getModelPrice()
+                            + "\n\t\t" + "MOUSE_CONNECTION " + ((Mouse) order.getOrderedProduct()).getMouseConnect()
+                            + "\n\t\t" + "MOUSE_TECHNOLOGY " + ((Mouse) order.getOrderedProduct()).getMouseTech()
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof Printer) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + ((Printer) order.getOrderedProduct()).getModelName()
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
-                            + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
-                            + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
-                            + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
-                            + "\n" + "\t\t" + "MODEL " + "GEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + ((Printer) order.getOrderedProduct()).getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + ((Printer) order.getOrderedProduct()).getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + ((Printer) order.getOrderedProduct()).getModelPrice()
-                            + "\n\t" + "\t" + "PRINTER_TECHNOLOGY " + ((Printer) order.getOrderedProduct()).getPrinterTech()
+                            + "\n\t\t" + "ITEM_TYPE " + ((Printer) order.getOrderedProduct()).getModelName()
+                            + "\n\t\t" + "NUMBER " + order.getOrderNum()
+                            + "\n\t\t" + "NAME " + order.getCustomer().getName()
+                            + "\n\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
+                            + "\n\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
+                            + "\n\t\t" + "MODEL " + "GEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + ((Printer) order.getOrderedProduct()).getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + ((Printer) order.getOrderedProduct()).getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + ((Printer) order.getOrderedProduct()).getModelPrice()
+                            + "\n\t\t" + "PRINTER_TECHNOLOGY " + ((Printer) order.getOrderedProduct()).getPrinterTech()
+                            + "\n\t\t" + "PRINTER_TYPE " + ((Printer) order.getOrderedProduct()).getPrintType()
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof Monitor) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + ((Monitor) order.getOrderedProduct()).getModelName()
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
-                            + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
-                            + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
-                            + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
-                            + "\n" + "\t\t" + "MODEL " + "HEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + ((Monitor) order.getOrderedProduct()).getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + ((Monitor) order.getOrderedProduct()).getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + ((Monitor) order.getOrderedProduct()).getModelPrice()
-                            + "\n\t" + "\t" + "DIMENSIONS " + ((Monitor) order.getOrderedProduct()).getMonitorDimensions()
-                            + "\n\t" + "\t" + "RESOLUTION " + ((Monitor) order.getOrderedProduct()).getMonitorResolution()
-                            + "\n\t" + "\t" + "INTERFACES " + ((Monitor) order.getOrderedProduct()).getMonitorPort()
+                            + "\n\t\t" + "ITEM_TYPE " + ((Monitor) order.getOrderedProduct()).getModelName()
+                            + "\n\t\t" + "NUMBER " + order.getOrderNum()
+                            + "\n\t\t" + "NAME " + order.getCustomer().getName()
+                            + "\n\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
+                            + "\n\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
+                            + "\n\t\t" + "MODEL " + "HEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + ((Monitor) order.getOrderedProduct()).getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + ((Monitor) order.getOrderedProduct()).getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + ((Monitor) order.getOrderedProduct()).getModelPrice()
+                            + "\n\t\t" + "MONITOR_TYPE " + ((Monitor) order.getOrderedProduct()).getMonitorType()
+                            + "\n\t\t" + "DIMENSIONS " + ((Monitor) order.getOrderedProduct()).getMonitorDimensions()
+                            + "\n\t\t" + "RESOLUTION " + ((Monitor) order.getOrderedProduct()).getMonitorResolution()
+                            + "\n\t\t" + "INTERFACES " + ((Monitor) order.getOrderedProduct()).getMonitorPort()
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (order.getOrderedProduct() instanceof Ram) {
                     writer.write("\tORDER" + "\n\t" + "{"
-                            + "\n" + "\t\t" + "ITEM_TYPE " + ((Ram) order.getOrderedProduct()).getModelName()
-                            + "\n" + "\t\t" + "NUMBER " + order.getOrderNum()
-                            + "\n" + "\t\t" + "NAME " + order.getCustomer().getName()
-                            + "\n" + "\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
-                            + "\n" + "\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
-                            + "\n" + "\t\t" + "MODEL " + "JEXX-12-13"
-                            + "\n\t" + "\t" + "MODEL_YEAR " + ((Ram) order.getOrderedProduct()).getModelYear()
-                            + "\n\t" + "\t" + "MANUFACTURER " + ((Ram) order.getOrderedProduct()).getModelManufacturer()
-                            + "\n\t" + "\t" + "PRICE " + ((Ram) order.getOrderedProduct()).getModelPrice()
-                            + "\n\t" + "\t" + "RAM_FREQUENCY " + ((Ram) order.getOrderedProduct()).getRamFrequency()
-                            + "\n\t" + "\t" + "RAM_SIZE " + ((Ram) order.getOrderedProduct()).getRamSize()
-                            + "\n\t" + "\t" + "RAM_TYPE " + ((Ram) order.getOrderedProduct()).getRamType()
+                            + "\n\t\t" + "ITEM_TYPE " + ((Ram) order.getOrderedProduct()).getModelName()
+                            + "\n\t\t" + "NUMBER " + order.getOrderNum()
+                            + "\n\t\t" + "NAME " + order.getCustomer().getName()
+                            + "\n\t\t" + "PHONE " + order.getCustomer().getPhonenumber()
+                            + "\n\t\t" + "ORDER_DATE " + order.getRandomDateOfOrder()
+                            + "\n\t\t" + "MODEL " + "JEXX-12-13"
+                            + "\n\t\t" + "MODEL_YEAR " + ((Ram) order.getOrderedProduct()).getModelYear()
+                            + "\n\t\t" + "MANUFACTURER " + ((Ram) order.getOrderedProduct()).getModelManufacturer()
+                            + "\n\t\t" + "PRICE " + ((Ram) order.getOrderedProduct()).getModelPrice()
+                            + "\n\t\t" + "RAM_FREQUENCY " + ((Ram) order.getOrderedProduct()).getRamFrequency()
+                            + "\n\t\t" + "RAM_SIZE " + ((Ram) order.getOrderedProduct()).getRamSize()
+                            + "\n\t\t" + "RAM_TYPE " + ((Ram) order.getOrderedProduct()).getRamType()
                             + "\n\t" + "}" + "\n");
                 }//Ram
             writer.write(" }");

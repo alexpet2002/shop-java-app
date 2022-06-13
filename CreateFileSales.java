@@ -161,6 +161,7 @@ class CreateFileSales {
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()
                             + "\n\t\t" + "PRICE " + sale.getSoldProduct().getModelPrice()
                             + "\n\t\t" + "PRINTER_TECHNOLOGY " + ((Printer) sale.getSoldProduct()).getPrinterTech()
+                            + "\n\t\t" + "PRINTER_TYPE " + ((Printer) sale.getSoldProduct()).getPrintType()
                             + "\n\t" + "}" + "\n");
                 }//Cpu
                 else if (sale.getSoldProduct() instanceof Monitor) {
@@ -174,6 +175,7 @@ class CreateFileSales {
                             + "\n\t\t" + "MODEL_YEAR " + sale.getSoldProduct().getModelYear()
                             + "\n\t\t" + "MANUFACTURER " + sale.getSoldProduct().getModelManufacturer()
                             + "\n\t\t" + "PRICE " + sale.getSoldProduct().getModelPrice()
+                            + "\n\t\t" + "MONITOR_TYPE " + ((Monitor) sale.getSoldProduct()).getMonitorType()
                             + "\n\t\t" + "DIMENSIONS " + ((Monitor) sale.getSoldProduct()).getMonitorDimensions()
                             + "\n\t\t" + "RESOLUTION " + ((Monitor) sale.getSoldProduct()).getMonitorResolution()
                             + "\n\t\t" + "INTERFACES " + ((Monitor) sale.getSoldProduct()).getMonitorPort()

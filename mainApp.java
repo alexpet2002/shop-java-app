@@ -15,65 +15,10 @@ public class mainApp {
 
     public static void main(String[] args) {
 
-        // initializing product catalog
-        //Component products
-//        GraphicsCard graphicsCard01 = new GraphicsCard(GraphicsCard.NAME,Product.YEAR_2019, Product.AMD, 270.0, GraphicsCard.AMD, GraphicsCard.MEM8);
-//        GraphicsCard graphicsCard02 = new GraphicsCard(GraphicsCard.NAME, Product.YEAR_2019, Product.AMD, 270.0, GraphicsCard.AMD, GraphicsCard.MEM8);
-//
-//        Motherboard motherboard01 = new Motherboard(Motherboard.NAME,Product.YEAR_2018, Product.SAMSUNG, 270.0, Motherboard.TYPE_INTEL, Motherboard.MEM32, Motherboard.SATA4);
-//        Motherboard motherboard02 = new Motherboard(Motherboard.NAME,Product.YEAR_2022, Product.SEAGATE, 274.0, Motherboard.TYPE_AMD, Motherboard.MEM64, Motherboard.SATA8);
-//
-//        Ram ram01 = new Ram(Ram.NAME, Product.YEAR_2021, Product.VENGEANCE, 269.0, Ram.DDR3, Ram.SIZE4, Ram.FREQUENCY1600);
-//        Ram ram02 = new Ram(Ram.NAME, Product.YEAR_2021, Product.CRUCIAL, 272.0, Ram.DDR5, Ram.SIZE4, Ram.FREQUENCY1600);
-//
-//        HardDrive hardDrive01 = new HardDrive(HardDrive.NAME, Product.YEAR_2022, Product.SAMSUNG, 278.0, HardDrive.HDD, HardDrive.DRIVE_SIZE18, HardDrive.CAPACITY256);
-//        HardDrive hardDrive02 = new HardDrive(HardDrive.NAME, Product.YEAR_2021, Product.SAMSUNG, 278.0, HardDrive.HDD, HardDrive.DRIVE_SIZE18, HardDrive.CAPACITY_2TB);
-//
-//        Cpu cpu01 = new Cpu(Cpu.NAME, Product.YEAR_2018, Product.INTEL, 600, Cpu.SPEED28, Cpu.CORES6, true);
-//        Cpu cpu02 = new Cpu(Cpu.NAME, Product.YEAR_2018, Product.AMD, 268.0, Cpu.SPEED33, Cpu.CORES16, true);
-//        //Peripheral products
-//        Keyboard keyboard01 = new Keyboard(Keyboard.NAME, Product.YEAR_2021, Product.RAZER, 255.0, Keyboard.WIRED);
-//        Keyboard keyboard02 = new Keyboard(Keyboard.NAME, Product.YEAR_2021, Product.RAZER, 254.0, Keyboard.WIRELESS);
-//
-//        Monitor monitor01 = new Monitor(Monitor.NAME, Product.YEAR_2018, Product.SAMSUNG, 292.0, Monitor.MONITOR, Monitor.DIMENSION17, Monitor.RESOLUTION2, Monitor.PORT2);
-//        Monitor monitor02 = new Monitor(Monitor.NAME, Product.YEAR_2018, Product.SAMSUNG, 292.0, Monitor.MONITOR, Monitor.DIMENSION17, Monitor.RESOLUTION2, Monitor.PORT2);
-//
-//        Mouse mouse01 = new Mouse(Mouse.NAME,Product.YEAR_2019, Mouse.SAMSUNG, 262.0, Mouse.OPTICAL, Mouse.WIRELESS);
-//        Mouse mouse02 = new Mouse(Mouse.NAME,Product.YEAR_2022, Mouse.LOGITECH, 256.0, Mouse.OPTICAL, Mouse.WIRELESS);
-//
-//        Printer printer01 = new Printer(Printer.NAME, Product.YEAR_2018, Printer.HP, 261.0, Printer.LASER, Printer.COLORED);
-//        Printer printer02 = new Printer(Printer.NAME, Product.YEAR_2021, Printer.HP, 255.0, Printer.LASER, Printer.BLACK_WHITE);
-//
-//        //Adding products to the store
-//        shop.storeProduct(motherboard01);
-//        shop.storeProduct(motherboard02);
-//        shop.storeProduct(cpu01);
-//        shop.storeProduct(cpu02);
-//        shop.storeProduct(ram01);
-//        shop.storeProduct(ram02);
-//        shop.storeProduct(graphicsCard01);
-//        shop.storeProduct(graphicsCard02);
-//        shop.storeProduct(hardDrive01);
-//        shop.storeProduct(hardDrive02);
-//        shop.storeProduct(keyboard01);
-//        shop.storeProduct(keyboard02);
-//        shop.storeProduct(monitor01);
-//        shop.storeProduct(monitor02);
-//        shop.storeProduct(mouse01);
-//        shop.storeProduct(mouse02);
-//        shop.storeProduct(printer01);
-//        shop.storeProduct(printer02);
 
-        // Menu
-        // Welcome Screen
-
-
-        final String productsFilename = "products.txt";
-        final String salesFilename = "sales.txt";
-        final String ordersFilename = "orders.txt";
-        LoadFromFileProducts.load(shop, productsFilename);
-        LoadFromFileSales.load(shop, salesFilename);
-        LoadFromFileOrders.load(shop, ordersFilename);
+        LoadFromFileProducts.load(shop, CreateFileProducts.PRODUCTS_TXT);
+        LoadFromFileSales.load(shop, CreateFileSales.SALES_TXT);
+        LoadFromFileOrders.load(shop, CreateFileOrders.ORDERS_TXT);
         Scanner in = new Scanner(System.in);
         System.out.println("Welcome to our Shop!!!");
         mainLoop(shop, in);
